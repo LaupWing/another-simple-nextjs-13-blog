@@ -14,7 +14,7 @@ export const Header:FC<HeaderProps> = () => {
 
    useEffect(() => {
       const handleScroll = () => {
-         setOnTop(window.pageYOffset > 0)
+         setOnTop(window.scrollY > 0)
       }
       window.addEventListener("scroll", handleScroll)
       return () => {
