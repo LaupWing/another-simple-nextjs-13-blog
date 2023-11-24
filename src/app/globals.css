@@ -27,10 +27,7 @@ body {
 }
 
 [data-type="gradient-animation"]{
-   height: 180%;
-   width: 180%;
-   left: -40%;
-   top: -40%;
+   
    background: linear-gradient(-45deg,
       #fd004c,
       #fe9000,
@@ -39,7 +36,8 @@ body {
       #b102b7,
       #fd004c
    );
-   animation: gradient 1.5s linear infinite;
+   background-size: 400% 400%;
+   animation: gradient 15s linear infinite;
 }
 
 @keyframes gradient {
