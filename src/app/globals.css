@@ -51,3 +51,10 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+@layer base {
+   .custom-container {
+      max-width: 68rem;
+      @apply mx-auto w-11/12;
+   }
+}
