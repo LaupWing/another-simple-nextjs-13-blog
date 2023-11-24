@@ -57,7 +57,7 @@ export const Header:FC<HeaderProps> = () => {
          onTop && "shadow-sm"
       )}>
          <div data-type="gradient-animation" className="w-full h-1.5 bg-red-400"/>
-         <nav className="layout py-4 flex items-center justify-between text-dark dark:text-light">
+         <nav className="custom-container py-4 flex items-center justify-between text-dark dark:text-light">
             <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
                {links.map(({ href, label, segement }) => (
                   <li className="pb-2" key={`${href}-${label}`}>
