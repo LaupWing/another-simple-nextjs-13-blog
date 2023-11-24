@@ -63,8 +63,8 @@ export const Header:FC<HeaderProps> = () => {
                      {/* <UnstyledLink
                         href={href}
                      >
-                        {label}
-                     </UnstyledLink> */}
+                  </UnstyledLink> */}
+                     {label}
                      {activeSegment === segement && <div
                         className="h-[3px] w-full bg-gradient-to-r from-accent-light to-accent-dark shadow"
                      />}
