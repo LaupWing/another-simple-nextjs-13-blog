@@ -4,19 +4,19 @@ import clsx from "clsx"
 type ButtonVariant = "default" | "gold"
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
-   isLoading?: boolean
+   is_loading?: boolean
    variant?: ButtonVariant
 }
 
 export const Button:FC<ButtonProps> = ({
    children,
    className,
-   disabled: buttonDisabled,
-   isLoading,
+   disabled: button_disabled,
+   is_loading,
    variant = "default",
    ...props
 }) => {
-   const disabled = isLoading || buttonDisabled
+   const disabled = is_loading || button_disabled
 
    const variants: Record<ButtonVariant, string> = {
       default: "bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700",
