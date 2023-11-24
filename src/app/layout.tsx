@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import NextTopLoader from "nextjs-toploader"
+import { Header } from "@/components/Header"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({
          lang="en"
       >
          <body className={inter.className}>
+            <Header />
             <div data-type="gradient-animation" className="w-full h-1.5 bg-red-400">
 
             </div>
