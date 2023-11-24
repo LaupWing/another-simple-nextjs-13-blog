@@ -20,7 +20,7 @@ export default function RootLayout({
          lang="en"
       >
          <body className={inter.className}>
-            <div data-type="gradient-animation" className="w-full h-2 bg-red-400">
+            <div data-type="gradient-animation" className="w-full h-1.5 bg-red-400">
 
             </div>
             <NextTopLoader />
