@@ -111,3 +111,13 @@ export default function Home() {
       </main>
    )
 }
+
+
+const HomeIntro = () => {
+   
+   return (
+      <section>
+
+      </section>
+   )
+}
