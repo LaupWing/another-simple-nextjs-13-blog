@@ -66,9 +66,9 @@ export const Header:FC<HeaderProps> = () => {
                      >
                         {label}
                      </UnstyledLink>
-                     {pathname === href  ? <div
-                        className="h-[3px] gradient-animation-slow w-full shadow"
-                     /> : <div className="h-[3px]" />}
+                     {pathname === href  
+                        ? <div className="h-[3px] gradient-animation-slow w-full shadow" /> 
+                        : <div className="h-[3px]" />}
                   </li>
                ))}
             </ul>
