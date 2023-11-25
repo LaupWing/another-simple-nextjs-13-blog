@@ -20,8 +20,11 @@ const config: Config = {
             "custom-blue": "rgb(var(--custom-blue / <alpha-value>)",
             "custom-purple": "rgb(var(--custom-purple) / <alpha-value>)",
          },
-         height: {
+         spacing: {
             "nav": "var(--nav-height)",
+         },
+         height: {
+            "screen-no-nav": "calc(100vh - var(--nav-height))",
          }
       },
    },
