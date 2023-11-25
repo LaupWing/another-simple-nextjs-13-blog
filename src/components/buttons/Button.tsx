@@ -31,7 +31,7 @@ export const Button:FC<ButtonProps> = ({
 
    return (
       variant === "gradient-animation" ? (
-         <div className="gradient-animation-border">
+         <div className="gradient-animation-border shadow">
             <button
                {...props}
                disabled={disabled}
