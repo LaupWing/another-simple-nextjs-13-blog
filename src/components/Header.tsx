@@ -1,10 +1,8 @@
 "use client"
 import { usePathname } from "next/navigation"
 import { FC, useEffect, useState } from "react"
-// import { UnstyledLink } from "./links"
 import clsx from "clsx"
-import { UnstyledLink } from "./links/index"
-// import { useRouter } from "next/router"
+import { UnstyledLink } from "./links"
 // import { ThemeButton } from "./buttons/index.client"
 
 interface HeaderProps {
