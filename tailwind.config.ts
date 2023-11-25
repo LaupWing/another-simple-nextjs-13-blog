@@ -15,7 +15,10 @@ const config: Config = {
          },
          colors: {
             "custom-red": "rgb(var(--custom-red) / <alpha-value>)",
+            "custom-orange": "rgb(var(--custom-orange) / <alpha-value>)",
             "custom-green": "rgb(var(--custom-green) / <alpha-value>)",
+            "custom-blue": "rgb(var(--custom-blue / <alpha-value>)",
+            "custom-purple": "rgb(var(--custom-purple) / <alpha-value>)",
          }
       },
    },

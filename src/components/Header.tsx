@@ -50,7 +50,11 @@ export const Header:FC<HeaderProps> = () => {
          
       },
    ]
-
+   //       --custom-red:  253 0 76 /* #fd004c */;
+   // --custom-orange: 254 144 0 /* #fe9000 */;
+   // --custom-green: 62 223 75 /* #3edf4b */;
+   // --custom-blue: 51 99 255 /* #3363ff */;
+   // --custom-purple: 177 2 183 /* #b102b7 */;
    return (
       <header className={clsx(
          "sticky top-0 z-50 transition-shadow bg-light dark:bg-dark",
@@ -67,7 +71,7 @@ export const Header:FC<HeaderProps> = () => {
                         {label}
                      </UnstyledLink>
                      {pathname === href  && <div
-                        className="h-[3px] w-full bg-gradient-to-r from-custom-red to-custom-green shadow"
+                        className="h-[3px] w-full bg-gradient-to-r from-custom-red via-custom-orange to-custom-green shadow"
                      />}
                   </li>
                ))}
