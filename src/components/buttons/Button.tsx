@@ -19,9 +19,15 @@ export const Button:FC<ButtonProps> = ({
    const disabled = is_loading || button_disabled
 
    const variants: Record<ButtonVariant, string> = {
-      default: "bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700",
-      "gradient-animation": "bg-white"
+      default: "bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-accent shadow-sm",
+      "gradient-animation": "bg-white py-[7px]"
    }
+
+   const classNameComputed = clsx(
+      "rounded font-bold scale-100 px-4 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100",
+      variants[variant],
+      className
+   )
 
    return (
       variant === "gradient-animation" ? (
@@ -29,11 +35,7 @@ export const Button:FC<ButtonProps> = ({
             <button
                {...props}
                disabled={disabled}
-               className={clsx(
-                  "rounded px-4 py-2 font-bold border border-gray-300 shadow-sm dark:border-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-accent scale-100 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100",
-                  variants[variant],
-                  className
-               )}
+               className={classNameComputed}
             >
                {children}
             </button>
@@ -42,11 +44,7 @@ export const Button:FC<ButtonProps> = ({
          <button
             {...props}
             disabled={disabled}
-            className={clsx(
-               "rounded px-4 py-2 font-bold border border-gray-300 shadow-sm dark:border-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-accent scale-100 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100",
-               variants[variant],
-               className
-            )}
+            className={classNameComputed}
          >
             {children}
          </button>
