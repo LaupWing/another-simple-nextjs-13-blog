@@ -14,7 +14,7 @@
 @media (prefers-color-scheme: dark) {
 }
 
-@keyframes gradient {
+@keyframes straight {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -24,6 +24,12 @@
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+@keyframes spin {
+   100% {
+      transform: rotate(-360deg);
+   }
 }
 
 @layer base {
@@ -49,6 +55,28 @@
       animation: gradient 15s linear infinite;
    }
 
+   .gradient-animation-border {
+      @apply relative p-1;
+   }
+
+   .gradient-animation-border::before {
+      content: "";
+      height: 180%;
+      width: 180%;
+      left: -40%;
+      top: -40%;
+      position: absolute;
+      background: conic-gradient(
+         rgb(var(--custom-red)),
+         rgb(var(--custom-orange)),
+         rgb(var(--custom-green)),
+         rgb(var(--custom-blue)),
+         rgb(var(--custom-purple)),
+         rgb(var(--custom-red))
+      );
+      animation: spin 1.5s linear infinite;
+   }
+
    .gradient-animation-slow {
       background: linear-gradient(-45deg,
          rgb(var(--custom-red)),
@@ -59,6 +87,6 @@
          rgb(var(--custom-red))
       );
       background-size: 400% 400%;
-      animation: gradient 100s linear infinite;
+      animation: straight 100s linear infinite;
    }
 }

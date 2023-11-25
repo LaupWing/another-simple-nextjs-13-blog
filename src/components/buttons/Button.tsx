@@ -20,7 +20,7 @@ export const Button:FC<ButtonProps> = ({
 
    const variants: Record<ButtonVariant, string> = {
       default: "bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700",
-      "gradient-animation": ""
+      "gradient-animation": "gradient-animation-border"
    }
 
    return (
