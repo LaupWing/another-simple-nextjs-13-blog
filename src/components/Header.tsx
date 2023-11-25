@@ -3,6 +3,7 @@ import { useSelectedLayoutSegment } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 // import { UnstyledLink } from "./links"
 import clsx from "clsx"
+import { UnstyledLink } from "./links/UnstyledLink.client"
 // import { ThemeButton } from "./buttons/index.client"
 
 interface HeaderProps {
@@ -61,11 +62,11 @@ export const Header:FC<HeaderProps> = () => {
             <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
                {links.map(({ href, label, segement }) => (
                   <li className="pb-2" key={`${href}-${label}`}>
-                     {/* <UnstyledLink
+                     <UnstyledLink
                         href={href}
                      >
-                  </UnstyledLink> */}
-                     {label}
+                        {label}
+                     </UnstyledLink>
                      {activeSegment === segement && <div
                         className="h-[3px] w-full bg-gradient-to-r from-accent-light to-accent-dark shadow"
                      />}
