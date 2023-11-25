@@ -1,1 +1,1 @@
-export { UnstyledLink } from "./UnstyledLink.client"
+export { UnstyledLink } from "./UnstyledLink"
