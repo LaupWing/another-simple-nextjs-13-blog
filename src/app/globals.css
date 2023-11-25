@@ -56,7 +56,7 @@
    }
 
    .gradient-animation-border {
-      @apply relative p-1;
+      @apply relative p-1 rounded-md overflow-hidden;
    }
 
    .gradient-animation-border::before {
@@ -75,7 +75,6 @@
          rgb(var(--custom-red))
       );
       animation: spin 1.5s linear infinite;
-      z-index: -1;
    }
 
    .gradient-animation-slow {

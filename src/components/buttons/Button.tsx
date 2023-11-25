@@ -20,11 +20,11 @@ export const Button:FC<ButtonProps> = ({
 
    const variants: Record<ButtonVariant, string> = {
       default: "bg-white dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700",
-      "gradient-animation": "gradient-animation-border overflow-hidden rounded bg-white"
+      "gradient-animation": "bg-white"
    }
 
    return (
-      // <div className="">
+      <div className="gradient-animation-border">
          <button
             {...props}
             disabled={disabled}
@@ -36,6 +36,6 @@ export const Button:FC<ButtonProps> = ({
          >
             {children}
          </button>
-      // </div>
+      </div>
    )
 }
