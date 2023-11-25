@@ -67,8 +67,7 @@ export const Header:FC<HeaderProps> = () => {
                         {label}
                      </UnstyledLink>
                      {pathname === href  ? <div
-                        data-type="gradient-animation-slow"
-                        className="h-[3px] w-full shadow"
+                        className="h-[3px] gradient-animation-slow w-full shadow"
                      /> : <div className="h-[3px]" />}
                   </li>
                ))}

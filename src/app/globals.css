@@ -13,19 +13,6 @@
 @media (prefers-color-scheme: dark) {
 }
 
-[data-type="gradient-animation-slow"]{
-   background: linear-gradient(-45deg,
-      rgb(var(--custom-red)),
-      rgb(var(--custom-orange)),
-      rgb(var(--custom-green)),
-      rgb(var(--custom-blue)),
-      rgb(var(--custom-purple)),
-      rgb(var(--custom-red))
-   );
-   background-size: 400% 400%;
-   animation: gradient 100s linear infinite;
-}
-
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
