@@ -50,11 +50,7 @@ export const Header:FC<HeaderProps> = () => {
          
       },
    ]
-   //       --custom-red:  253 0 76 /* #fd004c */;
-   // --custom-orange: 254 144 0 /* #fe9000 */;
-   // --custom-green: 62 223 75 /* #3edf4b */;
-   // --custom-blue: 51 99 255 /* #3363ff */;
-   // --custom-purple: 177 2 183 /* #b102b7 */;
+   
    return (
       <header className={clsx(
          "sticky top-0 z-50 transition-shadow bg-light dark:bg-dark",
