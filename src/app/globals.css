@@ -75,6 +75,7 @@
          rgb(var(--custom-red))
       );
       animation: spin 1.5s linear infinite;
+      z-index: -1;
    }
 
    .gradient-animation-slow {
