@@ -25,28 +25,23 @@ export const Header:FC<HeaderProps> = () => {
    const links = [
       { 
          href: "/",
-         label: "Home",
-         segement: null
+         label: "Home"
       },
       { 
          href: "/blog",
-         label: "Blog",
-         segement: "blog"
+         label: "Blog"
       },
       { 
          href: "/projects",
-         label: "Projects",
-         segement: "projects"
+         label: "Projects"
       },
       { 
          href: "/library",
-         label: "Library",
-         segement: "library"
+         label: "Library"
       },
       { 
          href: "/about",
-         label: "About",
-         segement: "about"
+         label: "About"
          
       },
    ]
