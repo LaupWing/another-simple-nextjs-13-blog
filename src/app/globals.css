@@ -43,7 +43,7 @@ body {
    background-size: 400% 400%;
    animation: gradient 15s linear infinite;
 }
-[data-type="gradient"]{
+[data-type="gradient-animation-slow"]{
    background: linear-gradient(-45deg,
       rgb(var(--custom-red)),
       rgb(var(--custom-orange)),
@@ -52,7 +52,8 @@ body {
       rgb(var(--custom-purple)),
       rgb(var(--custom-red))
    );
-   /* background-size: 400% 400%; */
+   background-size: 400% 400%;
+   animation: gradient 100s linear infinite;
 }
 
 @keyframes gradient {
