@@ -71,7 +71,8 @@ export const Header:FC<HeaderProps> = () => {
                         {label}
                      </UnstyledLink>
                      {pathname === href  && <div
-                        className="h-[3px] w-full bg-gradient-to-r from-custom-red via-custom-orange to-custom-green shadow"
+                        data-type="gradient"
+                        className="h-[3px] w-full shadow"
                      />}
                   </li>
                ))}
