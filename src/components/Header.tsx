@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 // import { UnstyledLink } from "./links"
 import clsx from "clsx"
-import { UnstyledLink } from "./links/UnstyledLink.client"
+import { UnstyledLink } from "./links/index.client"
 // import { useRouter } from "next/router"
 // import { ThemeButton } from "./buttons/index.client"
 
