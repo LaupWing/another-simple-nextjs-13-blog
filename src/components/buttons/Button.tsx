@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import clsx from "clsx"
 
-type ButtonVariant = "default" | "gold"
+type ButtonVariant = "default" | "gradient-animation"
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
    is_loading?: boolean
@@ -20,7 +20,7 @@ export const Button:FC<ButtonProps> = ({
 
    const variants: Record<ButtonVariant, string> = {
       default: "bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700",
-      gold: ""
+      "gradient-animation": ""
    }
 
    return (
