@@ -48,11 +48,11 @@ export const Header:FC<HeaderProps> = () => {
    
    return (
       <header className={clsx(
-         "sticky top-0 z-50 transition-shadow bg-light dark:bg-dark",
+         "sticky top-0 flex flex-col z-50 h-16 transition-shadow bg-light dark:bg-dark",
          onTop && "shadow-sm"
       )}>
          <div className="gradient-animation w-full h-1.5 bg-red-400"/>
-         <nav className="custom-container py-4 flex items-center justify-between text-dark dark:text-light">
+         <nav className="custom-container flex-1 flex items-center justify-between text-dark dark:text-light">
             <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
                {links.map(({ href, label }) => (
                   <li className="pb-2" key={`${href}-${label}`}>
