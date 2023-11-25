@@ -1,5 +1,5 @@
 "use client"
-import { useSelectedLayoutSegment, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 // import { UnstyledLink } from "./links"
 import clsx from "clsx"
@@ -12,9 +12,8 @@ interface HeaderProps {
 }
 export const Header:FC<HeaderProps> = () => {
    const [onTop, setOnTop] = useState<boolean>(false)
-   const activeSegment = useSelectedLayoutSegment()
-   // const {asPath, isReady} = useRouter()
-
+   const pathname = usePathname()
+   
    useEffect(() => {
       const handleScroll = () => {
          setOnTop(window.scrollY > 0)
@@ -62,14 +61,14 @@ export const Header:FC<HeaderProps> = () => {
          <div data-type="gradient-animation" className="w-full h-1.5 bg-red-400"/>
          <nav className="custom-container py-4 flex items-center justify-between text-dark dark:text-light">
             <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
-               {links.map(({ href, label, segement }) => (
+               {links.map(({ href, label }) => (
                   <li className="pb-2" key={`${href}-${label}`}>
                      <UnstyledLink
                         href={href}
                      >
                         {label}
                      </UnstyledLink>
-                     {activeSegment === segement && <div
+                     {pathname === href  && <div
                         className="h-[3px] w-full bg-gradient-to-r from-accent-light to-accent-dark shadow"
                      />}
                   </li>
