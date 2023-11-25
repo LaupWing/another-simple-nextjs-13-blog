@@ -24,7 +24,7 @@ export const Button:FC<ButtonProps> = ({
    }
 
    return (
-      <div className="gradient-animation-border rounded">
+      <div className="gradient-animation-border overflow-hidden rounded">
          <button
             {...props}
             disabled={disabled}

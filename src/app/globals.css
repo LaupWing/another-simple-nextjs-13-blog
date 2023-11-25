@@ -61,10 +61,10 @@
 
    .gradient-animation-border::before {
       content: "";
-      height: 300%;
-      width: 200%;
+      height: 440%;
+      width: 180%;
       left: -40%;
-      top: -40%;
+      top: -160%;
       position: absolute;
       background: conic-gradient(
          rgb(var(--custom-red)),
