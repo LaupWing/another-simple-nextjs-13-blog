@@ -34,12 +34,12 @@ body {
 [data-type="gradient-animation"]{
    
    background: linear-gradient(-45deg,
-      #fd004c,
-      #fe9000,
-      #3edf4b,
-      #3363ff,
-      #b102b7,
-      #fd004c
+      rgb(var(--custom-red)),
+      rgb(var(--custom-orange)),
+      rgb(var(--custom-green)),
+      rgb(var(--custom-blue)),
+      rgb(var(--custom-purple)),
+      rgb(var(--custom-red))
    );
    background-size: 400% 400%;
    animation: gradient 15s linear infinite;
