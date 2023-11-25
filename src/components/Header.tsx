@@ -48,7 +48,7 @@ export const Header:FC<HeaderProps> = () => {
    
    return (
       <header className={clsx(
-         "sticky top-0 flex flex-col z-50 h-16 transition-shadow bg-light dark:bg-dark",
+         "sticky top-0 flex flex-col z-50 h-nav transition-shadow bg-light dark:bg-dark",
          onTop && "shadow-sm"
       )}>
          <div className="gradient-animation w-full h-1.5 bg-red-400"/>

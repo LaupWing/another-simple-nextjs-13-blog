@@ -8,7 +8,7 @@
    --custom-green: 62 223 75 /* #3edf4b */;
    --custom-blue: 51 99 255 /* #3363ff */;
    --custom-purple: 177 2 183 /* #b102b7 */;
-   --height-nav: 4.5rem;
+   --nav-height: 4.5rem;
 }
 
 @media (prefers-color-scheme: dark) {

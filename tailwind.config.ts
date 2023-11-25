@@ -19,6 +19,9 @@ const config: Config = {
             "custom-green": "rgb(var(--custom-green) / <alpha-value>)",
             "custom-blue": "rgb(var(--custom-blue / <alpha-value>)",
             "custom-purple": "rgb(var(--custom-purple) / <alpha-value>)",
+         },
+         height: {
+            "nav": "var(--nav-height)",
          }
       },
    },
