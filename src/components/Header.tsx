@@ -1,9 +1,10 @@
 "use client"
-import { useSelectedLayoutSegment } from "next/navigation"
+import { useSelectedLayoutSegment, useRouter } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 // import { UnstyledLink } from "./links"
 import clsx from "clsx"
 import { UnstyledLink } from "./links/UnstyledLink.client"
+// import { useRouter } from "next/router"
 // import { ThemeButton } from "./buttons/index.client"
 
 interface HeaderProps {
@@ -12,6 +13,7 @@ interface HeaderProps {
 export const Header:FC<HeaderProps> = () => {
    const [onTop, setOnTop] = useState<boolean>(false)
    const activeSegment = useSelectedLayoutSegment()
+   // const {asPath, isReady} = useRouter()
 
    useEffect(() => {
       const handleScroll = () => {
