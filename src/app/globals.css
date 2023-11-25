@@ -61,4 +61,8 @@
       background-size: 400% 400%;
       animation: gradient 100s linear infinite;
    }
+
+   .screen-height-minus-nav {
+      height: calc(100vh - var(--nav-height));
+   }
 }

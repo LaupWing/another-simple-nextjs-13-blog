@@ -13,7 +13,7 @@ export default function Home() {
 const HomeIntro = () => {
 
    return (
-      <section className="flex flex-col items-center justify-center min-h-screen">
+      <section className="flex flex-col items-center justify-center screen-height-minus-nav">
          <div className="custom-container">
             <h2 className="text-2xl font-bold md:text-4xl 2xl:text-5xl">
                Hello!
