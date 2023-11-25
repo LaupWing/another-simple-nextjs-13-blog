@@ -1,5 +1,5 @@
+import type { ComponentPropsWithoutRef, FC } from "react"
 import clsx from "clsx"
-import { ComponentPropsWithoutRef, FC } from "react"
 
 export const Accent:FC<ComponentPropsWithoutRef<"span">> = ({
    children,
