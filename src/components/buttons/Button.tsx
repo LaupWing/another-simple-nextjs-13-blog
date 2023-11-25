@@ -19,19 +19,19 @@ export const Button:FC<ButtonProps> = ({
    const disabled = is_loading || button_disabled
 
    const variants: Record<ButtonVariant, string> = {
-      default: "bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-accent shadow-sm",
+      default: "bg-light dark:bg-dark text-gray-600 disabled:bg-gray-200 dark:text-gray-200 dark:disabled:bg-gray-700 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus-visible:ring focus-visible:ring-accent shadow-sm hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100",
       "gradient-animation": "bg-white py-[7px]"
    }
 
    const classNameComputed = clsx(
-      "rounded font-bold scale-100 px-4 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100",
+      "rounded font-bold px-4 scale-100",
       variants[variant],
       className
    )
 
    return (
       variant === "gradient-animation" ? (
-         <div className="gradient-animation-border shadow">
+         <div className="gradient-animation-border shadow hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100 scale-100">
             <button
                {...props}
                disabled={disabled}
