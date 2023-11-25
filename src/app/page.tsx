@@ -1,3 +1,4 @@
+import { Button } from "@/components/buttons"
 import { Accent } from "@/components/elements/Accent"
 import Image from 'next/image'
 
@@ -24,6 +25,19 @@ const HomeIntro = () => {
             <p className="mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl">
                I possess a strong enthusiasm for both programming and fitness, finding fulfillment in assisting individuals either at the gym or in the realm of coding.
             </p>
+         </div>
+         <div className="mt-8 flex flex-wrap gap-4 md:!text-lg">
+            <div className="group relative">
+               {/* <div
+                  className="absolute -inset-0.5 animate-pulse rounded blur from-[#f1e69a] bg-gradient-to-r to-[#a79a5a] opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
+               /> */}
+               <Button variant="gradient-animation">
+                  Read the Blog
+               </Button>
+            </div>
+            <Button >
+               Learn more about me
+            </Button>
          </div>
       </section>
    )

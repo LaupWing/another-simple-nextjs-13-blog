@@ -61,8 +61,8 @@
 
    .gradient-animation-border::before {
       content: "";
-      height: 180%;
-      width: 180%;
+      height: 300%;
+      width: 200%;
       left: -40%;
       top: -40%;
       position: absolute;
