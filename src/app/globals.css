@@ -7,6 +7,10 @@
    --background-start-rgb: 214, 219, 220;
    --background-end-rgb: 255, 255, 255;
    --custom-red: #fd004c;
+   --custom-orange: #fe9000;
+   --custom-green: #3edf4b;
+   --custom-blue: #3363ff;
+   --custom-purple: #b102b7;
 }
 
 @media (prefers-color-scheme: dark) {
