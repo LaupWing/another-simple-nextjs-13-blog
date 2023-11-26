@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { UnstyledLink, UnstyledLinkProps } from "./UnstyledLink"
+import { UnstyledLink, UnstyledLinkProps } from "./UnstyledLink.client"
 import { Button } from "../buttons"
 import { ButtonVariant } from "../buttons/Button"
 
