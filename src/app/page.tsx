@@ -28,7 +28,7 @@ const HomeIntro = () => {
             <div className="mt-8 flex flex-wrap gap-4 md:!text-lg">
                <div className="group relative flex">
                   <div
-                     className="absolute -inset-0.5 animate-pulse rounded blur from-[#f1e69a] bg-gradient-to-r to-[#a79a5a] opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
+                     className="absolute -inset-0.5 animate-pulse rounded blur from-custom-green bg-gradient-to-r to-custom-purple opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
                   />
                   <Button variant="gradient-animation">
                      Read the Blog
