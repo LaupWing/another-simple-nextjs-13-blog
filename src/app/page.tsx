@@ -1,5 +1,6 @@
 import { Button } from "@/components/buttons"
 import { Accent } from "@/components/elements/Accent"
+import { ButtonLink } from "@/components/links/ButtonLink"
 import Image from 'next/image'
 
 export default function Home() {
@@ -30,9 +31,12 @@ const HomeIntro = () => {
                   <div
                      className="absolute -inset-0.5 animate-pulse rounded blur from-custom-green bg-gradient-to-r to-custom-purple opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
                   />
-                  <Button variant="gradient-animation">
+                  <ButtonLink 
+                     href="/blog"
+                     variant="gradient-animation"
+                  >
                      Read the Blog
-                  </Button>
+                  </ButtonLink>
                </div>
                <Button >
                   Learn more about me
