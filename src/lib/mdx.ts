@@ -3,6 +3,7 @@ import { readFileSync } from "fs"
 import { bundleMDX } from "mdx-bundler"
 import { join } from "path"
 import rehypePrism from "rehype-prism-plus"
+import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
 
