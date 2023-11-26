@@ -7,11 +7,11 @@ export const Accent:FC<ComponentPropsWithoutRef<"span">> = ({
 }) => {
 
    return (
-      <div className="bg-dark dark:bg-gradient-to-r from-accent-light to-accent-dark inline-block px-1 py-0.5">
+      <div className="gradient-animation-slow inline-block px-1 py-0.5">
          <span
             className={clsx(
                className,
-               "transition-colors gradient-animation-slow bg-clip-text text-transparent dark:text-dark"
+               "transition-colors dark:gradient-animation-slow dark:bg-clip-text dark:text-transparent"
             )}
          >
             {children}
