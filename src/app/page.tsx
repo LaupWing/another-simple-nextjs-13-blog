@@ -1,3 +1,4 @@
+import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
 import { Button } from "@/components/buttons"
 import { Accent } from "@/components/elements/Accent"
 import { ButtonLink } from "@/components/links/ButtonLink"
@@ -13,6 +14,26 @@ export default function Home() {
 
 
 const HomeIntro = () => {
+   const socials = [
+      {
+         name: "Resume",
+         icon: IconNewspaper,
+         href: "https://google.com",
+         label: "resume",
+      },
+      {
+         name: "Twitter",
+         icon: IconTwitter,
+         href: "https://google.com",
+         label: "@laupwing",
+      },
+      {
+         name: "Github",
+         icon: IconGithub,
+         href: "https://google.com",
+         label: "laupwing",
+      },
+   ]
 
    return (
       <section className="flex flex-col items-center justify-center h-screen-no-nav">
