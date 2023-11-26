@@ -2,6 +2,7 @@ import type { ContentType } from "@/types/frontmatter"
 import { readFileSync } from "fs"
 import { bundleMDX } from "mdx-bundler"
 import { join } from "path"
+import rehypePrism from "rehype-prism-plus"
 import remarkGfm from "remark-gfm"
 
 
