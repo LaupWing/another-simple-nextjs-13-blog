@@ -15,7 +15,7 @@ export default function Home() {
 
 
 const HomeIntro = () => {
-   const socialLinkStyle = "inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light group"
+   const social_link_style = "inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light group"
 
    const socials = [
       {
@@ -74,7 +74,7 @@ const HomeIntro = () => {
                   <UnstyledLink
                      key={social.name}
                      href={social.href}
-                     className={socialLinkStyle}
+                     className={social_link_style}
                   >
                      <social.icon 
                         className={"shrink-0 w-5 h-5 transition-colors " + social.className}
