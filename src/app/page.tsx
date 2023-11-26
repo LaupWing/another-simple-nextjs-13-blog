@@ -1,6 +1,7 @@
 import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
 import { Button } from "@/components/buttons"
 import { Accent } from "@/components/elements/Accent"
+import { UnstyledLink } from "@/components/links"
 import { ButtonLink } from "@/components/links/ButtonLink"
 import Image from 'next/image'
 
@@ -14,6 +15,8 @@ export default function Home() {
 
 
 const HomeIntro = () => {
+   const socialLinkStyle = "inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light group"
+
    const socials = [
       {
          name: "Resume",
@@ -62,6 +65,23 @@ const HomeIntro = () => {
                <Button >
                   Learn more about me
                </Button>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8">
+               {socials.map((social) => (
+                  <UnstyledLink
+                     key={social.name}
+                     href={social.href}
+                     className={socialLinkStyle}
+                  >
+                     <social.icon 
+                        className="shrink-0 w-5 h-5 transition-colors group-hover:text-[#1da1f2]"
+                        aria-hidden="true"
+                     />
+                     <span className="sr-only">
+                        {social.name}
+                     </span>
+                  </UnstyledLink>
+               ))}
             </div>
          </div>
       </section>
