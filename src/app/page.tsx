@@ -4,7 +4,6 @@ import { Button } from "@/components/buttons"
 import { Accent } from "@/components/elements/Accent"
 import { UnstyledLink } from "@/components/links"
 import { ButtonLink } from "@/components/links/ButtonLink"
-import Image from 'next/image'
 
 export default function Home() {
    return (
