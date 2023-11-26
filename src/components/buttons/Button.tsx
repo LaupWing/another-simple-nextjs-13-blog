@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import clsx from "clsx"
 
-type ButtonVariant = "default" | "gradient-animation"
+export type ButtonVariant = "default" | "gradient-animation"
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
    is_loading?: boolean

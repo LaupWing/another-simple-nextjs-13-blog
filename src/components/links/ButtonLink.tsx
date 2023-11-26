@@ -1,8 +1,7 @@
 import { FC } from "react"
 import { UnstyledLink, UnstyledLinkProps } from "./UnstyledLink"
 import { Button } from "../buttons"
-
-type ButtonVariant = "default" | "gold"
+import { ButtonVariant } from "../buttons/Button"
 
 interface ButtonLinkProps extends UnstyledLinkProps {
    variant?: ButtonVariant
@@ -17,6 +16,7 @@ export const ButtonLink:FC<ButtonLinkProps> = ({
    return (
       <Button
          className={className}
+         variant={variant}
       >
          <UnstyledLink
             {...props}
