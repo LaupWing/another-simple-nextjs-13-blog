@@ -23,18 +23,21 @@ const HomeIntro = () => {
          icon: IconNewspaper,
          href: "https://google.com",
          label: "resume",
+         className: "",
       },
       {
          name: "Twitter",
          icon: IconTwitter,
          href: "https://google.com",
          label: "@laupwing",
+         className: "group-hover:text-[#1da1f2]",
       },
       {
          name: "Github",
          icon: IconGithub,
          href: "https://google.com",
          label: "laupwing",
+         className: ""
       },
    ]
 
@@ -74,7 +77,7 @@ const HomeIntro = () => {
                      className={socialLinkStyle}
                   >
                      <social.icon 
-                        className="shrink-0 w-5 h-5 transition-colors group-hover:text-[#1da1f2]"
+                        className={"shrink-0 w-5 h-5 transition-colors " + social.className}
                         aria-hidden="true"
                      />
                      <span className="sr-only">
