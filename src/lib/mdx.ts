@@ -1,5 +1,5 @@
 import type { ContentType, Frontmatter } from "@/types/frontmatter"
-import { readFileSync } from "fs"
+import { readFileSync, readdirSync } from "fs"
 import { bundleMDX } from "mdx-bundler"
 import { join } from "path"
 import readingTime from "reading-time"
@@ -42,6 +42,28 @@ export async function getFileBySlug(type: ContentType, slug: string) {
          ...frontmatter
       }
    }
+}
+
+export async function getAllFilesFrontmatter<T extends ContentType>(type: T) {
+   const files = readdirSync(join(process.cwd(), "src", "contents", type))
+
+   return files.reduce((allPosts: Array<PickFrontmatter<T>>, postSlug) => {
+      const source = readFileSync(
+         join(process.cwd(), "src", "contents", type, postSlug),
+         "utf8"
+      )
+      const { data } = matter(source)
+
+      const res = [
+         {
+            ...(data as PickFrontmatter<T>),
+            slug: postSlug.replace(".mdx", ""),
+            readingTime: readingTime(source)
+         },
+         ...allPosts
+      ]
+      return res
+   }, [])
 }
 
 export function getRecent<T extends Frontmatter>(contents: Array<T>, limit = 4){

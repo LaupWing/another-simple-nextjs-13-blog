@@ -95,6 +95,14 @@ const HomeIntro = () => {
    )
 }
 
+const fetchRecentBlogs = async () => {
+   const blogs = await getAllFilesFrontmatter("blog")
+   const recentBlogs = getRecent(blogs)
+
+   return recentBlogs
+}
+
+
 const HomeBlogs = async () => {
    return (
       <section className="py-20">
