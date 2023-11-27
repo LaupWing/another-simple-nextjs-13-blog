@@ -1,4 +1,4 @@
-import type { ContentType } from "@/types/frontmatter"
+import type { ContentType, Frontmatter } from "@/types/frontmatter"
 import { readFileSync } from "fs"
 import { bundleMDX } from "mdx-bundler"
 import { join } from "path"
