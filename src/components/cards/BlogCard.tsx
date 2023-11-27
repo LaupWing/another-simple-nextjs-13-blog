@@ -1,6 +1,6 @@
+import type { ComponentPropsWithoutRef, FC, Suspense } from "react"
 import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 import clsx from "clsx"
-import { ComponentPropsWithoutRef, FC, Suspense } from "react"
 import { UnstyledLink } from "../links"
 import { CloudinaryImage } from "../images/index.client"
 import { Tag } from "../elements"
