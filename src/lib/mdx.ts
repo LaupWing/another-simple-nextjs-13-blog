@@ -11,7 +11,7 @@ import remarkGfm from "remark-gfm"
 
 export async function getFileBySlug(type: ContentType, slug: string) {
    const source = readFileSync(join(process.cwd(), "src", "contents", type, `${slug}.mdx`), "utf8")
- 
+
    const { code, frontmatter } = await bundleMDX({
       source,
       mdxOptions(options) {
@@ -42,4 +42,12 @@ export async function getFileBySlug(type: ContentType, slug: string) {
          ...frontmatter
       }
    }
+}
+
+export function getRecent<T extends Frontmatter>(contents: Array<T>, limit = 4){
+   const sorted_contents =  contents.sort((a, b) => {
+      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() 
+   })
+   
+   return sorted_contents.slice(0, limit)
 }
