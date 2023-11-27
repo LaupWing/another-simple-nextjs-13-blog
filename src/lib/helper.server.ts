@@ -3,19 +3,19 @@ import { z } from "zod"
 import { prisma_client } from "./prisma"
 
 export const getSessionId = (req: Request) => {
-   const ipAddress = req.headers.get("x-forwarded-for") || "0.0.0.0"
+   const ip_address = req.headers.get("x-forwarded-for") || "0.0.0.0"
 
-   const currentUserId = createHash("md5")
-      .update(ipAddress + (process.env.IP_ADDRESS_SALT as string), "utf8")
+   const current_user_id = createHash("md5")
+      .update(ip_address + (process.env.IP_ADDRESS_SALT as string), "utf8")
       .digest("hex")
-   return currentUserId
+   return current_user_id
 } 
 
 export const extractSlug = (req: Request) => {
    const splitted = req.url.split("/")
-   const availableEndpoints = ["content", "like"]
+   const available_endpoints = ["content", "like"]
 
-   if(availableEndpoints.includes(splitted[splitted.length - 2])){
+   if(available_endpoints.includes(splitted[splitted.length - 2])){
       const slug = z.string().parse(splitted[splitted.length - 1])
       return slug
    }else {
