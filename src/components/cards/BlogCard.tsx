@@ -1,4 +1,5 @@
-import type { ComponentPropsWithoutRef, FC, Suspense } from "react"
+import type { ComponentPropsWithoutRef, FC } from "react"
+import { Suspense } from "react"
 import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 import clsx from "clsx"
 import { UnstyledLink } from "../links"
@@ -33,9 +34,9 @@ export const BlogCard:FC<BlogCardProps> = ({
          >
             <div className="relative">
                <CloudinaryImage 
-                  noStyle
+                  no_style
                   className="rounded-t-md overflow-hidden pointer-events-none"
-                  publicId="samples/bike"
+                  public_id="samples/bike"
                   alt="Bike"
                   width={1200}
                   height={(1200 * 2) /5}
@@ -91,7 +92,6 @@ export const BlogCard:FC<BlogCardProps> = ({
    )
 }
 
-{/* @ts-expect-error Server Component */}
 const Views:FC<{
    slug: string
 }> = async ({
