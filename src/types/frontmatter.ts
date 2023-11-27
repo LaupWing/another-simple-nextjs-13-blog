@@ -17,6 +17,19 @@ export interface ProjectFrontmatter {
    github?: string
 }
 
+export interface BlogFrontmatter {
+   wordCount: number
+   readingTime: ReadTimeResults
+   slug: string
+   title: string
+   description: string
+   banner: string
+   publishedAt: string
+   lastUpdated?: string
+   tags: string
+   repost?: string
+}
+
 export type Frontmatter = 
    | ProjectFrontmatter
    | BlogFrontmatter
