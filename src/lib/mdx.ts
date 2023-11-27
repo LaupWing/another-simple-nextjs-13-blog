@@ -1,5 +1,6 @@
-import type { ContentType, Frontmatter } from "@/types/frontmatter"
+import type { ContentType, Frontmatter, PickFrontmatter } from "@/types/frontmatter"
 import { readFileSync, readdirSync } from "fs"
+import matter from "gray-matter"
 import { bundleMDX } from "mdx-bundler"
 import { join } from "path"
 import readingTime from "reading-time"
