@@ -30,6 +30,16 @@ export interface BlogFrontmatter {
    repost?: string
 }
 
+export interface LibraryFrontmatter {
+   slug: string
+   title: string
+   publishedAt: string
+   wordCount?: number
+   readingTime: ReadTimeResults
+   description: string
+   tags: string
+}
+
 export type Frontmatter = 
    | ProjectFrontmatter
    | BlogFrontmatter
