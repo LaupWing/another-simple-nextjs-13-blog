@@ -40,6 +40,11 @@ export interface LibraryFrontmatter {
    tags: string
 }
 
+export interface InjectedMeta {
+   views?: number
+   likes?: number
+}
+
 export type PickFrontmatter<T extends ContentType> = T extends "blog"
    ? BlogFrontmatter
    : T extends "library"
