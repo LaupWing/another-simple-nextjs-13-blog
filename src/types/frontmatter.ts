@@ -40,6 +40,12 @@ export interface LibraryFrontmatter {
    tags: string
 }
 
+export type PickFrontmatter<T extends ContentType> = T extends "blog"
+   ? BlogFrontmatter
+   : T extends "library"
+   ? LibraryFrontmatter
+   : ProjectFrontmatter
+
 export type Frontmatter = 
    | ProjectFrontmatter
    | BlogFrontmatter
