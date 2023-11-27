@@ -4,6 +4,7 @@ import { Button } from "@/components/buttons"
 import { Accent } from "@/components/elements/Accent"
 import { UnstyledLink } from "@/components/links"
 import { ButtonLink } from "@/components/links/ButtonLink"
+import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 
 export default function Home() {
    return (
@@ -104,6 +105,8 @@ const fetchRecentBlogs = async () => {
 
 
 const HomeBlogs = async () => {
+   const recentBlogs = await fetchRecentBlogs()
+   console.log(recentBlogs)
    return (
       <section className="py-20">
          <div className="custom-container">
