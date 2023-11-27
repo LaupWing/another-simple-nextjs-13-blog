@@ -5,13 +5,13 @@ import Image from "next/image"
 import { ComponentPropsWithoutRef, FC } from "react"
 
 interface CloudinaryImageProps extends ComponentPropsWithoutRef<"figure"> {
-   publicId: string
+   public_id: string
    height: string | number
    width: string | number
    alt: string
    title?: string
    className?: string
-   noStyle?: boolean
+   no_style?: boolean
    aspect?: {
       width: number
       height: number
@@ -20,19 +20,19 @@ interface CloudinaryImageProps extends ComponentPropsWithoutRef<"figure"> {
 }
 
 export const CloudinaryImage:FC<CloudinaryImageProps> = ({
-   publicId,
+   public_id,
    height,
    width,
    alt,
    title,
    className,
-   noStyle = false,
+   no_style = false,
    mdx = false,
    style,
    aspect,
    ...props
 }) => {
-   const urlBlurred = buildUrl(publicId, {
+   const urlBlurred = buildUrl(public_id, {
       cloud: {
          cloudName: "laupwing",
       },
@@ -47,7 +47,7 @@ export const CloudinaryImage:FC<CloudinaryImageProps> = ({
       }
    })
 
-   const url = buildUrl(publicId, {
+   const url = buildUrl(public_id, {
       cloud: {
          cloudName: "laupwing"
       },
@@ -64,7 +64,7 @@ export const CloudinaryImage:FC<CloudinaryImageProps> = ({
       <figure
          className={clsx(
             className,
-            !noStyle && "overflow-hidden rounded shadow dark:shadow-none",
+            !no_style && "overflow-hidden rounded shadow dark:shadow-none",
             (mdx && +width <= 800) && "mx-auto w-full"
          )}
          style={{
