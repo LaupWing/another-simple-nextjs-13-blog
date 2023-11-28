@@ -33,7 +33,7 @@ export const BlogCard:FC<BlogCardProps> = ({
             href={`/blog/${post.slug}`}
          >
             <div className="relative">
-               <CloudinaryImage 
+               {/* <CloudinaryImage 
                   no_style
                   className="rounded-t-md overflow-hidden pointer-events-none"
                   public_id="samples/bike"
@@ -44,7 +44,7 @@ export const BlogCard:FC<BlogCardProps> = ({
                      height: 2,
                      width: 5
                   }}
-               />
+               /> */}
                <div className="absolute bottom-0 px-4 w-full py-2 mt-2 flex flex-wrap justify-end gap-x-2 gap-y-1 text-sm text-black dark:text-gray-100">
                   {post.tags.split(",").map((tag) => (
                      <Tag 

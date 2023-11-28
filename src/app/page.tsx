@@ -1,6 +1,7 @@
 import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
 import { TC } from "@/components/TC"
 import { Button } from "@/components/buttons"
+import { BlogCard } from "@/components/cards"
 import { Accent } from "@/components/elements/Accent"
 import { UnstyledLink } from "@/components/links"
 import { ButtonLink } from "@/components/links/ButtonLink"
@@ -116,6 +117,21 @@ const HomeBlogs = async () => {
             >
                <Accent>Recent Blog Posts</Accent>
             </h2>
+            <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+               {recentBlogs.map((post, i) => (
+                  <BlogCard
+                     key={post.slug}
+                     post={post}
+                  />
+               ))}
+            </ul>
+            <ButtonLink
+               className="mt-4"
+               href="/blog"
+               // Add tracking event
+            >
+               See more post
+            </ButtonLink>
          </div>
       </section>
    )
