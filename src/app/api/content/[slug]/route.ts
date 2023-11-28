@@ -1,17 +1,17 @@
 import { extractSlug, getSessionId, getUserLikeCount } from "@/lib/helper.server"
-import { prismaClient } from "@/lib/prisma"
+import { prisma_client } from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
 
 export async function GET(req: Request) {
    try{
       const slug = extractSlug(req)
-      const sessionId = getSessionId(req)
+      const session_id = getSessionId(req)
       const likesByUser = await getUserLikeCount({
-         sessionId: sessionId,
+         session_id: session_id,
          slug: slug
       })
-      const content = await prismaClient.contentMeta.findFirst({
+      const content = await prisma_client.contentMeta.findFirst({
          where: {
             slug: slug
          },
@@ -52,9 +52,9 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
    try {
-      const sessionId = getSessionId(req)
+      const session_id = getSessionId(req)
       const slug = extractSlug(req)
-      const content = await prismaClient.contentMeta.upsert({
+      const content = await prisma_client.contentMeta.upsert({
          where: {
             slug: slug
          },
@@ -62,14 +62,14 @@ export async function POST(req: Request) {
             slug: slug,
             View: {
                create: {
-                  sessionId: sessionId
+                  session_id: session_id
                }
             }
          },
          update: {
             View:{
                create: {
-                  sessionId: sessionId
+                  session_id: session_id
                }
             }
          },
