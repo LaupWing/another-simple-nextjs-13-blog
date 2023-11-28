@@ -61,7 +61,7 @@ export const BlogCard:FC<BlogCardProps> = ({
             </div>
             <div className="p-4">
                <h4 className="text-gray-800 dark:text-gray-100">{post.title}</h4>
-               <div className="mt-2 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+               <div className="mt-2 flex items-center justify-start gap-2 text-sm font-medium text-gray-800 dark:text-gray-300">
                   <div className="flex items-center gap-1">
                      <IconClock className="inline-block text-base" />
                      <Accent>{post.readingTime.text}</Accent>
