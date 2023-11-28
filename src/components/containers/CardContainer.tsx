@@ -6,7 +6,7 @@ import { FC, JSX } from "react"
 
 interface BlogCardsContainerProps {
    posts: BlogFrontmatter[],
-   Cmp: Component
+   Cmp: FC<JSX.IntrinsicElements["li"] & { post: BlogFrontmatter }>
 }
 
 const BlogCardsContainer:FC<BlogCardsContainerProps> = ({
