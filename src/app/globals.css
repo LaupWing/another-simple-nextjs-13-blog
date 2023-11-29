@@ -42,36 +42,6 @@
 
    .cursor-newtab {
       cursor: url("/images/new-tab.png") 10 10, pointer;
-   }   
-}
-
-@layer utilities {
-   .animated-underline {
-      background: linear-gradient(to right, 
-         rgb(var(--custom-red)),
-         rgb(var(--custom-orange)),
-         rgb(var(--custom-green)),
-         rgb(var(--custom-blue)),
-         rgb(var(--custom-purple)),
-         rgb(var(--custom-red))
-      );
-      background-size: 100% 2px, 0 2px;
-      background-position: 100% 100%, 0 100%;
-      background-repeat: no-repeat;
-      transition: 0.3s ease;
-      transition-property: background-size, color, background-color, border-color;
-   }
-
-   @media (prefers-reduced-motion: reduce){
-      .animated-underline {
-         transition: none;
-      }
-   }
-   .animated-underline:hover, 
-   .animated-underline:focus-visible,
-   .project-card:hover .animated-underline,
-   .project-card:focus-visible .animated-underline{
-      background-size: 0 2px, 100% 2px;
    }
 
    .gradient-animation {
@@ -121,4 +91,35 @@
       background-size: 400% 400%;
       animation: straight 100s linear infinite;
    }
+}
+
+@layer utilities {
+   .animated-underline {
+      background: linear-gradient(to right, 
+         rgb(var(--custom-red)),
+         rgb(var(--custom-orange)),
+         rgb(var(--custom-green)),
+         rgb(var(--custom-blue)),
+         rgb(var(--custom-purple)),
+         rgb(var(--custom-red))
+      );
+      background-size: 100% 2px, 0 2px;
+      background-position: 100% 100%, 0 100%;
+      background-repeat: no-repeat;
+      transition: 0.3s ease;
+      transition-property: background-size, color, background-color, border-color;
+   }
+
+   @media (prefers-reduced-motion: reduce){
+      .animated-underline {
+         transition: none;
+      }
+   }
+   .animated-underline:hover, 
+   .animated-underline:focus-visible,
+   .project-card:hover .animated-underline,
+   .project-card:focus-visible .animated-underline{
+      background-size: 0 2px, 100% 2px;
+   }
+
 }
