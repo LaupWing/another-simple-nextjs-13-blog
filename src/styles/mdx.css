@@ -87,7 +87,7 @@
    visibility: visible;
 }
 
-.hash-anchor:after {
+/* .hash-anchor:after {
    @apply invisible absolute -right-5 top-[50%] -translate-y-1/2 text-lg text-accent-dark dark:text-accent-light;
    content: "#";
-}
+} */
