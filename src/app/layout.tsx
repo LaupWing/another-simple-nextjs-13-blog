@@ -20,7 +20,7 @@ export default function RootLayout({
       <html 
          lang="en"
       >
-         <body className={inter.className}>
+         <body className={`${inter.className} dark:bg-dark`}>
             <Header />
             <NextTopLoader />
             {children}
