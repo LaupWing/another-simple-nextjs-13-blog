@@ -3,7 +3,7 @@ import { TC } from "@/components/TC"
 import { Button } from "@/components/buttons"
 import { BlogCard } from "@/components/cards"
 import { Accent } from "@/components/elements/Accent"
-import { UnstyledLink } from "@/components/links"
+import { UnstyledLink } from "@/components/links/index.client"
 import { ButtonLink } from "@/components/links/ButtonLink"
 import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 

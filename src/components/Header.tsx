@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
-import { UnstyledLink } from "./links"
+import { UnstyledLink } from "./links/index.client"
 // import { ThemeButton } from "./buttons/index.client"
 
 interface HeaderProps {
