@@ -4,6 +4,9 @@ import "./globals.css"
 import NextTopLoader from "nextjs-toploader"
 import { Header } from "@/components/Header"
 
+import "@/styles/dracula.css"
+import "@/styles/mdx.css"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
