@@ -1,5 +1,5 @@
 "use client"
-import type { FC } from "react"
+import { useState, type FC } from "react"
 import clsx from "clsx"
 import { CHAD_PATH } from "@/lib/svg"
 
@@ -12,9 +12,14 @@ export const LikeButton:FC<LikeButtonProps> = ({
    likes_by_user,
    all_likes
 }) => {
-   const addLike = () => {
+   const [_likes_by_user, setLikesByUser] = useState(likes_by_user)
+   const [_all_likes, setAllLikes] = useState(all_likes)
 
+   const addLike = () => {
+      setLikesByUser(_likes_by_user + 1)
+      setAllLikes(_all_likes + 1)
    }
+   console.log(_likes_by_user)
 
    return (
       <div className="flex items-center space-x-4">
@@ -23,11 +28,11 @@ export const LikeButton:FC<LikeButtonProps> = ({
             onClick={addLike}
          >
             <LikeButtonHeart
-               likes={likes_by_user} 
+               likes={_likes_by_user} 
             />
          </button>
          <div className="bg-gradient-to-tr from-[#e6b521] via-[#fef485] to-[#ffda4c] dark:bg-clip-text dark:text-transparent">
-            <span>{all_likes}</span>
+            <span>{_all_likes}</span>
          </div>
       </div>
    )
