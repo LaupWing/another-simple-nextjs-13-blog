@@ -1,39 +1,32 @@
 "use client"
-// import useContentMeta from "@/hooks/useContentMeta"
+import type { FC } from "react"
 import clsx from "clsx"
-// import { useParams } from "next/navigation"
-import { FC } from "react"
 
-export const LikeButton = () => {
-   const params = useParams()
-   const { addLike, contentLikes, likesByUser, isLoading } = useContentMeta(params.slug)
+interface LikeButtonProps {
+   likes_by_user: number
+   all_likes: number
+}
+
+export const LikeButton:FC<LikeButtonProps> = ({
+   likes_by_user,
+   all_likes
+}) => {
+   const addLike = () => {
+
+   }
 
    return (
       <div className="flex items-center space-x-4">
-         {isLoading ? (
-            <svg
-               viewBox="0 0 231.18 354.53"
-               className="animate-pulse text-gray-500 w-14"
-            >
-               <path d={CHAD_PATH} />
-            </svg>
-         ) :(
-            <button 
-               className="heart-button"
-               onClick={addLike}
-            >
-               <LikeButtonHeart
-                  likes={likesByUser} 
-               />
-            </button>
-         )}
-         <div className={clsx(
-            " mt-1 text-lg font-medium",
-            likesByUser === 0 ?
-               "text-gray-400 dark:text-gray-500"
-               : "bg-gradient-to-tr from-[#e6b521] via-[#fef485] to-[#ffda4c] dark:bg-clip-text dark:text-transparent"
-         )}>
-            {isLoading ? <span>...</span> : <span>{contentLikes}</span>}
+         <button 
+            className="heart-button"
+            onClick={addLike}
+         >
+            <LikeButtonHeart
+               likes={likes_by_user} 
+            />
+         </button>
+         <div className="bg-gradient-to-tr from-[#e6b521] via-[#fef485] to-[#ffda4c] dark:bg-clip-text dark:text-transparent">
+            <span>{all_likes}</span>
          </div>
       </div>
    )
