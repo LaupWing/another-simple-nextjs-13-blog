@@ -1,4 +1,4 @@
-import { Content2 } from "@/components/sections/Content2"
+import { Content2 } from "@/components/sections/index.client"
 // import { Content } from "@/components/sections/index.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
