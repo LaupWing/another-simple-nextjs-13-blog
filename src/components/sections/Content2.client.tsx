@@ -22,7 +22,11 @@ export const Content2:FC<ContentProps> = ({
    // console.log(code)
    console.log(Component)
    return (
-      <section className="custom-container">Content2 ghi</section>
+      <section className="custom-container">
+         <Header 
+            frontmatter={frontmatter}
+         />
+      </section>
    )
 }
 
