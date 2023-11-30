@@ -168,7 +168,7 @@ const Views:FC<ViewsProps> = async ({ slug }) => {
       })
    }
    await fetcTest()
-   const res = await fetch("http://localhost:3000/api/content/" + slug, {
+   const res = await fetch("http://localhost:3000/api/views/" + slug, {
       method: "POST"
    })
    const data = await res.json()
@@ -192,7 +192,7 @@ const Likes:FC<LikesProps> = async ({ slug }) => {
       })
    }
    await fetcTest()
-   const res = await fetch("http://localhost:3000/api/content/" + slug, {
+   const res = await fetch("http://localhost:3000/api/view/" + slug, {
       method: "POST"
    })
    const data = await res.json()
