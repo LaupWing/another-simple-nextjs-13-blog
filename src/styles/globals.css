@@ -115,7 +115,7 @@
 
 @layer utilities {
    .animated-underline {
-      background: linear-gradient(to right, 
+      background: linear-gradient(#33333300, #33333300), linear-gradient(to right, 
          rgb(var(--custom-red)),
          rgb(var(--custom-orange)),
          rgb(var(--custom-green)),
