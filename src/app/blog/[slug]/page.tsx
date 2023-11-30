@@ -83,20 +83,6 @@ const Header:FC<HeaderProps> = async ({
    frontmatter
 }) => {
    const COMMIT_HISTORY_LINK = `https://github.com/LaupWing/tech-blog/commits/main/src/contents/blog/${frontmatter.slug}.mdx`
-   // const meta = useContentMeta(frontmatter.slug, {
-   //    runIncrement: true
-   // })
-   const fetcTest  = async () => {
-      await new Promise(resolve => {
-         setTimeout(() => {
-            resolve(true)
-         }, 100000000)
-      }) 
-      return {
-         views: 1000
-      }
-   }
-   const meta = await fetcTest()
    
    return (
       <header className="pb-4">
@@ -140,10 +126,28 @@ const Header:FC<HeaderProps> = async ({
             <div className="flex items-center gap-1">
                <IconEye className="text-base inline-block" />
                <Suspense fallback={<Accent className="animate-pulse"> --- views</Accent>}>
-                  {/* <Accent>{{ meta!.views }}</Accent> */}
+                  <Views />
                </Suspense>
             </div>
          </div>
       </header>
+   )
+}
+
+const Views = async () => {
+   const fetcTest  = async () => {
+      await new Promise(resolve => {
+         setTimeout(() => {
+            resolve(true)
+         }, 10000)
+      }) 
+      return {
+         views: 1000
+      }
+   }
+   await fetcTest()
+
+   return (
+      <Accent>1000</Accent>
    )
 }
