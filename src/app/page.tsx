@@ -108,8 +108,8 @@ const HomeIntro = () => {
 const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
    const recent_blogs = getRecent(blogs)
-   console.log(await attachContentMeta(recent_blogs))
-   return recent_blogs
+   
+   return (await attachContentMeta(recent_blogs))
 }
 
 
