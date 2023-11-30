@@ -2,7 +2,7 @@
 import { IconCalendar, IconEye } from "@/components/Icons"
 import { BlogCard } from "@/components/cards"
 import { Tag } from "@/components/elements"
-import { SortListBox, SortOption } from "@/components/elements/SortListBox"
+import { SortListBox, SortOption } from "@/components/elements/SortListBox.client"
 import { ContentPlaceholder } from "@/components/sections/ContentPlaceholder"
 import { getFromSessionStorage } from "@/lib/helpers"
 import { getTags } from "@/lib/mdx-client"
