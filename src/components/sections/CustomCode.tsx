@@ -1,6 +1,7 @@
 "use client"
 import useCopyToClipboard from "@/hooks/useCopyToClipboard"
-import { ComponentPropsWithoutRef, FC, useRef, useState } from "react"
+import type { ComponentPropsWithoutRef, FC } from "react"
+import { useRef, useState } from "react"
 import { IconCheckCircle, IconClipboard } from "../Icons"
 
 interface CustomCodeProps extends ComponentPropsWithoutRef<"code">{}
