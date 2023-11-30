@@ -168,14 +168,14 @@ const Views:FC<ViewsProps> = async ({ slug }) => {
       })
    }
    await fetcTest()
-   const res = await fetch("http://localhost:3000/api/views/" + slug, {
+   const res = await fetch("http://localhost:3000/api/view/" + slug, {
       method: "POST"
    })
    const data = await res.json()
    console.log(data)
 
    return (
-      <Accent>1000</Accent>
+      <Accent>{data.content_views}</Accent>
    )
 }
 
