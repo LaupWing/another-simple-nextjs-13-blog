@@ -19,7 +19,7 @@ interface ContentSectionProps {
    code: string
 }
 
-const ContentSection:FC<ContentSectionProps> = ({
+export const ContentSection:FC<ContentSectionProps> = ({
    code,
    frontmatter
 }) => {
@@ -55,7 +55,6 @@ const ContentSection:FC<ContentSectionProps> = ({
       </section>
    )
 }
-export default ContentSection
 
 interface HeaderProps {
    frontmatter: BlogFrontmatter
