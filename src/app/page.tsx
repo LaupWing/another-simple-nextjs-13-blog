@@ -106,7 +106,7 @@ const HomeIntro = () => {
    )
 }
 
-const fetchRecentBlogs = async () : Promise<Array<BlogFrontmatter & InjectedMeta>> => {
+const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
    const recent_blogs = getRecent(blogs)
    
