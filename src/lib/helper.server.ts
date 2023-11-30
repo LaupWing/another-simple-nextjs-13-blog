@@ -1,4 +1,4 @@
-import type { ContentType } from "@/types/frontmatters"
+import type { ContentType, PickFrontmatter } from "@/types/frontmatters"
 import { createHash } from "crypto"
 import { z } from "zod"
 import { prisma_client } from "./prisma"
@@ -42,6 +42,19 @@ export const getUserLikeCount = async ({
    })
 }
 
-export const attachContentMeta = <T extends ContentType>(content: string) => {
-   
+export const attachContentMeta = async <T extends ContentType>(frontmatter: Array<PickFrontmatter<T>>) => {
+   return await Promise.all(
+      frontmatter.map(async (frontmatter) => {
+         const content_meta = await prisma_client.content_meta.findUnique({
+            where: {
+               id: frontmatter.content_meta_id
+            }
+         })
+
+         return {
+            ...frontmatter,
+            content_meta
+         }
+      })
+   )
 }
