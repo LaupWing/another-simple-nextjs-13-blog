@@ -2,6 +2,7 @@ import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { Accent } from "@/components/elements"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { UnstyledLink } from "@/components/links/UnstyledLink.client"
+import { TableContents } from "@/components/sections/TableContents.client"
 import { Content } from "@/components/sections/index.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
@@ -65,10 +66,21 @@ const SingleBlogPage = async (props: PageProps) => {
             slug={props.params.slug}
          />
          <hr className="dark:border-gray-600" />
-         <Content
-            code={code}
-            frontmatter={frontmatter}
-         />
+         <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto,250px] lg:gap-8">
+            <Content
+               code={code}
+            />
+            <aside className="py-4">
+               <div className="sticky top-36">
+                  <TableContents
+                     slug={frontmatter.slug}
+                  />
+                  {/* <div className="flex items-center justify-center py-8">
+                     <LikeButton />
+                  </div> */}
+               </div>
+            </aside>
+         </section>
       </main>
    )
 }
