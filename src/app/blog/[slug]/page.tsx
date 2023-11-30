@@ -65,6 +65,7 @@ const SingleBlogPage = async (props: PageProps) => {
          <Header
             frontmatter={frontmatter}
          />
+         <hr className="dark:border-gray-600" />
          <Content
             code={code}
          />
