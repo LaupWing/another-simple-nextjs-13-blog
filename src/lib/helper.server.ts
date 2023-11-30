@@ -1,3 +1,4 @@
+import type { ContentType } from "@/types/frontmatters"
 import { createHash } from "crypto"
 import { z } from "zod"
 import { prisma_client } from "./prisma"
@@ -39,4 +40,8 @@ export const getUserLikeCount = async ({
          }
       }
    })
+}
+
+export const attachContentMeta = <T extends ContentType>(content: string) => {
+   
 }
