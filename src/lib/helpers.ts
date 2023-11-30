@@ -42,7 +42,9 @@ export const getFromSessionStorage = (key: string) => {
    return null
 }
 
-export const attachContentMeta = async <T extends ContentType>(frontmatter: Array<PickFrontmatter<T>>) => {
+export const attachContentMeta = async <T extends ContentType>(
+   frontmatter: Array<PickFrontmatter<T>>
+) => {
    return await Promise.all(
       frontmatter.map(async (frontmatter) => {
          const res = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)

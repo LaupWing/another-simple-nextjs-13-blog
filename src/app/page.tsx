@@ -9,6 +9,7 @@ import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Suspense } from "react"
 import { attachContentMeta } from "@/lib/helpers"
+import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 
 export default function Home() {
    return (
@@ -105,11 +106,22 @@ const HomeIntro = () => {
    )
 }
 
-const fetchRecentBlogs = async () => {
+const fetchRecentBlogs = async () : Promise<Array<BlogFrontmatter & InjectedMeta>> => {
    const blogs = await getAllFilesFrontmatter("blog")
    const recent_blogs = getRecent(blogs)
    
-   return (await attachContentMeta(recent_blogs))
+   return await Promise.all(
+      recent_blogs.map(async (frontmatter) => {
+         const res = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)
+         const data = await res.json()
+         
+         return {
+            ...frontmatter,
+            views: data.content_views,
+            likes: data.content_likes
+         }
+      })
+   )
 }
 
 
