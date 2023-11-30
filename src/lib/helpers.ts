@@ -1,3 +1,5 @@
+import type { ContentType, PickFrontmatter } from "@/types/frontmatters"
+
 interface OpenGraphType {
    siteName: string
    description: string
@@ -38,4 +40,17 @@ export const getFromSessionStorage = (key: string) => {
       return sessionStorage.getItem(key)
    }
    return null
+}
+
+export const attachContentMeta = async <T extends ContentType>(frontmatter: Array<PickFrontmatter<T>>) => {
+   return await Promise.all(
+      frontmatter.map(async (frontmatter) => {
+         const content_meta = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)
+
+         return {
+            ...frontmatter,
+            content_meta
+         }
+      })
+   )
 }

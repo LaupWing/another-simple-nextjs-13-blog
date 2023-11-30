@@ -30,9 +30,9 @@ export async function GET(req: Request) {
       })
 
       return NextResponse.json({
-         contentViews: content?._count.View ?? 0,
-         contentLikes: content?._count.Like ?? 0,
-         likesByUser: likesByUser
+         content_views: content?._count.View ?? 0,
+         content_likes: content?._count.Like ?? 0,
+         likes_by_user: likesByUser
       }, {
          status: 200
       })
