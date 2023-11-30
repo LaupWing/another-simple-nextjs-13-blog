@@ -1,1 +1,1 @@
-export { CloudinaryImage } from "./CloudinaryImage"
+export { CloudinaryImage } from "./CloudinaryImage.client"
