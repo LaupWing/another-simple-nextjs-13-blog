@@ -1,10 +1,6 @@
 "use client"
-import { 
-   useState, 
-   useEffect, 
-   ComponentPropsWithoutRef,
-   FC
-} from "react"
+import type { ComponentPropsWithoutRef, FC} from "react"
+import { useState, useEffect} from "react"
 import { UnstyledLink } from "../links/index.client"
 import clsx from "clsx"
 import { IconGithub, IconRepoForked, IconStar } from "../Icons"
