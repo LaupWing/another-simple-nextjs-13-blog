@@ -1,6 +1,6 @@
 "use client"
-import { LikeButton } from "@/components/buttons/index.client"
-import { TableContents } from "@/components/sections/TableContents"
+// import { LikeButton } from "@/components/buttons/index.client"
+// import { TableContents } from "@/components/sections/TableContents"
 import { BlogFrontmatter } from "@/types/frontmatters"
 import { FC, useMemo } from "react"
 import { IconClock, IconEye, IconHistory } from "@/components/Icons"
@@ -10,7 +10,7 @@ import { UnstyledLink } from "@/components/links/index.client"
 import { format } from "date-fns"
 import { getMDXComponent } from "mdx-bundler/client"
 import { MDXComponents } from "@/components/MDXComponents"
-import useContentMeta from "@/hooks/useContentMeta"
+// import useContentMeta from "@/hooks/useContentMeta"
 
 interface ContentSectionProps {
    frontmatter: BlogFrontmatter
@@ -39,7 +39,7 @@ const ContentSection:FC<ContentSectionProps> = ({
                   }
                />
             </article>
-            <aside className="py-4">
+            {/* <aside className="py-4">
                <div className="sticky top-36">
                   <TableContents 
                      slug={frontmatter.slug}
@@ -48,7 +48,7 @@ const ContentSection:FC<ContentSectionProps> = ({
                      <LikeButton />
                   </div>
                </div>
-            </aside>
+            </aside> */}
          </section>
       </section>
    )
@@ -63,14 +63,14 @@ const Header:FC<HeaderProps> = ({
    frontmatter
 }) => {
    const COMMIT_HISTORY_LINK = `https://github.com/LaupWing/tech-blog/commits/main/src/contents/blog/${frontmatter.slug}.mdx`
-   const meta = useContentMeta(frontmatter.slug, {
-      runIncrement: true
-   })
+   // const meta = useContentMeta(frontmatter.slug, {
+   //    runIncrement: true
+   // })
    
    return (
       <header className="pb-4">
          <CloudinaryImage
-            publicId="samples/bike"
+            public_id="samples/bike"
             alt="Bike"
             width={1200}
             height={(1200 * 2) /5}
@@ -108,11 +108,11 @@ const Header:FC<HeaderProps> = ({
             </div>
             <div className="flex items-center gap-1">
                <IconEye className="text-base inline-block" />
-               {meta.isLoading ? (
+               {/* {meta.isLoading ? (
                   <Accent className="animate-pulse"> --- views</Accent>
                ) :( 
                   <Accent>{meta.views} views</Accent>
-               )}
+               )} */}
             </div>
          </div>
       </header>
