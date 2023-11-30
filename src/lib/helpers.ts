@@ -47,9 +47,11 @@ export const attachContentMeta = async <T extends ContentType>(frontmatter: Arra
       frontmatter.map(async (frontmatter) => {
          const res = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)
          const data = await res.json()
+         
          return {
             ...frontmatter,
-            data
+            views: data.content_views,
+            likes: data.content_likes
          }
       })
    )

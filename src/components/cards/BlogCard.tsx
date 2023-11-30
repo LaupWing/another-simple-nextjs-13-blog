@@ -20,6 +20,8 @@ export const BlogCard:FC<BlogCardProps> = ({
    checkTagged,
    onClick
 }) => {
+   console.log("post")
+   console.log(post)
    return (
       <li 
          className={clsx(
@@ -68,11 +70,12 @@ export const BlogCard:FC<BlogCardProps> = ({
                   </div>
                   <div className="flex items-center gap-1">
                      <IconEye className="inline-block text-base" />
-                     <Suspense fallback={<Accent className="animate-pulse">--- views</Accent>}>
+                     {/* <Suspense fallback={<Accent className="animate-pulse">--- views</Accent>}>
                         <Views 
                            slug={post.slug}
                         />
-                     </Suspense>
+                     </Suspense> */}
+                     <Accent>{ post.views }</Accent>
                   </div>
                </div>
                <p className="mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300">
