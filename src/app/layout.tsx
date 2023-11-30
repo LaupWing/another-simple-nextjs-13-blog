@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
+import { Footer } from "@/components/Footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -29,7 +30,10 @@ export default function RootLayout({
          <body className={`${inter.className} dark:bg-dark`}>
             <Header />
             <NextTopLoader />
-            {children}
+            <div id="skip-nav">
+               {children}
+            </div>
+            <Footer />
          </body>
       </html>
    )

@@ -1,6 +1,7 @@
 "use client"
-import useCopyToClipboard from "@/hooks/useCopyToClipboard"
 import type { ComponentPropsWithoutRef, FC } from "react"
+
+import useCopyToClipboard from "@/hooks/useCopyToClipboard"
 import { useRef, useState } from "react"
 import { IconCheckCircle, IconClipboard } from "../Icons"
 import { toast } from "react-toastify"
