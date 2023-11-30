@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, FC, Suspense } from "react"
+import type { ComponentPropsWithoutRef, FC } from "react"
 import { InjectedMeta, LibraryFrontmatter } from "@/types/frontmatters"
 import clsx from "clsx"
 import { UnstyledLink } from "../links/UnstyledLink.client"
@@ -42,22 +42,5 @@ export const LibraryCard:FC<LibraryCardProps> = ({
             </div>
          </UnstyledLink>
       </li>
-   )
-}
-
-const Likes:FC<{
-   slug: string
-}> = async ({
-   slug
-})=> {
-   const res = await fetch(`http://localhost:3000/api/content/${slug}`)
-   const data = await res.json()
-   return (
-      <div className="flex items-center gap-1">
-         <div className="dark:bg-gradient-to-b dark:from-accent-light dark:to-accent-dark p-1">
-            <ChadIcon className="inline-block text-base w-5" />
-         </div>
-         <Accent>{data.contentLikes} likes</Accent>
-      </div>
    )
 }
