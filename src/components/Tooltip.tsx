@@ -19,6 +19,7 @@ export const Tooltip:FC<TooltipTextProps> = ({
    ...props
 }) => {
    return (
+      // @ts-ignore
       <TippyTooltip
          trigger="mouseenter"
          interactive
