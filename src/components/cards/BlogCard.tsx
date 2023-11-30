@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
-import { Suspense } from "react"
 import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 import clsx from "clsx"
 import { UnstyledLink } from "../links/index.client"
@@ -20,8 +19,7 @@ export const BlogCard:FC<BlogCardProps> = ({
    checkTagged,
    onClick
 }) => {
-   console.log("post")
-   console.log(post)
+   
    return (
       <li 
          className={clsx(
@@ -70,11 +68,6 @@ export const BlogCard:FC<BlogCardProps> = ({
                   </div>
                   <div className="flex items-center gap-1">
                      <IconEye className="inline-block text-base" />
-                     {/* <Suspense fallback={<Accent className="animate-pulse">--- views</Accent>}>
-                        <Views 
-                           slug={post.slug}
-                        />
-                     </Suspense> */}
                      <Accent>{ post.views }</Accent>
                   </div>
                </div>
@@ -92,18 +85,5 @@ export const BlogCard:FC<BlogCardProps> = ({
             </div>
          </UnstyledLink>
       </li>
-   )
-}
-
-const Views:FC<{
-   slug: string
-}> = async ({
-   slug
-})=> {
-   const res = await fetch(`http://localhost:3000/api/content/${slug}`)
-   const data = await res.json()
-   
-   return (
-      <Accent>{data.contentViews ?? "---"} views</Accent>
    )
 }

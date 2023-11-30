@@ -2,11 +2,11 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import NextTopLoader from "nextjs-toploader"
 import { Header } from "@/components/Header"
+import { Footer } from "@/components/Footer"
 
 import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
-import { Footer } from "@/components/Footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
