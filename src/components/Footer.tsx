@@ -7,7 +7,7 @@ import { UnstyledLink } from "./links/UnstyledLink.client"
 
 export const Footer:FC = () => {
    return (
-      <footer className="mt-4 pb-4">
+      <footer className="pt-4 pb-12">
          <main className="layout flex flex-col items-center border-t pt-6 dark:border-gray-600">
             <FooterLinks />
             <p className="mt-12 font-medium text-gray-600 dark:text-gray-300">
