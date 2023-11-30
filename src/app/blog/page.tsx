@@ -1,5 +1,6 @@
 import { BlogsContainer } from "@/components/containers/BlogsContainer.client"
 import { Accent } from "@/components/elements/Accent"
+import { attachContentMeta } from "@/lib/helpers"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 // import PostsSection from "./PostsSection"
 // import { Metadata } from "next"
@@ -8,7 +9,7 @@ import { getAllFilesFrontmatter } from "@/lib/mdx"
 const fetchBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
 
-   return blogs
+   return (await attachContentMeta<"blog">(blogs))
 }
 
 // export const metadata: Metadata = {
