@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
-import { ProjectFrontmatter } from "@/types/frontmatters"
+import type { ProjectFrontmatter } from "@/types/frontmatters"
 import clsx from "clsx"
 import { UnstyledLink } from "../links/UnstyledLink.client"
 import { TechIcons, TechListType } from "../TechIcons.client"

@@ -6,12 +6,19 @@ import { Accent } from "@/components/elements/Accent"
 import { UnstyledLink } from "@/components/links/index.client"
 import { ButtonLink } from "@/components/links/ButtonLink"
 import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
+import { ProjectCard } from "@/components/cards/ProjectCard"
+import { Suspense } from "react"
 
 export default function Home() {
    return (
       <main>
          <HomeIntro />
-         <HomeBlogs />
+         <Suspense fallback={"loading"}>
+            <HomeBlogs />
+         </Suspense>
+         <Suspense fallback={"loading"}>
+            <HomeProjects />
+         </Suspense>
       </main>
    )
 }
@@ -133,6 +140,45 @@ const HomeBlogs = async () => {
                See more post
             </ButtonLink>
          </div>
+      </section>
+   )
+}
+
+const fetchRecentProjects = async () => {
+   const projects = await getAllFilesFrontmatter("projects")
+   const recentProjects = getRecent(projects)
+
+   return recentProjects
+}
+
+const HomeProjects = async () => {
+   const recentProjects = await fetchRecentProjects()
+
+   return (
+      <section className="py-20">
+         <article className="custom-container">
+            <h2 id="projects" className="text-2xl md:text-4xl">
+               <Accent>Recent Projects</Accent>
+            </h2>
+            <p className="mt-2 text-gray-600 dark:text-gray-300">
+               My most recent awesome projects.
+            </p>
+            <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+               {recentProjects.map((project, i) => (
+                  <ProjectCard
+                     key={project.slug}
+                     project={project}
+                  />
+               ))}
+            </ul>
+            <ButtonLink
+               className="mt-4"
+               href="/projects"
+               // Add tracking event
+            >
+               See more projects
+            </ButtonLink>
+         </article>
       </section>
    )
 }
