@@ -10,6 +10,7 @@ import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Suspense } from "react"
 import { attachContentMeta } from "@/lib/helpers"
 import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
+import { LibraryCard } from "@/components/cards/LibraryCard"
 
 export default function Home() {
    return (
@@ -20,6 +21,9 @@ export default function Home() {
          </Suspense>
          <Suspense fallback={"loading"}>
             <HomeProjects />
+         </Suspense>
+         <Suspense fallback={"loading"}>
+            <HomeLibrary />
          </Suspense>
       </main>
    )
@@ -198,7 +202,7 @@ const HomeLibrary = async () => {
 
    return (
       <section className="py-20">
-         <article className="layout">
+         <article className="custom-container">
             <h2 className="text-2xl md:text-4xl" id="library">
                <Accent>Libary of Code Snippets</Accent>
             </h2>
@@ -207,12 +211,12 @@ const HomeLibrary = async () => {
             </p>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                
-               {/* {recentLibrary.map((snippet, i) => (
+               {recentLibrary.map((snippet, i) => (
                   <LibraryCard
                      key={snippet.slug}
                      snippet={snippet}
                   />
-               ))} */}
+               ))}
             </ul>
             <ButtonLink
                className="mt-4"
