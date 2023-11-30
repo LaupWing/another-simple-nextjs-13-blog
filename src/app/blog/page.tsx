@@ -2,7 +2,7 @@ import { BlogsContainer } from "@/components/containers/BlogsContainer.client"
 import { Accent } from "@/components/elements/Accent"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 // import PostsSection from "./PostsSection"
-import { Metadata } from "next"
+// import { Metadata } from "next"
 // import seo from "@/lib/seo"
 
 const fetchBlogs = async () => {

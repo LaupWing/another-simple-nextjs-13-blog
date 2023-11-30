@@ -1,3 +1,5 @@
+import { ContentType } from "@/types/frontmatters"
+
 interface OpenGraphType {
    siteName: string
    description: string
@@ -38,4 +40,8 @@ export const getFromSessionStorage = (key: string) => {
       return sessionStorage.getItem(key)
    }
    return null
+}
+
+export const attachContentMeta = <T extends ContentType>(content: string) => {
+   
 }
