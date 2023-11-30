@@ -78,7 +78,7 @@
 }
 
 .hash-anchor:hover {
-   background-image: linear-gradient(to right, #F1E69A, #A79A5A);
+   background-image: linear-gradient(to right, rgb(var(--custom-blue)), rgb(var(--custom-green)));
    background-size: 100% 2px;
 }
 
@@ -87,7 +87,7 @@
    visibility: visible;
 }
 
-/* .hash-anchor:after {
-   @apply invisible absolute -right-5 top-[50%] -translate-y-1/2 text-lg text-accent-dark dark:text-accent-light;
+.hash-anchor:after {
+   @apply invisible absolute -right-5 top-[50%] -translate-y-1/2 text-lg text-custom-blue dark:text-custom-blue;
    content: "#";
-} */
+}
