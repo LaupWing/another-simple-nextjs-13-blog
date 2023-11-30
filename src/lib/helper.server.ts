@@ -1,4 +1,3 @@
-import type { ContentType, PickFrontmatter } from "@/types/frontmatters"
 import { createHash } from "crypto"
 import { z } from "zod"
 import { prisma_client } from "./prisma"

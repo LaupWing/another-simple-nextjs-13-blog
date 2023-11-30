@@ -8,6 +8,7 @@ import { ButtonLink } from "@/components/links/ButtonLink"
 import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Suspense } from "react"
+import { attachContentMeta } from "@/lib/helpers"
 
 export default function Home() {
    return (
@@ -107,7 +108,7 @@ const HomeIntro = () => {
 const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
    const recentBlogs = getRecent(blogs)
-
+   console.log(await attachContentMeta(recentBlogs))
    return recentBlogs
 }
 
@@ -147,7 +148,7 @@ const HomeBlogs = async () => {
 const fetchRecentProjects = async () => {
    const projects = await getAllFilesFrontmatter("projects")
    const recentProjects = getRecent(projects)
-
+   
    return recentProjects
 }
 

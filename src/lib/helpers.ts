@@ -45,11 +45,11 @@ export const getFromSessionStorage = (key: string) => {
 export const attachContentMeta = async <T extends ContentType>(frontmatter: Array<PickFrontmatter<T>>) => {
    return await Promise.all(
       frontmatter.map(async (frontmatter) => {
-         const content_meta = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)
-
+         const res = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)
+         const data = await res.json()
          return {
             ...frontmatter,
-            content_meta
+            data
          }
       })
    )
