@@ -80,7 +80,6 @@ export async function POST(req: Request) {
          include: {
             _count: {
                select: {
-                  Like: true,
                   View: true
                }
             }
@@ -88,7 +87,7 @@ export async function POST(req: Request) {
       })
       return NextResponse.json({
          content_views: content?._count.View ?? 0,
-         content_likes: content?._count.Like ?? 0
+         message: "View added"
       }, {
          status: 201
       })
