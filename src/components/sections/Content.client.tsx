@@ -1,8 +1,10 @@
 "use client"
+import type { FC } from "react"
+import type { BlogFrontmatter } from "@/types/frontmatters"
+
 // import { LikeButton } from "@/components/buttons/index.client"
 // import { TableContents } from "@/components/sections/TableContents"
-import { BlogFrontmatter } from "@/types/frontmatters"
-import { FC, useMemo } from "react"
+import { useMemo } from "react"
 import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { Accent } from "@/components/elements/Accent"
 import { CloudinaryImage } from "@/components/images/index.client"
