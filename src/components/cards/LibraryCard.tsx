@@ -26,16 +26,12 @@ export const LibraryCard:FC<LibraryCardProps> = ({
             <div className="p-4">
                <h4 className="text-gray-800 dark:text-gray-100">{snippet.title}</h4>
                <div className="mt-1 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-                  <Suspense fallback={
-                     <div className="flex items-center gap-1 animate-pulse">
-                        <div className="dark:bg-gradient-to-b dark:from-accent-light dark:to-accent-dark p-1">
-                           <ChadIcon className="inline-block text-base w-5" />
-                        </div>
-                        <Accent>--- likes</Accent>
-                     </div>
-                  }>
-                     <Likes slug={snippet.slug} />
-                  </Suspense>
+               <div className="flex items-center gap-1">
+                  <div className="dark:bg-gradient-to-b dark:from-accent-light dark:to-accent-dark p-1">
+                     <ChadIcon className="inline-block text-base w-5" />
+                  </div>
+                  <Accent>10 likes</Accent>
+               </div>
                   <span>•</span>
                   <TechIcons techs={snippet.tags.split(",") as Array<TechListType>} />
                </div>
@@ -49,7 +45,6 @@ export const LibraryCard:FC<LibraryCardProps> = ({
    )
 }
 
-{/* @ts-expect-error Server Component */}
 const Likes:FC<{
    slug: string
 }> = async ({
