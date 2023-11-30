@@ -6,7 +6,7 @@ export async function GET(req: Request) {
    try{
       const slug = extractSlug(req)
       const session_id = getSessionId(req)
-      const likeCount = await getUserLikeCount({ session_id, slug })
+      const likes_by_user = await getUserLikeCount({ session_id, slug })
       
       const content = await prisma_client.contentMeta.findFirst({
          where: {
@@ -22,7 +22,8 @@ export async function GET(req: Request) {
       })
 
       return NextResponse.json({
-         all_likes: content?._count.Like ?? 0
+         all_likes: content?._count.Like ?? 0,
+         likes_by_user: likes_by_user
       }, {
          status: 200
       })
@@ -47,9 +48,9 @@ export async function POST(req: Request) {
    try {
       const session_id = getSessionId(req)
       const slug = extractSlug(req)
-      const likeCount = await getUserLikeCount({ session_id, slug })
+      const likes_by_user = await getUserLikeCount({ session_id, slug })
       
-      if (likeCount >= 5) {
+      if (likes_by_user >= 5) {
          throw new Error("Max like count is 5")
       }
       const content = await prisma_client.contentMeta.upsert({
@@ -81,7 +82,7 @@ export async function POST(req: Request) {
       })
       return NextResponse.json({
          all_likes: content?._count.Like ?? 0,
-         likes_by_user: likeCount + 1,
+         likes_by_user: likes_by_user + 1,
          message: "Like added"
       }, {
          status: 201
