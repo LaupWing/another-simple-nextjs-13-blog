@@ -87,8 +87,8 @@ export async function POST(req: Request) {
          }
       })
       return NextResponse.json({
-         contentViews: content?._count.View ?? 0,
-         contentLikes: content?._count.Like ?? 0
+         content_views: content?._count.View ?? 0,
+         content_likes: content?._count.Like ?? 0
       }, {
          status: 201
       })

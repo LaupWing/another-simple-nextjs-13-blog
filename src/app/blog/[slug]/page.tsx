@@ -142,18 +142,20 @@ interface ViewsProps {
    slug: string
 }
 
-const Views:FC<ViewsProps> = async () => {
+const Views:FC<ViewsProps> = async ({ slug }) => {
    const fetcTest  = async () => {
       await new Promise(resolve => {
          setTimeout(() => {
             resolve(true)
          }, 1000)
-      }) 
-      return {
-         views: 1000
-      }
+      })
    }
    await fetcTest()
+   const res = await fetch("http://localhost:3000/api/content/" + slug, {
+      method: "POST"
+   })
+   const data = await res.json()
+   console.log(data)
 
    return (
       <Accent>1000</Accent>
