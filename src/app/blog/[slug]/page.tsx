@@ -65,10 +65,9 @@ const SingleBlogPage = async (props: PageProps) => {
          <Header
             frontmatter={frontmatter}
          />
-         {/* <Content2
+         <Content2
             code={code}
-            frontmatter={frontmatter}
-         /> */}
+         />
       </main>
    )
 }
