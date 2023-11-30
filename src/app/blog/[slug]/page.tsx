@@ -71,7 +71,7 @@ const SingleBlogPage = async (props: PageProps) => {
                code={code}
             />
             <aside className="py-4">
-               <div className="sticky top-36">
+               <div className="sticky top-24">
                   <TableContents
                      slug={frontmatter.slug}
                   />
