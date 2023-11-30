@@ -33,16 +33,15 @@ export async function POST(req: Request) {
          include: {
             _count: {
                select: {
-                  Like: true,
-                  View: true
+                  Like: true
                }
             }
          }
       })
       return NextResponse.json({
-         contentViews: content?._count.View ?? 0,
-         contentLikes: content?._count.Like ?? 0,
-         likesByUser: likeCount + 1
+         all_likes: content?._count.Like ?? 0,
+         likes_by_user: likeCount + 1,
+         message: "Like added"
       }, {
          status: 201
       })
