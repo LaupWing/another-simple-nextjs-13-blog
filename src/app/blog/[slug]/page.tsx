@@ -75,9 +75,12 @@ const SingleBlogPage = async (props: PageProps) => {
                   <TableContents
                      slug={frontmatter.slug}
                   />
-                  {/* <div className="flex items-center justify-center py-8">
-                     <LikeButton />
-                  </div> */}
+                  <div className="flex items-center justify-center py-8">
+                     <Suspense>
+
+                     </Suspense>
+                     {/* <LikeButton /> */}
+                  </div>
                </div>
             </aside>
          </section>
@@ -155,6 +158,30 @@ interface ViewsProps {
 }
 
 const Views:FC<ViewsProps> = async ({ slug }) => {
+   const fetcTest  = async () => {
+      await new Promise(resolve => {
+         setTimeout(() => {
+            resolve(true)
+         }, 1000)
+      })
+   }
+   await fetcTest()
+   const res = await fetch("http://localhost:3000/api/content/" + slug, {
+      method: "POST"
+   })
+   const data = await res.json()
+   console.log(data)
+
+   return (
+      <Accent>1000</Accent>
+   )
+}
+
+interface LikesProps {
+   slug: string
+}
+
+const Likes:FC<LikesProps> = async ({ slug }) => {
    const fetcTest  = async () => {
       await new Promise(resolve => {
          setTimeout(() => {
