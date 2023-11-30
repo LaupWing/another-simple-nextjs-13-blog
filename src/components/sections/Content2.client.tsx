@@ -3,7 +3,7 @@ import type { FC } from "react"
 
 import { useMemo } from "react"
 import { getMDXComponent } from "mdx-bundler/client"
-// import { MDXComponents } from "@/components/MDXComponents"
+import { MDXComponents } from "@/components/MDXComponents"
 
 interface ContentProps {
    code: string
@@ -13,7 +13,7 @@ export const Content2:FC<ContentProps> = ({
 }) => {
    const Component = useMemo(() => getMDXComponent(code), [code])
    // console.log(code)
-   console.log(Component)
+   console.log(MDXComponents)
    return (
       <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
             <article className="mdx mt-4 projects prose mx-auto w-full transition-colors dark:prose-invert">
