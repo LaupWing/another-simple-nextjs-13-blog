@@ -1,5 +1,5 @@
 "use client"
-import { usePathname } from "next/navigation"
+import { useSelectedLayoutSegment } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
 import { UnstyledLink } from "./links/index.client"
@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 export const Header:FC<HeaderProps> = () => {
    const [onTop, setOnTop] = useState<boolean>(false)
-   const pathname = usePathname()
+   const activeSegment = useSelectedLayoutSegment()
    
    useEffect(() => {
       const handleScroll = () => {
@@ -21,27 +21,32 @@ export const Header:FC<HeaderProps> = () => {
          window.removeEventListener("scroll", handleScroll)
       }
    }, [])
-
+   
    const links = [
       { 
          href: "/",
-         label: "Home"
+         label: "Home",
+         segement: null
       },
       { 
          href: "/blog",
-         label: "Blog"
+         label: "Blog",
+         segement: "blog"
       },
       { 
          href: "/projects",
-         label: "Projects"
+         label: "Projects",
+         segement: "projects"
       },
       { 
          href: "/library",
-         label: "Library"
+         label: "Library",
+         segement: "library"
       },
       { 
          href: "/about",
-         label: "About"
+         label: "About",
+         segement: "about"
          
       },
    ]
@@ -54,14 +59,14 @@ export const Header:FC<HeaderProps> = () => {
          <div className="gradient-animation w-full h-1.5 bg-red-400"/>
          <nav className="custom-container flex-1 flex items-center justify-between text-dark dark:text-light">
             <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
-               {links.map(({ href, label }) => (
+               {links.map(({ href, label, segement }) => (
                   <li className="pb-2" key={`${href}-${label}`}>
                      <UnstyledLink
                         href={href}
                      >
                         {label}
                      </UnstyledLink>
-                     {pathname === href  
+                     {activeSegment === segement  
                         ? <div className="h-[3px] gradient-animation-slow w-full shadow" /> 
                         : <div className="h-[3px]" />}
                   </li>
