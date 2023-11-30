@@ -1,7 +1,6 @@
 import { 
    extractSlug, 
-   getSessionId, 
-   getUserLikeCount 
+   getSessionId
 } from "@/lib/helper.server"
 import { prisma_client } from "@/lib/prisma"
 import { NextResponse } from "next/server"
@@ -10,11 +9,7 @@ import { NextResponse } from "next/server"
 export async function GET(req: Request) {
    try{
       const slug = extractSlug(req)
-      const session_id = getSessionId(req)
-      const likesByUser = await getUserLikeCount({
-         session_id: session_id,
-         slug: slug
-      })
+      
       const content = await prisma_client.contentMeta.findFirst({
          where: {
             slug: slug
@@ -22,22 +17,18 @@ export async function GET(req: Request) {
          include: {
             _count: {
                select: {
-                  View: true,
-                  Like: true
+                  View: true
                }
             }
          }
       })
 
       return NextResponse.json({
-         contentViews: content?._count.View ?? 0,
-         contentLikes: content?._count.Like ?? 0,
-         likesByUser: likesByUser
+         contentViews: content?._count.View ?? 0
       }, {
          status: 200
       })
    } catch(e: unknown){
-      console.log(e)
       if (e instanceof Error) {
          return NextResponse.json({
             message: e.message ?? "Internal Server Error"
