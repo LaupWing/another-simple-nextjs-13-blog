@@ -1,5 +1,4 @@
-
-import { ContentSection } from "@/components/sections/index.client"
+import { Content } from "@/components/sections/index.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
 // import ContentSection from "../../components/blog/ContentSection.client"
@@ -56,7 +55,7 @@ const SingleBlogPage = async (props: PageProps) => {
 
    return (
       <main>
-         <ContentSection
+         <Content
             code={code}
             frontmatter={frontmatter}
          />

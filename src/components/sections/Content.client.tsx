@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import type { FC } from "react"
 import type { BlogFrontmatter } from "@/types/frontmatters"
 
@@ -14,16 +14,17 @@ import { getMDXComponent } from "mdx-bundler/client"
 import { MDXComponents } from "@/components/MDXComponents"
 // import useContentMeta from "@/hooks/useContentMeta"
 
-interface ContentSectionProps {
+interface ContentProps {
    frontmatter: BlogFrontmatter
    code: string
 }
 
-export const ContentSection:FC<ContentSectionProps> = ({
+export const Content:FC<ContentProps> = ({
    code,
    frontmatter
 }) => {
    const Component = useMemo(() => getMDXComponent(code), [code])
+   return <div>test</div>
 
    return (
       <section className="layout">

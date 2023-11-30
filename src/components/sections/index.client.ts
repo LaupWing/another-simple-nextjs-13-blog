@@ -1,2 +1,2 @@
 export { CustomCode } from "./CustomCode.client"
-export { ContentSection } from "./Content.client"
+export { Content } from "./Content.client"
