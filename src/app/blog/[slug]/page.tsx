@@ -3,11 +3,9 @@ import { Accent } from "@/components/elements"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { UnstyledLink } from "@/components/links/UnstyledLink.client"
 import { Content } from "@/components/sections/index.client"
-// import { Content } from "@/components/sections/index.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
 import { format } from "date-fns"
-// import ContentSection from "../../components/blog/ContentSection.client"
 import { Metadata } from "next"
 import { FC, Suspense } from "react"
 // import seo from "@/lib/seo"
@@ -64,6 +62,7 @@ const SingleBlogPage = async (props: PageProps) => {
       <main className="custom-container">
          <Header
             frontmatter={frontmatter}
+            slug={props.params.slug}
          />
          <hr className="dark:border-gray-600" />
          <Content
@@ -78,10 +77,12 @@ export default SingleBlogPage
 
 interface HeaderProps {
    frontmatter: BlogFrontmatter
+   slug: string
 }
 
 const Header:FC<HeaderProps> = async ({
-   frontmatter
+   frontmatter,
+   slug
 }) => {
    const COMMIT_HISTORY_LINK = `https://github.com/LaupWing/tech-blog/commits/main/src/contents/blog/${frontmatter.slug}.mdx`
    
@@ -127,7 +128,9 @@ const Header:FC<HeaderProps> = async ({
             <div className="flex items-center gap-1">
                <IconEye className="text-base inline-block" />
                <Suspense fallback={<Accent className="animate-pulse"> --- views</Accent>}>
-                  <Views />
+                  <Views 
+                     slug={slug} 
+                  />
                </Suspense>
             </div>
          </div>
@@ -135,7 +138,11 @@ const Header:FC<HeaderProps> = async ({
    )
 }
 
-const Views = async () => {
+interface ViewsProps {
+   slug: string
+}
+
+const Views:FC<ViewsProps> = async () => {
    const fetcTest  = async () => {
       await new Promise(resolve => {
          setTimeout(() => {
