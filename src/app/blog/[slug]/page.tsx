@@ -9,7 +9,7 @@ import { BlogFrontmatter } from "@/types/frontmatters"
 import { format } from "date-fns"
 // import ContentSection from "../../components/blog/ContentSection.client"
 import { Metadata } from "next"
-import { FC } from "react"
+import { FC, Suspense } from "react"
 // import seo from "@/lib/seo"
 
 export const dynamicParams = false
@@ -79,13 +79,24 @@ interface HeaderProps {
    frontmatter: BlogFrontmatter
 }
 
-const Header:FC<HeaderProps> = ({
+const Header:FC<HeaderProps> = async ({
    frontmatter
 }) => {
    const COMMIT_HISTORY_LINK = `https://github.com/LaupWing/tech-blog/commits/main/src/contents/blog/${frontmatter.slug}.mdx`
    // const meta = useContentMeta(frontmatter.slug, {
    //    runIncrement: true
    // })
+   const fetcTest  = async () => {
+      await new Promise(resolve => {
+         setTimeout(() => {
+            resolve(true)
+         }, 100000000)
+      }) 
+      return {
+         views: 1000
+      }
+   }
+   const meta = await fetcTest()
    
    return (
       <header className="pb-4">
@@ -128,11 +139,9 @@ const Header:FC<HeaderProps> = ({
             </div>
             <div className="flex items-center gap-1">
                <IconEye className="text-base inline-block" />
-               {/* {meta.isLoading ? (
-                  <Accent className="animate-pulse"> --- views</Accent>
-               ) :( 
-                  <Accent>{meta.views} views</Accent>
-               )} */}
+               <Suspense fallback={<Accent className="animate-pulse"> --- views</Accent>}>
+                  {/* <Accent>{{ meta!.views }}</Accent> */}
+               </Suspense>
             </div>
          </div>
       </header>
