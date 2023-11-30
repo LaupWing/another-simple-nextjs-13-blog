@@ -2,6 +2,7 @@
 import { useState, type FC } from "react"
 import clsx from "clsx"
 import { CHAD_PATH } from "@/lib/svg"
+import { useParams, useRouter } from "next/navigation"
 
 interface LikeButtonProps {
    likes_by_user: number
@@ -14,12 +15,21 @@ export const LikeButton:FC<LikeButtonProps> = ({
 }) => {
    const [_likes_by_user, setLikesByUser] = useState(likes_by_user)
    const [_all_likes, setAllLikes] = useState(all_likes)
-
-   const addLike = () => {
-      setLikesByUser(_likes_by_user + 1)
-      setAllLikes(_all_likes + 1)
+   const params = useParams()
+   console.log(_likes_by_user, _all_likes)
+   const addLike = async () => {
+      try {
+         const res = await fetch("http://localhost:3000/api/like/" + params.blog, {
+            method: "POST"
+         })
+         const data = await res.json()
+         console.log(data)
+         setLikesByUser(_likes_by_user + 1)
+         setAllLikes(_all_likes + 1)
+      } catch (err) {
+         alert(err)
+      }
    }
-   console.log(_likes_by_user)
 
    return (
       <div className="flex items-center space-x-4">

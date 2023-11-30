@@ -187,7 +187,7 @@ const Likes:FC<LikesProps> = async ({ slug }) => {
       await new Promise(resolve => {
          setTimeout(() => {
             resolve(true)
-         }, 10000)
+         }, 1000)
       })
    }
    await fetcTest()
@@ -195,7 +195,7 @@ const Likes:FC<LikesProps> = async ({ slug }) => {
       method: "GET"
    })
    const data = await res.json()
-
+   console.log(data)
    return (
       <LikeButton 
          all_likes={data.all_likes}
