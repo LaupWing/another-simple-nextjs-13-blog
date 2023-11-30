@@ -16,8 +16,7 @@ export const Content:FC<ContentProps> = ({
    frontmatter
 }) => {
    const Component = useMemo(() => getMDXComponent(code), [code])
-   // console.log(code)
-   console.log(MDXComponents)
+   
    return (
       <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto,250px] lg:gap-8">
          <article className="mdx mt-4 projects prose mx-auto w-full transition-colors dark:prose-invert">
