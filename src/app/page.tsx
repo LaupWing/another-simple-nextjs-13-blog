@@ -110,18 +110,7 @@ const fetchRecentBlogs = async () : Promise<Array<BlogFrontmatter & InjectedMeta
    const blogs = await getAllFilesFrontmatter("blog")
    const recent_blogs = getRecent(blogs)
    
-   return await Promise.all(
-      recent_blogs.map(async (frontmatter) => {
-         const res = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)
-         const data = await res.json()
-         
-         return {
-            ...frontmatter,
-            views: data.content_views,
-            likes: data.content_likes
-         }
-      })
-   )
+   return (await attachContentMeta<"blog">(recent_blogs))
 }
 
 
