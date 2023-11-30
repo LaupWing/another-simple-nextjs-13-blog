@@ -1,5 +1,6 @@
 import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { LikeButton } from "@/components/buttons/LikeButton"
+import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Accent } from "@/components/elements"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { UnstyledLink } from "@/components/links/UnstyledLink.client"
@@ -78,7 +79,7 @@ const SingleBlogPage = async (props: PageProps) => {
                      slug={frontmatter.slug}
                   />
                   <div className="flex items-center justify-center py-8">
-                     <Suspense>
+                     <Suspense fallback={<LikeButtonLoading />}>
                         <Likes slug={frontmatter.slug} />
                      </Suspense>
                      
@@ -172,7 +173,6 @@ const Views:FC<ViewsProps> = async ({ slug }) => {
       method: "POST"
    })
    const data = await res.json()
-   // console.log(data)
 
    return (
       <Accent>{data.content_views}</Accent>
@@ -188,7 +188,7 @@ const Likes:FC<LikesProps> = async ({ slug }) => {
       await new Promise(resolve => {
          setTimeout(() => {
             resolve(true)
-         }, 1000)
+         }, 10000)
       })
    }
    await fetcTest()
