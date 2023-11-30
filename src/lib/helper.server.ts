@@ -12,6 +12,7 @@ export const getSessionId = (req: Request) => {
 } 
 
 export const extractSlug = (req: Request) => {
+   console.log(req.url)
    const splitted = req.url.split("/")
    const available_endpoints = ["content", "like", "view"]
 

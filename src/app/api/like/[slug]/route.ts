@@ -49,6 +49,7 @@ export async function POST(req: Request) {
    try {
       const session_id = getSessionId(req)
       const slug = extractSlug(req)
+      
       const likes_by_user = await getUserLikeCount({ session_id, slug })
       
       if (likes_by_user >= 5) {
