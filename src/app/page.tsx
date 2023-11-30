@@ -107,15 +107,15 @@ const HomeIntro = () => {
 
 const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
-   const recentBlogs = getRecent(blogs)
-   console.log(await attachContentMeta(recentBlogs))
-   return recentBlogs
+   const recent_blogs = getRecent(blogs)
+   console.log(await attachContentMeta(recent_blogs))
+   return recent_blogs
 }
 
 
 const HomeBlogs = async () => {
-   const recentBlogs = await fetchRecentBlogs()
-   console.log(recentBlogs)
+   const recent_blogs = await fetchRecentBlogs()
+   console.log(recent_blogs)
    return (
       <section className="py-20">
          <div className="custom-container">
@@ -126,7 +126,7 @@ const HomeBlogs = async () => {
                <Accent>Recent Blog Posts</Accent>
             </h2>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-               {recentBlogs.map((post, i) => (
+               {recent_blogs.map((post, i) => (
                   <BlogCard
                      key={post.slug}
                      post={post}
@@ -147,13 +147,13 @@ const HomeBlogs = async () => {
 
 const fetchRecentProjects = async () => {
    const projects = await getAllFilesFrontmatter("projects")
-   const recentProjects = getRecent(projects)
+   const recent_projects = getRecent(projects)
    
-   return recentProjects
+   return recent_projects
 }
 
 const HomeProjects = async () => {
-   const recentProjects = await fetchRecentProjects()
+   const recent_projects = await fetchRecentProjects()
 
    return (
       <section className="py-20">
@@ -165,7 +165,7 @@ const HomeProjects = async () => {
                My most recent awesome projects.
             </p>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-               {recentProjects.map((project, i) => (
+               {recent_projects.map((project) => (
                   <ProjectCard
                      key={project.slug}
                      project={project}
