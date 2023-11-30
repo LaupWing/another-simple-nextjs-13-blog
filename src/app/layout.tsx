@@ -2,9 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import NextTopLoader from "nextjs-toploader"
 import { Header } from "@/components/Header"
-import { ToastContainer } from "react-toastify"
 
-import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
@@ -26,7 +24,6 @@ export default function RootLayout({
       <html 
          lang="en"
       >
-         <ToastContainer />
          <body className={`${inter.className} dark:bg-dark`}>
             <Header />
             <NextTopLoader />
