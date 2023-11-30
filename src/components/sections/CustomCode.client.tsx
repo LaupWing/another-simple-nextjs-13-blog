@@ -3,6 +3,7 @@ import useCopyToClipboard from "@/hooks/useCopyToClipboard"
 import type { ComponentPropsWithoutRef, FC } from "react"
 import { useRef, useState } from "react"
 import { IconCheckCircle, IconClipboard } from "../Icons"
+import { toast } from "react-toastify"
 
 interface CustomCodeProps extends ComponentPropsWithoutRef<"code">{}
 
@@ -41,6 +42,16 @@ export const CustomCode:FC<CustomCodeProps> = ({
                   copy(textRef?.current?.textContent ?? "").then(() => {
                      setIsCopied(true)
                      setTimeout(() => setIsCopied(false), 1500)
+                     toast.success("Copied code!", {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                     })
                   })
                }}
                className="absolute right-2 top-2 hidden rounded border border-gray-600 p-2 text-lg transition-colors hover:bg-gray-700 md:block"
