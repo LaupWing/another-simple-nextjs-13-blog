@@ -8,7 +8,7 @@ import { MDXComponents } from "@/components/MDXComponents"
 interface ContentProps {
    code: string
 }
-export const Content2:FC<ContentProps> = ({
+export const Content:FC<ContentProps> = ({
    code
 }) => {
    const Component = useMemo(() => getMDXComponent(code), [code])

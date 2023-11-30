@@ -2,7 +2,7 @@ import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { Accent } from "@/components/elements"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { UnstyledLink } from "@/components/links/UnstyledLink.client"
-import { Content2 } from "@/components/sections/index.client"
+import { Content } from "@/components/sections/index.client"
 // import { Content } from "@/components/sections/index.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
@@ -65,7 +65,7 @@ const SingleBlogPage = async (props: PageProps) => {
          <Header
             frontmatter={frontmatter}
          />
-         <Content2
+         <Content
             code={code}
          />
       </main>
