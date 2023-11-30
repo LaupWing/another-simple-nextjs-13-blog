@@ -23,7 +23,7 @@ export const ProjectCard:FC<ProjectCardProps> = ({
             href={`/projects/${project.slug}`}
             className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-accent-light"
          >
-            <h4>{project.title}</h4>
+            <h4 className="dark:text-white">{project.title}</h4>
             <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">
                {project.description}
             </p>
@@ -37,7 +37,7 @@ export const ProjectCard:FC<ProjectCardProps> = ({
                width={1440}
                height={792}
             />
-            <p className="animated-underline mt-2 inline-block font-medium">
+            <p className="animated-underline dark:text-white mt-2 inline-block font-medium">
                See more →
             </p>
          </UnstyledLink>
