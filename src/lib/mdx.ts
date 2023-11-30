@@ -74,3 +74,7 @@ export function getRecent<T extends Frontmatter>(contents: Array<T>, limit = 4){
    
    return sorted_contents.slice(0, limit)
 }
+
+export async function getFiles(type: ContentType) {
+   return readdirSync(join(process.cwd(), "src", "contents", type))
+}
