@@ -1,15 +1,19 @@
 "use client"
 import type { FC } from "react"
 
+import type { BlogFrontmatter } from "@/types/frontmatters"
 import { useMemo } from "react"
 import { getMDXComponent } from "mdx-bundler/client"
 import { MDXComponents } from "@/components/MDXComponents"
+import { TableContents } from "./TableContents.client"
 
 interface ContentProps {
    code: string
+   frontmatter: BlogFrontmatter
 }
 export const Content:FC<ContentProps> = ({
-   code
+   code,
+   frontmatter
 }) => {
    const Component = useMemo(() => getMDXComponent(code), [code])
    // console.log(code)
@@ -25,16 +29,16 @@ export const Content:FC<ContentProps> = ({
                }
             />
          </article>
-         {/* <aside className="py-4">
+         <aside className="py-4">
             <div className="sticky top-36">
                <TableContents 
                   slug={frontmatter.slug}
                />
-               <div className="flex items-center justify-center py-8">
+               {/* <div className="flex items-center justify-center py-8">
                   <LikeButton />
-               </div>
+               </div> */}
             </div>
-         </aside> */}
+         </aside>
       </section>
    )
 }
