@@ -74,7 +74,7 @@ export const BlogsContainer:FC<BlogsContainerProps> = ({
       <>
          <input 
             type="text" 
-            className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light mt-4"
+            className="w-full dark:text-white rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent focus:outline-none focus:ring-0 dark:focus:border-accent-light mt-4"
             placeholder="Search..."
             value={search}
             onChange={handleSearch}
