@@ -211,7 +211,7 @@ const HomeLibrary = async () => {
             </p>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                
-               {recentLibrary.map((snippet, i) => (
+               {recentLibrary.map((snippet) => (
                   <LibraryCard
                      key={snippet.slug}
                      snippet={snippet}

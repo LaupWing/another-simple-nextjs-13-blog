@@ -27,7 +27,7 @@ export const LibraryCard:FC<LibraryCardProps> = ({
                <h4 className="text-gray-800 dark:text-gray-100">{snippet.title}</h4>
                <div className="mt-1 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
                <div className="flex items-center gap-1">
-                  <div className="dark:bg-gradient-to-b dark:from-accent-light dark:to-accent-dark p-1">
+                  <div className="dark:gradient-animation-slow p-1">
                      <ChadIcon className="inline-block text-base w-5" />
                   </div>
                   <Accent>10 likes</Accent>
