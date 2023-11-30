@@ -30,7 +30,7 @@ export const CustomCode:FC<CustomCodeProps> = ({
          )}
          {language && (
             <div className="absolute left-6 top-0 rounded-b-md border border-t-0 border-gray-600 px-3 py-1">
-               <span className="select-none bg-gradient-to-tr from-accent-light to-accent-dark bg-clip-text font-medium text-transparent">
+               <span className="select-none gradient-animation bg-clip-text font-medium text-transparent">
                   {language}
                </span>
             </div>
