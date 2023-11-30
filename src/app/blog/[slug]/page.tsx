@@ -138,7 +138,7 @@ const Views = async () => {
       await new Promise(resolve => {
          setTimeout(() => {
             resolve(true)
-         }, 10000)
+         }, 1000)
       }) 
       return {
          views: 1000

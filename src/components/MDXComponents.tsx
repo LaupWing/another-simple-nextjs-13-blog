@@ -1,6 +1,6 @@
 import { CustomLink } from "./links"
-// import Image from "next/image"
-// import { CloudinaryImage } from "./images/index.client"
+import Image from "next/image"
+import { CloudinaryImage } from "./images/index.client"
 // import { CustomCode } from "./sections/index.client"
 // import LiteYouTubeEmbed from "react-lite-youtube-embed"
 // import { 
@@ -15,8 +15,8 @@ import { CustomLink } from "./links"
 
 export const MDXComponents = {
    a: CustomLink,
-   // Image,
-   // Cloudinary: CloudinaryImage,
+   Image,
+   Cloudinary: CloudinaryImage,
    // code: CustomCode,
    // pre: Pre,
    // LiteYouTubeEmbed,
