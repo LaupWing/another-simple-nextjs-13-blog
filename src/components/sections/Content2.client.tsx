@@ -17,13 +17,13 @@ export const Content2:FC<ContentProps> = ({
    return (
       <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
             <article className="mdx mt-4 projects prose mx-auto w-full transition-colors dark:prose-invert">
-               {/* <Component
+               <Component
                   components={
                      {
                         ...MDXComponents
                      } as any
                   }
-               /> */}
+               />
             </article>
             {/* <aside className="py-4">
                <div className="sticky top-36">

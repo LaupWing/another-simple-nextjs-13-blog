@@ -16,7 +16,7 @@ import { GithubCard } from "./cards/index.client"
 export const MDXComponents = {
    a: CustomLink,
    Image,
-   Cloudinary: CloudinaryImage,
+   CloudinaryImage: CloudinaryImage,
    code: CustomCode,
    pre: Pre,
    LiteYouTubeEmbed,
