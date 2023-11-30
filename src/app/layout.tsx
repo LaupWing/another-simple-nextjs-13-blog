@@ -3,9 +3,9 @@ import { Inter } from "next/font/google"
 import NextTopLoader from "nextjs-toploader"
 import { Header } from "@/components/Header"
 
+import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
-import "@/styles/globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
