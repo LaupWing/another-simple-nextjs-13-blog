@@ -196,12 +196,11 @@ const Likes:FC<LikesProps> = async ({ slug }) => {
       method: "GET"
    })
    const data = await res.json()
-   console.log(data)
 
    return (
       <LikeButton 
-         all_likes={10}
-         likes_by_user={2}
+         all_likes={data.all_likes}
+         likes_by_user={data.likes_by_user}
       />
    )
 }
