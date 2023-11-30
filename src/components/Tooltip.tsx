@@ -1,5 +1,5 @@
+import type { ComponentPropsWithoutRef, ReactNode, FC } from "react"
 import { TooltipProps, Tooltip as TippyTooltip } from "react-tippy"
-import { ComponentPropsWithoutRef, ReactNode, FC } from "react"
 import clsx from "clsx"
 
 type TooltipTextProps = {

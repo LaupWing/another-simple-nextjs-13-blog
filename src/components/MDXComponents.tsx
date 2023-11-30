@@ -4,6 +4,7 @@ import { CloudinaryImage } from "./images/index.client"
 import { CustomCode } from "./sections/index.client"
 import LiteYouTubeEmbed from "react-lite-youtube-embed"
 import { Pre, Split, SplitImage } from "./sections"
+import { TechIcons } from "./TechIcons.client"
 
 
 export const MDXComponents = {
@@ -14,5 +15,7 @@ export const MDXComponents = {
    pre: Pre,
    LiteYouTubeEmbed,
    Split,
-   SplitImage
+   SplitImage,
+   TechIcons,
+   
 }
