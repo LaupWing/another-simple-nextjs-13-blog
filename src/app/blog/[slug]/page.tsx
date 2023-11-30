@@ -5,6 +5,7 @@ import { UnstyledLink } from "@/components/links/UnstyledLink.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { Content } from "@/components/sections/index.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
+import { CHAD_PATH } from "@/lib/svg"
 import { BlogFrontmatter } from "@/types/frontmatters"
 import { format } from "date-fns"
 import { Metadata } from "next"
@@ -79,6 +80,17 @@ const SingleBlogPage = async (props: PageProps) => {
                      <Suspense>
 
                      </Suspense>
+                     <div className="animate-pulse flex items-center space-x-4">
+                        <svg
+                           viewBox="0 0 231.18 354.53"
+                           className="text-gray-500 fill-current w-14"
+                        >
+                           <path d={CHAD_PATH} />
+                        </svg>
+                        <div className="text-gray-400 dark:text-gray-500 mt-1 text-lg font-medium">
+                           <span>...</span>
+                        </div>
+                     </div>
                      {/* <LikeButton /> */}
                   </div>
                </div>
