@@ -146,7 +146,6 @@ const Hero:FC<HeroProps> = async ({
                <Accent>{frontmatter.readingTime.text}</Accent>
             </div>
             <div className="flex items-center gap-1">
-               <IconEye className="text-base inline-block" />
                <Suspense fallback={<Accent className="animate-pulse"> --- views</Accent>}>
                   <Views 
                      slug={slug} 
