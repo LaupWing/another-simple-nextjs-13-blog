@@ -1,3 +1,4 @@
+"use client"
 import type { FC } from "react"
 
 import { LikeButton } from "../buttons/LikeButton"
@@ -9,7 +10,7 @@ interface LikesProps {
    slug: string
 }
 
-export const Likes:FC<LikesProps> = async ({ slug }) => {
+export const Likes:FC<LikesProps> = ({ slug }) => {
    const [data, setData] = useState({
       all_likes: 0,
       likes_by_user: 0

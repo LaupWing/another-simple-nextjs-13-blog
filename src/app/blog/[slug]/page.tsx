@@ -1,7 +1,7 @@
 import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Accent } from "@/components/elements"
-import { Likes } from "@/components/elements/Likes"
+import { Likes } from "@/components/elements/Likes.client"
 import { Views } from "@/components/elements/Views.client"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { UnstyledLink } from "@/components/links/UnstyledLink.client"
@@ -81,12 +81,9 @@ const SingleBlogPage = async (props: PageProps) => {
                      slug={frontmatter.slug}
                   />
                   <div className="flex items-center justify-center py-8">
-                     <Suspense fallback={<LikeButtonLoading />}>
-                        <Likes 
-                           slug={frontmatter.slug} 
-                        />
-                     </Suspense>
-                     
+                     <Likes 
+                        slug={frontmatter.slug}
+                     />
                   </div>
                </div>
             </aside>
