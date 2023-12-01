@@ -1,8 +1,9 @@
 import { IconEye, IconGithub, IconLink } from "@/components/Icons"
-import { CloudinaryImage } from "@/components/images"
+import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { CustomLink } from "@/components/links/CustomLink"
-import Content from "./Content"
-import { TableContents } from "@/components/sections/TableContents"
+import { Content } from "@/components/sections/Content.client"
+
+import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { ProjectFrontmatter } from "@/types/frontmatters"
 
@@ -27,7 +28,7 @@ const SingleProjectPage = async (props: PageProps) => {
    return (
       <section className="layout">
          <CloudinaryImage
-            publicId="samples/bike"
+            public_id="samples/bike"
             alt="Bike"
             width={1440}
             height={792}
