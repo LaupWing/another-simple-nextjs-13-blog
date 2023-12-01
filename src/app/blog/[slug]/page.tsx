@@ -55,6 +55,8 @@ interface PageProps {
    }
 }
 
+export const revalidate = 0
+
 const SingleBlogPage = async (props: PageProps) => {
    const post = await fetchPost(props.params.slug)
    const {

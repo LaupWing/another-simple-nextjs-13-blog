@@ -14,7 +14,7 @@ export const Likes:FC<LikesProps> = async ({ slug }) => {
    })
    const data = await res.json()
    console.log(`${process.env.NEXT_PUBLIC_API_URL}/api/like/${slug}` )
-   
+   console.log(data)
    return (
       <LikeButton
          all_likes={data.all_likes}
