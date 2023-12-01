@@ -25,7 +25,7 @@ export async function GET(request: Request) {
    const templateTitle = searchParams.get("templateTitle")
    const logoWidth = searchParams.get("logoWidth")
    const logoHeight = searchParams.get("logoHeight")
- 
+
    const query = {
       siteName: siteName ?? "Site Name",
       description: description ?? "Description",
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
       logo: logo ?? `${process.env.SITE_URL}/images/logo.png`,
       templateTitle,
       logoWidth: logoWidth ? +logoWidth : 100,
-      logoHeight: logoHeight ? +logoHeight : 100 
+      logoHeight: logoHeight ? +logoHeight : 100
    }
 
    return new ImageResponse(
@@ -52,13 +52,13 @@ export async function GET(request: Request) {
                backgroundColor: clsx(query.theme === "dark" ? "#222" : "#fff")
             }}
          >
-            <img 
+            <img
                style={{
                   width: query.logoWidth,
                   ...(query.logoHeight && { height: query.logoHeight })
                }}
-               src={query.logo} 
-               alt="Favicon" 
+               src={query.logo}
+               alt="Favicon"
             />
             {query.templateTitle ? (
                <div
@@ -95,8 +95,8 @@ export async function GET(request: Request) {
                   >
                      {query.siteName}
                   </h3>
-               </div>   
-            ): (
+               </div>
+            ) : (
                <h1
                   tw={clsx(
                      "mt-6 text-6xl font-bold",
@@ -119,7 +119,7 @@ export async function GET(request: Request) {
             <p
                tw={clsx(
                   "text-3xl",
-                  query.theme === "dark" ? "text-gray-300" : "text-gray-800" 
+                  query.theme === "dark" ? "text-gray-300" : "text-gray-800"
                )}
             >
                {query.description}
