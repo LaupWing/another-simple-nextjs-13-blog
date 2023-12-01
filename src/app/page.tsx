@@ -108,6 +108,8 @@ const HomeIntro = () => {
    )
 }
 
+export const revalidate = 10
+
 const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
    const recent_blogs = getRecent(blogs)
