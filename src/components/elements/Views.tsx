@@ -1,19 +1,13 @@
 import type { FC } from "react"
 import { IconEye } from "../Icons"
+import { fakeAwait } from "@/lib/helpers"
 
 interface ViewsProps {
    slug: string
 }
 
 export const Views:FC<ViewsProps> = async ({ slug }) => {
-   const fetcTest  = async () => {
-      await new Promise(resolve => {
-         setTimeout(() => {
-            resolve(true)
-         }, 10000)
-      })
-   }
-   await fetcTest()
+   await fakeAwait()
    const res = await fetch(`${process.env.API_URL}/api/view/${slug}`, {
       method: "POST"
    })
