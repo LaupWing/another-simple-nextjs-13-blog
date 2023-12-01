@@ -1,8 +1,8 @@
 import { Accent } from "@/components/elements/Accent"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
-import PostsSection from "./PostsSection"
-import { Metadata } from "next"
-import seo from "@/lib/seo"
+// import PostsSection from "./PostsSection"
+// import { Metadata } from "next"
+// import seo from "@/lib/seo"
 
 const fetchLibrary = async () => {
    const library = await getAllFilesFrontmatter("library")
@@ -10,13 +10,13 @@ const fetchLibrary = async () => {
    return library
 }
 
-export const metadata: Metadata = {
-   ...seo({
-      asPath: "library",
-      title: "Library Page",
-      description: "Here's a collection of code snippets from various technologies that I have used before. Feel free to make use of them!"
-   })
-}
+// export const metadata: Metadata = {
+//    ...seo({
+//       asPath: "library",
+//       title: "Library Page",
+//       description: "Here's a collection of code snippets from various technologies that I have used before. Feel free to make use of them!"
+//    })
+// }
 
 const Library = async () => {
    const posts = await fetchLibrary()
@@ -27,9 +27,9 @@ const Library = async () => {
             <Accent>Library</Accent>
          </h1>
          <p className="mt-2 text-gray-600 dark:text-gray-300">Here's a collection of code snippets from various technologies that I have used before. Feel free to make use of them!</p>
-         <PostsSection 
+         {/* <PostsSection 
             posts={posts}
-         />
+         /> */}
       </section>
    )
 }
