@@ -63,7 +63,7 @@ const SingleBlogPage = async (props: PageProps) => {
 
    return (
       <main className="custom-container">
-         <Header
+         <Hero
             frontmatter={frontmatter}
             slug={props.params.slug}
          />
@@ -97,14 +97,14 @@ interface HeaderProps {
    slug: string
 }
 
-const Header:FC<HeaderProps> = async ({
+const Hero:FC<HeaderProps> = async ({
    frontmatter,
    slug
 }) => {
    const COMMIT_HISTORY_LINK = `https://github.com/LaupWing/tech-blog/commits/main/src/contents/blog/${frontmatter.slug}.mdx`
    
    return (
-      <header className="pb-4">
+      <div className="pb-4">
          <CloudinaryImage
             public_id="samples/bike"
             alt="Bike"
@@ -151,7 +151,7 @@ const Header:FC<HeaderProps> = async ({
                </Suspense>
             </div>
          </div>
-      </header>
+      </div>
    )
 }
 
