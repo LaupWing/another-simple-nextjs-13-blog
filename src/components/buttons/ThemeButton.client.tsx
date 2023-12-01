@@ -1,5 +1,7 @@
+"use client"
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { useTheme } from "next-themes"
 
 const spring = {
    type: "spring",
@@ -8,9 +10,12 @@ const spring = {
 }
 
 export const ThemeButton = () => {
-   const [isOn, setIsOn] = useState(false)
-
-   const toggleSwitch = () => setIsOn(!isOn)
+   const { theme, setTheme } = useTheme()
+   const [isOn, setIsOn] = useState(theme === "dark" ? false : true)
+   const toggleSwitch = () => {
+      setTheme(theme === "dark" ? "light" : "dark")
+      setIsOn(!isOn)
+   }
    
    return (
       <button  

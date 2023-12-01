@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer"
 import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
+import { Providers } from "@/providers/Providers"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,14 +24,17 @@ export default function RootLayout({
    return (
       <html 
          lang="en"
+         suppressHydrationWarning
       >
          <body className={`${inter.className} dark:bg-dark`}>
-            <Header />
-            <NextTopLoader />
-            <div id="skip-nav">
-               {children}
-            </div>
-            <Footer />
+            <Providers>
+               <Header />
+               <NextTopLoader />
+               <div id="skip-nav">
+                  {children}
+               </div>
+               <Footer />
+            </Providers>
          </body>
       </html>
    )
