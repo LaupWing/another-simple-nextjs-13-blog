@@ -6,6 +6,7 @@ import { TechIcons } from "@/components/TechIcons.client"
 import { Accent } from "@/components/elements"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { LibraryFrontmatter } from "@/types/frontmatters"
+import { Views } from "@/components/elements/Views"
 // import ContentSection from "../../components/library/ContentSection.client"
 // import { Metadata } from "next"
 // import seo from "@/lib/seo"
@@ -72,14 +73,9 @@ const Hero:FC<HeroProps> = ({ frontmatter }) => {
             {frontmatter.description}
          </p>
          <div className="mt-2 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <div className="flex items-center gap-1">
-               <IconEye className="inline-block text-base" />
-               {meta.isLoading ? (
-                  <Accent className="animate-pulse"> --- views</Accent>
-               ) :( 
-                  <Accent>{meta.views} views</Accent>
-               )}
-            </div>
+            <Views 
+               slug={frontmatter.slug}
+            />
             <span>•</span>
             <TechIcons
                techs={frontmatter.tags.split(",") as Array<TechListType>}
