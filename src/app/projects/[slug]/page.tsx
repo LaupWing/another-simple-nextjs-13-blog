@@ -11,6 +11,7 @@ import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { Suspense } from "react"
 import { Views } from "@/components/elements/Views"
+import { ViewsLoading } from "@/components/elements/ViewsLoading"
 
 const fetchProject = async (slug: string) => {
    const post = await getFileBySlug("projects", slug)
@@ -92,12 +93,7 @@ const Hero:FC<HeroProps> = ({
             {frontmatter.description}
          </p>
          <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <Suspense fallback={
-               <div className="animate-pulse flex items-center gap-1">
-                  <IconEye className="inline-block text-base" />
-                  --- views
-               </div>
-            }>
+            <Suspense fallback={<ViewsLoading />}>
                <Views 
                   slug={slug} 
                />
