@@ -35,7 +35,7 @@ export const ThemeButton = () => {
    return (
       <button  
          suppressHydrationWarning
-         className={`flex p-1 w-16 rounded-full bg-gray-300 dark:bg-gray-600 pointer ${darkMode ? "justify-start" : "justify-end"}`}
+         className={`flex p-1 w-16 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-600 pointer ${darkMode ? "justify-start" : "justify-end"}`}
          onClick={toggleSwitch}
       >
          <motion.div
