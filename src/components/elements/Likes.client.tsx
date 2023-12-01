@@ -1,7 +1,7 @@
 "use client"
 import type { FC } from "react"
 
-import { LikeButton } from "../buttons/LikeButton"
+import { LikeButton } from "../buttons/LikeButton.client"
 import { useEffect, useState } from "react"
 import { fakeAwait } from "@/lib/helpers"
 import { LikeButtonLoading } from "../buttons/LikeButtonLoading"

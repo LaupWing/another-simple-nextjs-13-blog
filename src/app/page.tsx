@@ -1,15 +1,14 @@
 import { IconGithub, IconNewspaper, IconTwitter } from "@/components/Icons"
 import { TC } from "@/components/TC"
-import { Button } from "@/components/buttons"
-import { BlogCard } from "@/components/cards"
+import { Button } from "@/components/buttons/Button"
+import { BlogCard } from "@/components/cards/BlogCard"
 import { Accent } from "@/components/elements/Accent"
-import { UnstyledLink } from "@/components/links/index.client"
+import { UnstyledLink } from "@/components/links/UnstyledLink.client"
 import { ButtonLink } from "@/components/links/ButtonLink"
 import { getAllFilesFrontmatter, getRecent } from "@/lib/mdx"
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Suspense } from "react"
 import { attachContentMeta } from "@/lib/helpers"
-import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 import { LibraryCard } from "@/components/cards/LibraryCard"
 
 export default function Home() {
@@ -28,7 +27,6 @@ export default function Home() {
       </main>
    )
 }
-
 
 const HomeIntro = () => {
    const social_link_style = "inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light group"
