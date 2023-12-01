@@ -1,5 +1,3 @@
-import type { FC } from "react"
-
 import { IconEye, IconGithub, IconLink } from "@/components/Icons"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Likes } from "@/components/elements/Likes"
@@ -10,6 +8,7 @@ import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { ProjectFrontmatter } from "@/types/frontmatters"
 import { Suspense } from "react"
+import { Views } from "@/components/elements/Views"
 
 const fetchProject = async (slug: string) => {
    const post = await getFileBySlug("projects", slug)
@@ -48,7 +47,9 @@ const SingleProjectPage = async (props: PageProps) => {
                   --- views
                </div>
             }>
-               <Views slug={frontmatter.slug} />
+               <Views 
+                  slug={frontmatter.slug} 
+               />
             </Suspense>
             
             {(frontmatter.github || frontmatter.link) && " - "}
@@ -108,31 +109,4 @@ export async function generateStaticParams() {
    return posts.map((p) => ({
       slug: p.replace(/\.mdx/, "")
    }))
-}
-
-
-interface ViewsProps {
-   slug: string
-}
-
-const Views:FC<ViewsProps> = async ({ slug }) => {
-   const fetcTest  = async () => {
-      await new Promise(resolve => {
-         setTimeout(() => {
-            resolve(true)
-         }, 10000)
-      })
-   }
-   await fetcTest()
-   const res = await fetch("http://localhost:3000/api/view/" + slug, {
-      method: "POST"
-   })
-   const data = await res.json()
-
-   return (
-      <div className="flex items-center gap-1">
-         <IconEye className="inline-block text-base" />
-         {data.content_views} views
-      </div>
-   )
 }
