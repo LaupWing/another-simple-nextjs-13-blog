@@ -12,7 +12,7 @@ export const Views:FC<ViewsProps> = ({ slug }) => {
    const [views, setViews] = useState<false|number>(false)
    const fetchViews = async () => {
       await fakeAwait()
-      const res = await fetch(`${process.env.API_URL}/api/view/${slug}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/view/${slug}`, {
          method: "POST"
       })
       const data = await res.json()
