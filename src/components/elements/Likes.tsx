@@ -1,20 +1,14 @@
 import type { FC } from "react"
 
 import { LikeButton } from "../buttons/LikeButton"
+import { fakeAwait } from "@/lib/helpers"
 
 interface LikesProps {
    slug: string
 }
 
 export const Likes:FC<LikesProps> = async ({ slug }) => {
-   const syntheticAwait  = async () => {
-      await new Promise(resolve => {
-         setTimeout(() => {
-            resolve(true)
-         }, 1000)
-      })
-   }
-   await syntheticAwait()
+   await fakeAwait()
    const res = await fetch(`${process.env.SITE_URL}/api/like/${slug}`, {
       method: "GET"
    })
