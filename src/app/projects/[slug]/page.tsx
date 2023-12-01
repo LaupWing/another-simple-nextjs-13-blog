@@ -1,7 +1,7 @@
 import type { FC } from "react"
 import type { ProjectFrontmatter } from "@/types/frontmatters"
 
-import { IconEye, IconGithub, IconLink } from "@/components/Icons"
+import { IconGithub, IconLink } from "@/components/Icons"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Likes } from "@/components/elements/Likes"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
@@ -49,9 +49,10 @@ const SingleProjectPage = async (props: PageProps) => {
                   />
                   <div className="flex items-center justify-center py-8">
                      <Suspense fallback={<LikeButtonLoading />}>
-                        <Likes slug={frontmatter.slug} />
+                        <Likes 
+                           slug={frontmatter.slug} 
+                        />
                      </Suspense>
-                     
                   </div>
                </div>
             </aside>

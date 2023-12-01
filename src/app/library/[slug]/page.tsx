@@ -9,6 +9,10 @@ import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { LibraryFrontmatter } from "@/types/frontmatters"
 import { Views } from "@/components/elements/Views"
 import { ViewsLoading } from "@/components/elements/ViewsLoading"
+import { Content } from "@/components/sections/Content.client"
+import { TableContents } from "@/components/sections/TableContents.client"
+import { Likes } from "@/components/elements/Likes"
+import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 // import ContentSection from "../../components/library/ContentSection.client"
 // import { Metadata } from "next"
 // import seo from "@/lib/seo"
@@ -60,6 +64,26 @@ const SingleLibraryPage = async (props: PageProps) => {
          <Hero 
             frontmatter={frontmatter}
          />
+         <hr className="dark:border-gray-600" />
+         <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+            <Content
+               code={code}
+            />
+            <aside className="py-4">
+               <div className="sticky top-24">
+                  <TableContents
+                     slug={frontmatter.slug}
+                  />
+                  <div className="flex items-center justify-center py-8">
+                     <Suspense fallback={<LikeButtonLoading />}>
+                        <Likes 
+                           slug={frontmatter.slug} 
+                        />
+                     </Suspense>
+                  </div>
+               </div>
+            </aside>
+         </section>
       </main>
    )
 }
