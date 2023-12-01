@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+import { IconMoon, IconSun } from "../Icons"
 
 const spring = {
    type: "spring",
@@ -34,14 +35,16 @@ export const ThemeButton = () => {
    return (
       <button  
          suppressHydrationWarning
-         className={`flex p-1 w-16 rounded-full bg-gray-300 pointer ${darkMode ? "justify-start" : "justify-end"}`}
+         className={`flex p-1 w-16 rounded-full bg-gray-300 dark:bg-gray-600 pointer ${darkMode ? "justify-start" : "justify-end"}`}
          onClick={toggleSwitch}
       >
          <motion.div
-            className="rounded-full w-7 h-7 bg-white"
+            className="rounded-full w-7 h-7 bg-white flex items-center justify-center"
             layout
             transition={spring}
-         />
+         > 
+            {darkMode ? <IconMoon className="text-blue-800 fill-current" /> : <IconSun className="text-yellow-400 fill-current" />}
+         </motion.div>
       </button>
    )
 }
