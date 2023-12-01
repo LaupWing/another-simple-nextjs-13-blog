@@ -99,7 +99,7 @@ const Hero:FC<HeroProps> = ({
                </div>
             }>
                <Views 
-                  slug={frontmatter.slug} 
+                  slug={slug} 
                />
             </Suspense>
             
