@@ -1,4 +1,5 @@
 import { IconEye, IconGithub, IconLink } from "@/components/Icons"
+import { LikeButton } from "@/components/buttons/LikeButton"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { CustomLink } from "@/components/links/CustomLink"
 import { Content } from "@/components/sections/Content.client"
@@ -79,7 +80,7 @@ const SingleProjectPage = async (props: PageProps) => {
                code={code}
             />
             <aside className="py-4">
-               <div className="sticky top-36">
+               <div className="sticky top-24">
                   <TableContents
                      slug={frontmatter.slug}
                   />
@@ -111,7 +112,7 @@ const Views:FC<ViewsProps> = async ({ slug }) => {
       await new Promise(resolve => {
          setTimeout(() => {
             resolve(true)
-         }, 1000)
+         }, 10000)
       })
    }
    await fetcTest()
@@ -125,5 +126,32 @@ const Views:FC<ViewsProps> = async ({ slug }) => {
          <IconEye className="inline-block text-base" />
          {data.content_views} views
       </div>
+   )
+}
+
+interface LikesProps {
+   slug: string
+}
+
+const Likes:FC<LikesProps> = async ({ slug }) => {
+   const fetcTest  = async () => {
+      await new Promise(resolve => {
+         setTimeout(() => {
+            resolve(true)
+         }, 1000)
+      })
+   }
+   await fetcTest()
+   const res = await fetch("http://localhost:3000/api/like/" + slug, {
+      method: "GET"
+   })
+   console.log('getting')
+   const data = await res.json()
+   console.log(data)
+   return (
+      <LikeButton
+         all_likes={data.all_likes}
+         likes_by_user={data.likes_by_user}
+      />
    )
 }
