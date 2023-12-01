@@ -5,7 +5,7 @@ import { CustomLink } from "@/components/links/CustomLink"
 const About = () => {
    return (
       <section className="custom-container min-h-screen py-20">
-         <h2>About</h2>
+         <h2 className="dark:text-white">About</h2>
          <h1 className="mt-1">
             <Accent>Laup Wing</Accent>
          </h1>
