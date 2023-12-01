@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 const spring = {
@@ -9,19 +9,36 @@ const spring = {
 }
 
 export const ThemeButton = () => {
-   const [isOn, setIsOn] = useState(false)
+   const [darkMode, setDarkMode] = useState(false)
+   
    const toggleSwitch = () => {
-      setIsOn(!isOn)
-      document.documentElement.classList.toggle("dark")
+      setDarkMode(!darkMode)
+      localStorage.setItem("theme", darkMode ? "light" : "dark")
    }
+   useEffect(() => {
+      if(darkMode) {
+         document.documentElement.classList.add("dark")
+      } else {
+         document.documentElement.classList.remove("dark")
+      }
+   }, [darkMode])
+   
+   useEffect(() => {
+      if (localStorage.getItem("theme") === "dark") {
+         setDarkMode(true)
+      } else {
+         setDarkMode(false)
+      }
+   }, [])
    
    return (
       <button  
-         className={`flex p-1 w-16 rounded-full bg-gray-300 pointer ${isOn ? "justify-start" : "justify-end"}`}
+         suppressHydrationWarning
+         className={`flex p-1 w-16 rounded-full bg-gray-300 pointer ${darkMode ? "justify-start" : "justify-end"}`}
          onClick={toggleSwitch}
       >
          <motion.div
-            className="bg-white rounded-full w-7 h-7"
+            className="rounded-full w-7 h-7 bg-white"
             layout
             transition={spring}
          />
