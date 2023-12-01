@@ -14,7 +14,7 @@ export const ThemeButton = () => {
    console.log(isOn)
    return (
       <div
-         className={`flex p-1.5 w-20 rounded-full bg-black/30 pointer ${isOn ? "items-start" : "items-end"}`}
+         className={`flex p-1.5 w-20 rounded-full bg-black/30 pointer ${isOn ? "justify-start" : "justify-end"}`}
          onClick={toggleSwitch}
       >
          <motion.div
