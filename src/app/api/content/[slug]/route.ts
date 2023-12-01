@@ -11,7 +11,7 @@ export async function GET(req: Request) {
    try{
       const slug = extractSlug(req)
       const session_id = getSessionId(req)
-      const likesByUser = await getUserLikeCount({
+      const likes_by_user = await getUserLikeCount({
          session_id: session_id,
          slug: slug
       })
@@ -32,7 +32,7 @@ export async function GET(req: Request) {
       return NextResponse.json({
          content_views: content?._count.View ?? 0,
          content_likes: content?._count.Like ?? 0,
-         likes_by_user: likesByUser
+         likes_by_user: likes_by_user
       }, {
          status: 200
       })
