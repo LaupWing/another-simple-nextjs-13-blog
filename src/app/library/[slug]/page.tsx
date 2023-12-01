@@ -2,11 +2,13 @@ import type { FC } from "react"
 import type { TechListType } from "@/components/TechIcons.client"
 
 import { IconEye } from "@/components/Icons"
+import { Suspense } from "react"
 import { TechIcons } from "@/components/TechIcons.client"
 import { Accent } from "@/components/elements"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { LibraryFrontmatter } from "@/types/frontmatters"
 import { Views } from "@/components/elements/Views"
+import { ViewsLoading } from "@/components/elements/ViewsLoading"
 // import ContentSection from "../../components/library/ContentSection.client"
 // import { Metadata } from "next"
 // import seo from "@/lib/seo"
@@ -55,7 +57,9 @@ const SingleLibraryPage = async (props: PageProps) => {
    } = post
    return (
       <main className="custom-container">
-         
+         <Hero 
+            frontmatter={frontmatter}
+         />
       </main>
    )
 }
@@ -73,9 +77,11 @@ const Hero:FC<HeroProps> = ({ frontmatter }) => {
             {frontmatter.description}
          </p>
          <div className="mt-2 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <Views 
-               slug={frontmatter.slug}
-            />
+            <Suspense fallback={<ViewsLoading />}>
+               <Views 
+                  slug={frontmatter.slug} 
+               />
+            </Suspense>
             <span>•</span>
             <TechIcons
                techs={frontmatter.tags.split(",") as Array<TechListType>}
