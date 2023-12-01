@@ -8,7 +8,7 @@ export async function GET(req: Request) {
       const slug = extractSlug(req)
       const session_id = getSessionId(req)
       const likes_by_user = await getUserLikeCount({ session_id, slug })
-      console.log(slug)
+      
       const content = await prisma_client.contentMeta.findFirst({
          where: {
             slug: slug
@@ -21,6 +21,7 @@ export async function GET(req: Request) {
             }
          }
       })
+      console.log(content)
 
       return NextResponse.json({
          all_likes: content?._count.Like ?? 0,

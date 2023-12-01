@@ -152,6 +152,7 @@ const Likes:FC<LikesProps> = async ({ slug }) => {
    const res = await fetch("http://localhost:3000/api/like/" + slug, {
       method: "GET"
    })
+   console.log(slug)
    console.log('getting')
    const data = await res.json()
    console.log(data)
