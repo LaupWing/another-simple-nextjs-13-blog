@@ -6,6 +6,7 @@ import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { ProjectFrontmatter } from "@/types/frontmatters"
+import { FC } from "react"
 
 const fetchProject = async (slug: string) => {
    const post = await getFileBySlug("projects", slug)
@@ -93,4 +94,31 @@ export async function generateStaticParams() {
    return posts.map((p) => ({
       slug: p.replace(/\.mdx/, "")
    }))
+}
+
+
+interface ViewsProps {
+   slug: string
+}
+
+const Views:FC<ViewsProps> = async ({ slug }) => {
+   const fetcTest  = async () => {
+      await new Promise(resolve => {
+         setTimeout(() => {
+            resolve(true)
+         }, 1000)
+      })
+   }
+   await fetcTest()
+   const res = await fetch("http://localhost:3000/api/view/" + slug, {
+      method: "POST"
+   })
+   const data = await res.json()
+
+   return (
+      <div className="flex items-center gap-1">
+         <IconEye className="inline-block text-base" />
+         {data.content_views} views
+      </div>
+   )
 }
