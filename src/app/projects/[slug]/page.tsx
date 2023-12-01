@@ -1,5 +1,6 @@
 import { IconEye, IconGithub, IconLink } from "@/components/Icons"
 import { LikeButton } from "@/components/buttons/LikeButton"
+import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { CustomLink } from "@/components/links/CustomLink"
 import { Content } from "@/components/sections/Content.client"
@@ -84,6 +85,12 @@ const SingleProjectPage = async (props: PageProps) => {
                   <TableContents
                      slug={frontmatter.slug}
                   />
+                  <div className="flex items-center justify-center py-8">
+                     <Suspense fallback={<LikeButtonLoading />}>
+                        <Likes slug={frontmatter.slug} />
+                     </Suspense>
+                     
+                  </div>
                </div>
             </aside>
          </section>
