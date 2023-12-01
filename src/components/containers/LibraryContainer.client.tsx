@@ -28,7 +28,7 @@ const sortOptions: Array<SortOption> = [
    }
 ]
 
-const LibraryContainer:FC<LibraryContainerProps> = ({
+export const LibraryContainer:FC<LibraryContainerProps> = ({
    posts
 }) => {
    const [sortOrder, setSortOrder] = useState<SortOption>(
@@ -112,4 +112,3 @@ const LibraryContainer:FC<LibraryContainerProps> = ({
       </>
    )
 }
-export default LibraryContainer
