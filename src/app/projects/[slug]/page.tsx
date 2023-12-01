@@ -1,15 +1,15 @@
+import type { FC } from "react"
+
 import { IconEye, IconGithub, IconLink } from "@/components/Icons"
-import { LikeButton } from "@/components/buttons/LikeButton"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Likes } from "@/components/elements/Likes"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { CustomLink } from "@/components/links/CustomLink"
 import { Content } from "@/components/sections/Content.client"
-
 import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { ProjectFrontmatter } from "@/types/frontmatters"
-import { FC, Suspense } from "react"
+import { Suspense } from "react"
 
 const fetchProject = async (slug: string) => {
    const post = await getFileBySlug("projects", slug)
