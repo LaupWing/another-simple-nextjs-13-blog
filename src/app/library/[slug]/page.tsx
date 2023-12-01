@@ -96,7 +96,7 @@ interface HeroProps {
 const Hero:FC<HeroProps> = ({ frontmatter }) => {
    return (
       <div className="border-b pb-4 dark:border-gray-600">
-         <h1>{frontmatter.title}</h1>
+         <h1 className="dark:text-white">{frontmatter.title}</h1>
          <p className="mt-2 text-sm border-gray-600 dark:text-gray-300">
             {frontmatter.description}
          </p>
