@@ -26,7 +26,7 @@ const SingleProjectPage = async (props: PageProps) => {
    const { frontmatter, code } = await fetchProject(props.params.slug)
    
    return (
-      <section className="layout">
+      <section className="custom-container">
          <CloudinaryImage
             public_id="samples/bike"
             alt="Bike"
