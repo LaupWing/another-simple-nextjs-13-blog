@@ -92,12 +92,12 @@ const SingleBlogPage = async (props: PageProps) => {
 
 export default SingleBlogPage
 
-interface HeaderProps {
+interface HeroProps {
    frontmatter: BlogFrontmatter
    slug: string
 }
 
-const Hero:FC<HeaderProps> = async ({
+const Hero:FC<HeroProps> = async ({
    frontmatter,
    slug
 }) => {
