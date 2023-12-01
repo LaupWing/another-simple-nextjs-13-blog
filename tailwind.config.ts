@@ -36,5 +36,6 @@ const config: Config = {
       require("@tailwindcss/forms"),
       require("@tailwindcss/typography")
    ],
+   darkMode: "class",
 }
 export default config

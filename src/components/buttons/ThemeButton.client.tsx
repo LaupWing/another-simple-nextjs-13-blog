@@ -12,6 +12,7 @@ export const ThemeButton = () => {
    const [isOn, setIsOn] = useState(false)
    const toggleSwitch = () => {
       setIsOn(!isOn)
+      document.documentElement.classList.toggle("dark")
    }
    
    return (
