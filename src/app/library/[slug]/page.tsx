@@ -1,6 +1,11 @@
+import type { FC } from "react"
+import type { TechListType } from "@/components/TechIcons.client"
+
+import { IconEye } from "@/components/Icons"
+import { TechIcons } from "@/components/TechIcons.client"
+import { Accent } from "@/components/elements"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { LibraryFrontmatter } from "@/types/frontmatters"
-import { FC } from "react"
 // import ContentSection from "../../components/library/ContentSection.client"
 // import { Metadata } from "next"
 // import seo from "@/lib/seo"
@@ -76,7 +81,7 @@ const Hero:FC<HeroProps> = ({ frontmatter }) => {
                )}
             </div>
             <span>•</span>
-            <TechIcons 
+            <TechIcons
                techs={frontmatter.tags.split(",") as Array<TechListType>}
             />
          </div>
