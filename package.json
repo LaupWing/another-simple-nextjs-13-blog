@@ -16,6 +16,7 @@
       "cloudinary-build-url": "^0.2.4",
       "clsx": "^2.0.0",
       "date-fns": "^2.30.0",
+      "framer-motion": "^10.16.12",
       "gray-matter": "^4.0.3",
       "lodash": "^4.17.21",
       "mdx-bundler": "^10.0.1",
