@@ -2,7 +2,7 @@ import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Accent } from "@/components/elements"
 import { Likes } from "@/components/elements/Likes"
-import { Views } from "@/components/elements/Views"
+import { Views } from "@/components/elements/Views.client"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { UnstyledLink } from "@/components/links/UnstyledLink.client"
 import { TableContents } from "@/components/sections/TableContents.client"
@@ -148,11 +148,9 @@ const Hero:FC<HeroProps> = async ({
                <Accent>{frontmatter.readingTime.text}</Accent>
             </div>
             <div className="flex items-center gap-1">
-               <Suspense fallback={<Accent className="animate-pulse"> --- views</Accent>}>
-                  <Views 
-                     slug={slug} 
-                  />
-               </Suspense>
+               <Views 
+                  slug={slug} 
+               />
             </div>
          </div>
       </div>
