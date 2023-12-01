@@ -19,7 +19,7 @@ export const LikeButton:FC<LikeButtonProps> = ({
    
    const addLike = async () => {
       try {
-         const res = await fetch(`${process.env.API_URL}/api/like/${params.slug}`, {
+         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/like/${params.slug}`, {
             method: "POST"
          })
          const data = await res.json()
