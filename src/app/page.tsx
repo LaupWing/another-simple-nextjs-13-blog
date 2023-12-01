@@ -120,7 +120,7 @@ const fetchRecentBlogs = async () => {
 
 const HomeBlogs = async () => {
    const recent_blogs = await fetchRecentBlogs()
-   console.log(recent_blogs)
+   
    return (
       <section className="py-20">
          <div className="custom-container">
@@ -141,7 +141,6 @@ const HomeBlogs = async () => {
             <ButtonLink
                className="mt-4"
                href="/blog"
-               // Add tracking event
             >
                See more post
             </ButtonLink>
@@ -192,9 +191,9 @@ const HomeProjects = async () => {
 const fetchRecentLibrary = async () => {
    const library = await getAllFilesFrontmatter("library")
 
-   const recentLibrary = getRecent(library)
+   const recent_library = getRecent(library)
 
-   return recentLibrary
+   return (await attachContentMeta<"library">(recent_library))
 }
 
 const HomeLibrary = async () => {

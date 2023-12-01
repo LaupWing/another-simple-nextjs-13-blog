@@ -30,7 +30,7 @@ export const LibraryCard:FC<LibraryCardProps> = ({
                   <div className="dark:gradient-animation-slow p-1">
                      <ChadIcon className="inline-block text-base w-5" />
                   </div>
-                  <Accent>10 likes</Accent>
+                  <Accent>{snippet.likes} likes</Accent>
                </div>
                   <span>•</span>
                   <TechIcons techs={snippet.tags.split(",") as Array<TechListType>} />
