@@ -6,7 +6,7 @@ import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { ProjectFrontmatter } from "@/types/frontmatters"
-import { FC } from "react"
+import { FC, Suspense } from "react"
 
 const fetchProject = async (slug: string) => {
    const post = await getFileBySlug("projects", slug)
@@ -39,10 +39,15 @@ const SingleProjectPage = async (props: PageProps) => {
             {frontmatter.description}
          </p>
          <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <div className="flex items-center gap-1">
-               <IconEye className="inline-block text-base" />
-               --- views
-            </div>
+            <Suspense fallback={
+               <div className="animate-pulse flex items-center gap-1">
+                  <IconEye className="inline-block text-base" />
+                  --- views
+               </div>
+            }>
+               <Views slug={frontmatter.slug} />
+            </Suspense>
+            
             {(frontmatter.github || frontmatter.link) && " - "}
             {frontmatter.github && (
                <div className="inline-flex items-center gap-2">
