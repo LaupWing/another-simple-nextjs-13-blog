@@ -15,7 +15,7 @@ export const Likes:FC<LikesProps> = async ({ slug }) => {
       })
    }
    await syntheticAwait()
-   const res = await fetch("http://localhost:3000/api/like/" + slug, {
+   const res = await fetch(`${process.env.SITE_URL}/api/like/${slug}`, {
       method: "GET"
    })
    const data = await res.json()
