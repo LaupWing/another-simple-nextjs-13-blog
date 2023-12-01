@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { ImageResponse } from "next/server"
+import { ImageResponse } from "next/og"
 import { CSSProperties } from "react"
 
 const inter400 = fetch(
