@@ -14,7 +14,7 @@ export const Views:FC<ViewsProps> = async ({ slug }) => {
       })
    }
    await fetcTest()
-   const res = await fetch(`${process.env.SITE_URL}/api/view/${slug}`, {
+   const res = await fetch(`${process.env.API_URL}/api/view/${slug}`, {
       method: "POST"
    })
    const data = await res.json()

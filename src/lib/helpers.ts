@@ -47,7 +47,7 @@ export const attachContentMeta = async <T extends ContentType>(
 ) => {
    return await Promise.all(
       frontmatter.map(async (frontmatter) => {
-         const res = await fetch(`${process.env.SITE_URL}/api/content/${frontmatter.slug}`)
+         const res = await fetch(`${process.env.API_URL}/api/content/${frontmatter.slug}`)
          const data = await res.json()
          
          return {
