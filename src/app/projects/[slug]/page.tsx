@@ -2,14 +2,12 @@ import type { FC } from "react"
 import type { ProjectFrontmatter } from "@/types/frontmatters"
 
 import { IconGithub, IconLink } from "@/components/Icons"
-import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
-import { Likes } from "@/components/elements/Likes"
+import { Likes } from "@/components/elements/Likes.client"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { CustomLink } from "@/components/links/CustomLink"
 import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
-import { Suspense } from "react"
 import { Views } from "@/components/elements/Views.client"
 
 export const dynamicParams = false
@@ -50,11 +48,9 @@ const SingleProjectPage = async (props: PageProps) => {
                      slug={frontmatter.slug}
                   />
                   <div className="flex items-center justify-center py-8">
-                     <Suspense fallback={<LikeButtonLoading />}>
-                        <Likes 
-                           slug={frontmatter.slug} 
-                        />
-                     </Suspense>
+                     <Likes 
+                        slug={frontmatter.slug} 
+                     />
                   </div>
                </div>
             </aside>
