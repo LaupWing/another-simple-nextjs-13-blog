@@ -1,3 +1,6 @@
+import type { FC } from "react"
+import type { ProjectFrontmatter } from "@/types/frontmatters"
+
 import { IconEye, IconGithub, IconLink } from "@/components/Icons"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Likes } from "@/components/elements/Likes"
@@ -6,8 +9,7 @@ import { CustomLink } from "@/components/links/CustomLink"
 import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
-import { ProjectFrontmatter } from "@/types/frontmatters"
-import { FC, Suspense } from "react"
+import { Suspense } from "react"
 import { Views } from "@/components/elements/Views"
 
 const fetchProject = async (slug: string) => {

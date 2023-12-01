@@ -10,7 +10,7 @@ import { Content } from "@/components/sections/index.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
 import { format } from "date-fns"
-import { Metadata } from "next"
+// import { Metadata } from "next"
 import { FC, Suspense } from "react"
 // import seo from "@/lib/seo"
 
