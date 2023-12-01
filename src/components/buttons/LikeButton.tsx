@@ -2,7 +2,7 @@
 import { useState, type FC } from "react"
 import clsx from "clsx"
 import { CHAD_PATH } from "@/lib/svg"
-import { useParams, useRouter } from "next/navigation"
+import { useParams } from "next/navigation"
 
 interface LikeButtonProps {
    likes_by_user: number
@@ -16,7 +16,7 @@ export const LikeButton:FC<LikeButtonProps> = ({
    const [_likes_by_user, setLikesByUser] = useState(likes_by_user)
    const [_all_likes, setAllLikes] = useState(all_likes)
    const params = useParams()
-   console.log(_likes_by_user, _all_likes)
+   
    const addLike = async () => {
       try {
          const res = await fetch("http://localhost:3000/api/like/" + params.slug, {
