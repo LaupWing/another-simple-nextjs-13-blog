@@ -7,7 +7,7 @@ import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { ProjectFrontmatter } from "@/types/frontmatters"
-import { Suspense } from "react"
+import { FC, Suspense } from "react"
 import { Views } from "@/components/elements/Views"
 
 const fetchProject = async (slug: string) => {
@@ -30,6 +30,55 @@ const SingleProjectPage = async (props: PageProps) => {
    
    return (
       <section className="custom-container">
+         <Hero 
+            frontmatter={frontmatter}
+            slug={frontmatter.slug}
+         />
+         <hr className="mt-4 dark:border-gray-600" />
+         <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+            <Content
+               code={code}
+            />
+            <aside className="py-4">
+               <div className="sticky top-24">
+                  <TableContents
+                     slug={frontmatter.slug}
+                  />
+                  <div className="flex items-center justify-center py-8">
+                     <Suspense fallback={<LikeButtonLoading />}>
+                        <Likes slug={frontmatter.slug} />
+                     </Suspense>
+                     
+                  </div>
+               </div>
+            </aside>
+         </section>
+      </section>
+   )
+}
+export default SingleProjectPage
+
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+   const posts = await getFiles("projects")
+   
+   return posts.map((p) => ({
+      slug: p.replace(/\.mdx/, "")
+   }))
+}
+
+interface HeroProps {
+   frontmatter: ProjectFrontmatter
+   slug: string
+}
+
+const Hero:FC<HeroProps> = ({
+   frontmatter,
+   slug
+}) => {
+   return (
+      <div>
          <CloudinaryImage
             public_id="samples/bike"
             alt="Bike"
@@ -77,36 +126,6 @@ const SingleProjectPage = async (props: PageProps) => {
             )}
             
          </div>
-         <hr className="mt-4 dark:border-gray-600" />
-         <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-            <Content
-               code={code}
-            />
-            <aside className="py-4">
-               <div className="sticky top-24">
-                  <TableContents
-                     slug={frontmatter.slug}
-                  />
-                  <div className="flex items-center justify-center py-8">
-                     <Suspense fallback={<LikeButtonLoading />}>
-                        <Likes slug={frontmatter.slug} />
-                     </Suspense>
-                     
-                  </div>
-               </div>
-            </aside>
-         </section>
-      </section>
+      </div>
    )
-}
-export default SingleProjectPage
-
-export const dynamicParams = false
-
-export async function generateStaticParams() {
-   const posts = await getFiles("projects")
-   
-   return posts.map((p) => ({
-      slug: p.replace(/\.mdx/, "")
-   }))
 }
