@@ -13,6 +13,9 @@ import { Suspense } from "react"
 import { Views } from "@/components/elements/Views"
 import { ViewsLoading } from "@/components/elements/ViewsLoading"
 
+export const dynamicParams = false
+export const revalidate = 0
+
 const fetchProject = async (slug: string) => {
    const post = await getFileBySlug("projects", slug)
 
@@ -61,8 +64,6 @@ const SingleProjectPage = async (props: PageProps) => {
    )
 }
 export default SingleProjectPage
-
-export const dynamicParams = false
 
 export async function generateStaticParams() {
    const posts = await getFiles("projects")

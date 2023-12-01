@@ -16,6 +16,8 @@ import { FC, Suspense } from "react"
 
 export const dynamicParams = false
 
+export const revalidate = 0
+
 export async function generateStaticParams() {
    const posts = await getFiles("blog")
    
@@ -54,8 +56,6 @@ interface PageProps {
       slug: string
    }
 }
-
-export const revalidate = 0
 
 const SingleBlogPage = async (props: PageProps) => {
    const post = await fetchPost(props.params.slug)
