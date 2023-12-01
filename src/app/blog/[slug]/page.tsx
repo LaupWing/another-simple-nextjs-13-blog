@@ -2,6 +2,8 @@ import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { LikeButton } from "@/components/buttons/LikeButton"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
 import { Accent } from "@/components/elements"
+import { Likes } from "@/components/elements/Likes"
+import { Views } from "@/components/elements/Views"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { UnstyledLink } from "@/components/links/UnstyledLink.client"
 import { TableContents } from "@/components/sections/TableContents.client"
@@ -79,7 +81,9 @@ const SingleBlogPage = async (props: PageProps) => {
                   />
                   <div className="flex items-center justify-center py-8">
                      <Suspense fallback={<LikeButtonLoading />}>
-                        <Likes slug={frontmatter.slug} />
+                        <Likes 
+                           slug={frontmatter.slug} 
+                        />
                      </Suspense>
                      
                   </div>
@@ -152,55 +156,5 @@ const Hero:FC<HeroProps> = async ({
             </div>
          </div>
       </div>
-   )
-}
-
-interface ViewsProps {
-   slug: string
-}
-
-const Views:FC<ViewsProps> = async ({ slug }) => {
-   const fetcTest  = async () => {
-      await new Promise(resolve => {
-         setTimeout(() => {
-            resolve(true)
-         }, 1000)
-      })
-   }
-   await fetcTest()
-   const res = await fetch("http://localhost:3000/api/view/" + slug, {
-      method: "POST"
-   })
-   const data = await res.json()
-
-   return (
-      <Accent>{data.content_views}</Accent>
-   )
-}
-
-interface LikesProps {
-   slug: string
-}
-
-const Likes:FC<LikesProps> = async ({ slug }) => {
-   const fetcTest  = async () => {
-      await new Promise(resolve => {
-         setTimeout(() => {
-            resolve(true)
-         }, 1000)
-      })
-   }
-   await fetcTest()
-   const res = await fetch("http://localhost:3000/api/like/" + slug, {
-      method: "GET"
-   })
-   console.log('getting')
-   const data = await res.json()
-   console.log(data)
-   return (
-      <LikeButton 
-         all_likes={data.all_likes}
-         likes_by_user={data.likes_by_user}
-      />
    )
 }
