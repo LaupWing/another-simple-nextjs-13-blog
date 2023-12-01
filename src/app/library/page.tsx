@@ -30,7 +30,6 @@ const Library = async () => {
          <LibraryContainer 
             posts={posts}
          />
-
       </section>
    )
 }
