@@ -38,7 +38,7 @@ const SingleProjectPage = async (props: PageProps) => {
             slug={frontmatter.slug}
          />
          <hr className="mt-4 dark:border-gray-600" />
-         <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+         <section className="lg:grid pt-4 pb-8 lg:grid-cols-[auto,250px] lg:gap-8">
             <Content
                code={code}
             />
