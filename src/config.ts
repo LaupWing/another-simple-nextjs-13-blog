@@ -4,7 +4,7 @@ export const default_meta = {
    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet necessitatibus doloribus, omnis delectus obcaecati reprehenderit inventore esse at cum tenetur? Sapiente tenetur molestias odio labore quaerat omnis eos officiis corporis.",
    url: process.env.SITE_URL,
    // Need to replace this
-   image: "https://www.cgsusa.org/wp-content/uploads/cropped-placeholder.jpg",
+   // og_image: "https://www.cgsusa.org/wp-content/uploads/cropped-placeholder.jpg",
    type: "website",
    robots: "follow, index"
 }
