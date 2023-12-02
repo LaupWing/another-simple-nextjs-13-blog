@@ -61,7 +61,6 @@ export default function(props: SeoProps){
       // },
       alternates:{
          canonical: meta.canonical ? meta.canonical : full_url
-      },
-      themeColor: "#ffffff",
+      }
    } as Metadata
 }
