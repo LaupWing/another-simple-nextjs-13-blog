@@ -1,5 +1,5 @@
 .prose {
-   max-width: 50rem;
+   max-width: 50rem!important;
 }
 
 .prose code:not(:where([data-code-type="code-block"])) {
