@@ -8,9 +8,8 @@ import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { LibraryFrontmatter } from "@/types/frontmatters"
 import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
-// import ContentSection from "../../components/library/ContentSection.client"
-// import { Metadata } from "next"
-// import seo from "@/lib/seo"
+import { Metadata } from "next"
+import seo from "@/lib/seo"
 
 export const dynamicParams = false
 
@@ -32,17 +31,17 @@ const fetchPost = async (slug: string) => {
    }
 } 
 
-// export async function generateMetadata(props: PageProps): Promise<Metadata> {
-//    const post = await fetchPost(props.params.slug)
-//    const { frontmatter } = post
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+   const post = await fetchPost(props.params.slug)
+   const { frontmatter } = post
    
-//    return {
-//       ...seo({
-//          title: frontmatter.title,
-//          description: frontmatter.description
-//       })
-//    }
-// }
+   return {
+      ...seo({
+         title: frontmatter.title,
+         description: frontmatter.description
+      })
+   }
+}
 
 interface PageProps {
    params: {
