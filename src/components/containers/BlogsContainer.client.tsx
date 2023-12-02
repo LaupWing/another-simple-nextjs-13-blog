@@ -3,7 +3,7 @@ import type { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 import type { ChangeEvent, FC } from "react"
 
 import { IconCalendar, IconEye } from "@/components/Icons"
-import { BlogCard } from "@/components/cards"
+import { BlogCard } from "@/components/cards/BlogCard"
 import { Tag } from "@/components/elements"
 import { SortListBox, SortOption } from "@/components/elements/SortListBox.client"
 import { ContentPlaceholder } from "@/components/sections/ContentPlaceholder"

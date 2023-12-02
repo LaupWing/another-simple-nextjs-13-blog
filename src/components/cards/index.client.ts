@@ -1,1 +1,0 @@
-export { GithubCard } from "./GithubCard.client"
