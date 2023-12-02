@@ -13,7 +13,7 @@ import { LibraryCard } from "@/components/cards/LibraryCard"
 
 export default function Home() {
    return (
-      <main>
+      <main className="fade-in-start">
          <HomeIntro />
          <Suspense fallback={"loading"}>
             <HomeBlogs />
