@@ -9,8 +9,8 @@ import {
    SplitImage 
 } from "./sections"
 import { TechIcons } from "./TechIcons.client"
-import { TweetCard } from "./cards"
-import { GithubCard } from "./cards/index.client"
+import { TweetCard } from "./cards/TweetCard"
+import { GithubCard } from "./cards/GithubCard.client"
 
 
 export const MDXComponents = {
