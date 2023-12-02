@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters"
 import clsx from "clsx"
-import { UnstyledLink } from "../links/index.client"
+import { UnstyledLink } from "../links/UnstyledLink.client"
 import { CloudinaryImage } from "../images/index.client"
 import { Tag } from "../elements"
 import { Accent } from "../elements/Accent"

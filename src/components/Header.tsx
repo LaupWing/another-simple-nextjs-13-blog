@@ -2,7 +2,7 @@
 import { useSelectedLayoutSegment } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
-import { UnstyledLink } from "./links/index.client"
+import { UnstyledLink } from "./links/UnstyledLink.client"
 import { ThemeButton } from "./buttons/ThemeButton.client"
 
 interface HeaderProps {

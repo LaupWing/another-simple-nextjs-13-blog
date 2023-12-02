@@ -1,6 +1,6 @@
 "use client"
 import { FC, useRef, useEffect, useState } from "react"
-import { UnstyledLink } from "../links/index.client"
+import { UnstyledLink } from "../links/UnstyledLink.client"
 import clsx from "clsx"
 import useScrollSpy from "@/hooks/useScrollSpy"
 

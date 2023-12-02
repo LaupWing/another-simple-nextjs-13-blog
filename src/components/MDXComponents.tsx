@@ -1,4 +1,4 @@
-import { CustomLink } from "./links"
+import { CustomLink } from "./links/CustomLink"
 import Image from "next/image"
 import { CloudinaryImage } from "./images/index.client"
 import { CustomCode } from "./sections/CustomCode.client"

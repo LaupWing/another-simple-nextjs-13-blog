@@ -1,7 +1,7 @@
 "use client"
 import type { ComponentPropsWithoutRef, FC} from "react"
 import { useState, useEffect} from "react"
-import { UnstyledLink } from "../links/index.client"
+import { UnstyledLink } from "../links/UnstyledLink.client"
 import clsx from "clsx"
 import { IconGithub, IconRepoForked, IconStar } from "../Icons"
 import { Accent } from "../elements/Accent"
