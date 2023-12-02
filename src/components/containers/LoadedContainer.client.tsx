@@ -19,7 +19,6 @@ export const LoadedContainer:FC<PropsWithChildren & ComponentPropsWithoutRef<"di
    useEffect(() => {
       setLoaded(true)
       NProgress.done()
-      console.log("loaded")
    }, [pathname , router])
 
    return (
