@@ -7,6 +7,7 @@ import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
 import "react-tippy/dist/tippy.css"
+import { favicons } from "@/config"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,6 +25,11 @@ export default function RootLayout({
       <html 
          lang="en"
       >
+         <head>
+            {favicons.map(favicon => (
+               <link key={favicon.href} {...favicon} />
+            ))}
+         </head>
          <body className={`${inter.className} dark:bg-dark`}>
             <Header />
             <div id="skip-nav">
