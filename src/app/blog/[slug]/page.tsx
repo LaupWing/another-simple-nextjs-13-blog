@@ -1,6 +1,6 @@
 import { IconClock, IconEye, IconHistory } from "@/components/Icons"
 import { LikeButtonLoading } from "@/components/buttons/LikeButtonLoading"
-import { Accent } from "@/components/elements"
+import { Accent } from "@/components/elements/Accent"
 import { Likes } from "@/components/elements/Likes.client"
 import { Views } from "@/components/elements/Views.client"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
