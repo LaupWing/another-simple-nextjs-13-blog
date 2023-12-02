@@ -7,7 +7,6 @@ import { Footer } from "@/components/Footer"
 import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
-import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -29,9 +28,9 @@ export default function RootLayout({
          <body className={`${inter.className} dark:bg-dark`}>
             <Header />
             <NextTopLoader />
-            <LoadedContainer id="skip-nav">
+            <div id="skip-nav">
                {children}
-            </LoadedContainer>
+            </div>
             <Footer />
          </body>
       </html>
