@@ -1,11 +1,10 @@
+import type { Metadata } from "next"
 import { BlogsContainer } from "@/components/containers/BlogsContainer.client"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { Accent } from "@/components/elements/Accent"
 import { attachContentMeta } from "@/lib/helpers"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
-// import PostsSection from "./PostsSection"
-// import { Metadata } from "next"
-// import seo from "@/lib/seo"
+import seo from "@/lib/seo"
 
 const fetchBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
@@ -13,13 +12,13 @@ const fetchBlogs = async () => {
    return (await attachContentMeta<"blog">(blogs))
 }
 
-// export const metadata: Metadata = {
-//    ...seo({
-//       asPath: "blog",
-//       title: "Blog Page",
-//       description: "Everything you related to web development regarding the technologies often used nowadays. Each week minimal 1 blog!"
-//    })
-// }
+export const metadata: Metadata = {
+   ...seo({
+      as_path: "blog",
+      title: "Blog Page",
+      description: "Everything you related to web development regarding the technologies often used nowadays. Each week minimal 1 blog!"
+   })
+}
 
 const Blog = async () => {
    const posts = await fetchBlogs()
