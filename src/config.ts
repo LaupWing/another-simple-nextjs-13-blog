@@ -1,4 +1,4 @@
-export const defaultMeta = {
+export const default_meta = {
    title: "Laup Wing Tech",
    siteName: "tech.laupwing.com",
    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet necessitatibus doloribus, omnis delectus obcaecati reprehenderit inventore esse at cum tenetur? Sapiente tenetur molestias odio labore quaerat omnis eos officiis corporis.",
