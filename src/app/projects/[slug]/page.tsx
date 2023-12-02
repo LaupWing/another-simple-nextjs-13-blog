@@ -1,5 +1,6 @@
 import type { FC } from "react"
 import type { ProjectFrontmatter } from "@/types/frontmatters"
+import type { Metadata } from "next"
 
 import { IconGithub, IconLink } from "@/components/Icons"
 import { Likes } from "@/components/elements/Likes.client"
@@ -9,6 +10,7 @@ import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { Views } from "@/components/elements/Views.client"
+import seo from "@/lib/seo"
 
 export const dynamicParams = false
 export const revalidate = 0
@@ -25,6 +27,18 @@ const fetchProject = async (slug: string) => {
 interface PageProps {
    params: {
       slug: string
+   }
+}
+
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+   const post = await fetchProject(props.params.slug)
+   const { frontmatter } = post
+   
+   return {
+      ...seo({
+         title: frontmatter.title,
+         description: frontmatter.description
+      })
    }
 }
 
