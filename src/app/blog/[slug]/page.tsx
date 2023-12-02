@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { IconClock, IconHistory } from "@/components/Icons"
 import { Accent } from "@/components/elements/Accent"
 import { Likes } from "@/components/elements/Likes.client"
@@ -9,9 +10,8 @@ import { Content } from "@/components/sections/Content.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { BlogFrontmatter } from "@/types/frontmatters"
 import { format } from "date-fns"
-// import { Metadata } from "next"
 import { FC } from "react"
-// import seo from "@/lib/seo"
+import seo from "@/lib/seo"
 
 export const dynamicParams = false
 
@@ -25,22 +25,22 @@ export async function generateStaticParams() {
    }))
 }
 
-// export async function generateMetadata(props: PageProps): Promise<Metadata> {
-//    const post = await fetchPost(props.params.slug)
-//    const { frontmatter } = post
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+   const post = await fetchPost(props.params.slug)
+   const { frontmatter } = post
 
-//    const OG_BANNER_LINK = `https://res.cloudinary.com/laupwing/image/upload/f_auto,c_fill,ar_4:5,w_1200/samples/sheep.jpg`
+   const OG_BANNER_LINK = `https://res.cloudinary.com/laupwing/image/upload/f_auto,c_fill,ar_4:5,w_1200/samples/sheep.jpg`
    
-//    return {
-//       ...seo({
-//          isBlog: true,
-//          banner: OG_BANNER_LINK,
-//          templateTitle: frontmatter.title,
-//          title: frontmatter.title,
-//          description: frontmatter.description
-//       })
-//    }
-// }
+   return {
+      ...seo({
+         is_blog: true,
+         banner: OG_BANNER_LINK,
+         template_title: frontmatter.title,
+         title: frontmatter.title,
+         description: frontmatter.description
+      })
+   }
+}
 
 const fetchPost = async (slug: string) => {
    const post = await getFileBySlug("blog", slug)
