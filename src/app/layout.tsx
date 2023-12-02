@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import NextTopLoader from "nextjs-toploader"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 
@@ -28,7 +27,6 @@ export default function RootLayout({
          
          <body className={`${inter.className} dark:bg-dark`}>
             <Header />
-            <NextTopLoader />
             <div id="skip-nav">
                {children}
             </div>
