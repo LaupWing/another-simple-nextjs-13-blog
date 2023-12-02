@@ -70,10 +70,16 @@ const HomeIntro = () => {
             >
                My name is <Accent>Loc Nguyen</Accent>
             </h1>
-            <p className="mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl">
+            <p 
+               className="mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl"
+               data-fade="3"
+            >
                I possess a strong enthusiasm for both programming and fitness, finding fulfillment in assisting individuals either at the gym or in the realm of coding.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4 md:!text-lg">
+            <div 
+               className="mt-8 flex flex-wrap gap-4 md:!text-lg"
+               data-fade="4"
+            >
                <div className="group relative flex">
                   <div
                      className="absolute -inset-0.5 animate-pulse rounded blur from-custom-green bg-gradient-to-r to-custom-purple opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
@@ -89,7 +95,10 @@ const HomeIntro = () => {
                   Learn more about me
                </Button>
             </div>
-            <div className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8">
+            <div 
+               className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8"
+               data-fade="5"
+            >
                {socials.map((social) => (
                   <UnstyledLink
                      key={social.name}
