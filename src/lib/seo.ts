@@ -4,11 +4,11 @@ import { Metadata } from "next"
 
 interface SeoProps extends Partial<typeof default_meta> { 
    date?: string
-   templateTitle?: string
-   isBlog?: boolean
+   template_title?: string
+   is_blog?: boolean
    banner?: string
    canonical?: string
-   asPath?: string
+   as_path?: string
 }
 
 export default function(props: SeoProps){
@@ -20,12 +20,12 @@ export default function(props: SeoProps){
    const image = openGraph({
       description: meta.description,
       site_name: meta.siteName,
-      template_title: meta.templateTitle,
+      template_title: meta.template_title,
       banner: meta.banner,
-      is_blog: meta.isBlog
+      is_blog: meta.is_blog
    })
 
-   const fullUrl = meta.asPath ? `${process.env.SITE_URL}/${meta.asPath}` : process.env.SITE_URL
+   const full_url = meta.as_path ? `${process.env.SITE_URL}/${meta.as_path}` : process.env.SITE_URL
 
    return {
       title: {
@@ -42,7 +42,7 @@ export default function(props: SeoProps){
          images: [image]
       },
       openGraph: {
-         url: fullUrl,
+         url: full_url,
          images: [
             {
                url: image,
@@ -60,7 +60,7 @@ export default function(props: SeoProps){
          } : {})
       },
       alternates:{
-         canonical: meta.canonical ? meta.canonical : fullUrl
+         canonical: meta.canonical ? meta.canonical : full_url
       },
       themeColor: "#ffffff",
    } as Metadata
