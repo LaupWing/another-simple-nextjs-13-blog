@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { UnstyledLink, UnstyledLinkProps } from "./UnstyledLink.client"
-import { Button } from "../buttons"
+import { Button } from "../buttons/Button"
 import { ButtonVariant } from "../buttons/Button"
 
 interface ButtonLinkProps extends UnstyledLinkProps {

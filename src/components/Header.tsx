@@ -4,7 +4,6 @@ import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
 import { UnstyledLink } from "./links/index.client"
 import { ThemeButton } from "./buttons/ThemeButton.client"
-// import { ThemeButton } from "./buttons/index.client"
 
 interface HeaderProps {
    large?: boolean
