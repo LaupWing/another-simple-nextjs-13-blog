@@ -74,10 +74,14 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
             type="text" 
             className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light mt-4"
             placeholder="Search..."
+            data-fade="2"
             value={search}
             onChange={handleSearch}
          />
-         <div className="mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+         <div 
+            className="mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300"
+            data-fade="3"
+         >
             <span className="font-medium">Choose topic:</span>
             {tags.map((tag) => (
                <Tag
@@ -89,7 +93,10 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
                </Tag>
             ))}
          </div>
-         <div className="relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between">
+         <div 
+            className="relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between"
+            data-fade="4"
+         >
             <SortListBox
                className="ml-auto"
                selected={sortOrder}
@@ -97,7 +104,10 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
                options={sortOptions}
             />
          </div>
-         <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+         <ul 
+            className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+            data-fade="5"
+         >
             {filteredPosts.length > 0 ? (
                filteredPosts.map((post) => (
                   <LibraryCard 
