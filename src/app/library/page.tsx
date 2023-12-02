@@ -1,9 +1,8 @@
 import { LibraryContainer } from "@/components/containers/LibraryContainer.client"
-import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { Accent } from "@/components/elements/Accent"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
-// import { Metadata } from "next"
-// import seo from "@/lib/seo"
+import { Metadata } from "next"
+import seo from "@/lib/seo"
 
 const fetchLibrary = async () => {
    const library = await getAllFilesFrontmatter("library")
@@ -11,13 +10,13 @@ const fetchLibrary = async () => {
    return library
 }
 
-// export const metadata: Metadata = {
-//    ...seo({
-//       asPath: "library",
-//       title: "Library Page",
-//       description: "Here's a collection of code snippets from various technologies that I have used before. Feel free to make use of them!"
-//    })
-// }
+export const metadata: Metadata = {
+   ...seo({
+      as_path: "library",
+      title: "Library Page",
+      description: "Here's a collection of code snippets from various technologies that I have used before. Feel free to make use of them!"
+   })
+}
 
 const Library = async () => {
    const posts = await fetchLibrary()

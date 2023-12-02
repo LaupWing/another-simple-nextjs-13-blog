@@ -10,6 +10,7 @@ import "@/styles/mdx.css"
 import "react-tippy/dist/tippy.css"
 import { favicons } from "@/config"
 import seo from "@/lib/seo"
+import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -34,9 +35,9 @@ export default function RootLayout({
          <body className={`${inter.className} dark:bg-dark`}>
             <NextTopLoader />
             <Header />
-            <div id="skip-nav">
+            <LoadedContainer id="skip-nav">
                {children}
-            </div>
+            </LoadedContainer>
             <Footer />
          </body>
       </html>
