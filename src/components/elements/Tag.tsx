@@ -12,7 +12,7 @@ export const Tag:FC<TagProps> = ({
    ...props
 }) => {
    return (
-      <GradientBorder>
+      <GradientBorder className="!p-0.5">
          <button
             className={clsx(
                className,
