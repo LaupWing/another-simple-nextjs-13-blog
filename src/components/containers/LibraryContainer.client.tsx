@@ -67,7 +67,7 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
       }
    }
    const filtered_tags = getTags(filtered_posts)
-   // const 
+   const tagFoundInSearch = (tag: string) => search.includes(tag)
 
    return (
       <>
@@ -89,6 +89,7 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
                   key={tag}
                   onClick={() => toggleTag(tag)}
                   disabled={!filtered_tags.includes(tag)}
+                  active={tagFoundInSearch(tag)}
                >
                   {tag}
                </Tag>

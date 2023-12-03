@@ -1,7 +1,9 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import clsx from "clsx"
 
-interface TagProps extends ComponentPropsWithoutRef<"button"> {}
+interface TagProps extends ComponentPropsWithoutRef<"button"> {
+   active: boolean
+}
 
 export const Tag:FC<TagProps> = ({
    children,
