@@ -1,6 +1,5 @@
 import type { FC, PropsWithChildren } from "react"
 
-
 export const GradientBorder:FC<PropsWithChildren> = ({
    children
 }) => {

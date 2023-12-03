@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef, FC } from "react"
 import clsx from "clsx"
+import { GradientBorder } from "../elements/GradientBorder"
 
 export type ButtonVariant = "default" | "gradient-animation"
 
@@ -32,7 +33,7 @@ export const Button:FC<ButtonProps> = ({
 
    return (
       variant === "gradient-animation" ? (
-         <div className="gradient-animation-border shadow hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 transition duration-100 scale-100">
+         <GradientBorder>
             <button
                {...props}
                disabled={disabled}
@@ -40,7 +41,7 @@ export const Button:FC<ButtonProps> = ({
             >
                {children}
             </button>
-         </div>) 
+         </GradientBorder>) 
       : (
          <button
             {...props}
