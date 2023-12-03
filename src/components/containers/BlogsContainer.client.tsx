@@ -69,7 +69,8 @@ export const BlogsContainer:FC<BlogsContainerProps> = ({
    }
 
    const filteredTags = getTags(filteredPosts)
-
+   const tagFoundInSearch = (tag: string) => search.includes(tag)
+   
    return (
       <>
          <input 
@@ -90,6 +91,7 @@ export const BlogsContainer:FC<BlogsContainerProps> = ({
                   key={tag}
                   onClick={() => toggleTag(tag)}
                   disabled={!filteredTags.includes(tag)}
+                  active={tagFoundInSearch(tag)}
                >
                   {tag}
                </Tag>
