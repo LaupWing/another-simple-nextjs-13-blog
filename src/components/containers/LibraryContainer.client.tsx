@@ -35,7 +35,7 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
       () => sortOptions[0]
    )
    const [search, setSearch] = useState<string>("")
-   const [filteredPosts, setFilteredPosts] = useState<Array<LibraryFrontmatter & InjectedMeta>>(
+   const [filtered_posts, setFilteredPosts] = useState<Array<LibraryFrontmatter & InjectedMeta>>(
       () => [...posts]
    )
 
@@ -66,7 +66,8 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
          setSearch((s) => (s !== "" ? `${s.trim()} ${tag}` : tag))
       }
    }
-   const filteredTags = getTags(filteredPosts)
+   const filtered_tags = getTags(filtered_posts)
+   // const 
 
    return (
       <>
@@ -87,7 +88,7 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
                <Tag
                   key={tag}
                   onClick={() => toggleTag(tag)}
-                  disabled={!filteredTags.includes(tag)}
+                  disabled={!filtered_tags.includes(tag)}
                >
                   {tag}
                </Tag>
@@ -108,8 +109,8 @@ export const LibraryContainer:FC<LibraryContainerProps> = ({
             className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
             data-fade="5"
          >
-            {filteredPosts.length > 0 ? (
-               filteredPosts.map((post) => (
+            {filtered_posts.length > 0 ? (
+               filtered_posts.map((post) => (
                   <LibraryCard 
                      key={post.slug}
                      snippet={post}
