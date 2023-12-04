@@ -37,13 +37,19 @@ const Contact = () => {
          >
             <Accent>Contact</Accent>
          </h1>
-         <p className="text-gray-500">Unlock exciting possibilities! Interested in a project or tutoring? Reach out using the contact form and let's embark on this journey together!</p>
+         <p 
+            className="text-gray-500"
+            data-fade="1"
+         >
+            Unlock exciting possibilities! Interested in a project or tutoring? Reach out using the contact form and let's embark on this journey together!
+         </p>
          <form
             className="mt-4 flex w-full flex-col items-start gap-4"
             ref={form_ref}
             onSubmit={handleSubmit}
          >
             <input
+               data-fade="2"
                type="text"
                id="name"
                required
@@ -51,6 +57,7 @@ const Contact = () => {
                className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
             />
             <input
+               data-fade="3"
                type="email"
                id="email"
                required
@@ -58,15 +65,21 @@ const Contact = () => {
                className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
             />
             <textarea
+               data-fade="4"
                required
                id="message"
                className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light resize-none"
                placeholder="Message"
                rows={10}
             ></textarea>
-            <Button className="mr-auto" variant="gradient-animation">
-               Submit
-            </Button>
+            <div data-fade="5">
+               <Button 
+                  className="mr-auto" 
+                  variant="gradient-animation"
+               >
+                  Submit
+               </Button>
+            </div>
          </form>
       </section>
    )
