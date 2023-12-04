@@ -10,7 +10,7 @@ import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Suspense } from "react"
 import { attachContentMeta } from "@/lib/helpers"
 import { LibraryCard } from "@/components/cards/LibraryCard"
-import { ContactMe } from "@/components/sections/ContactMe.client"
+import { ContactMe } from "@/components/sections/Subscribe.client"
 
 export const revalidate = 10
 
