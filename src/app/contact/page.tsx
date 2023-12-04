@@ -18,13 +18,15 @@ const Contact = () => {
    const handleSubmit = async (e: FormEvent<CustomForm>) => {
       e.preventDefault()
 
-      fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
          method: "POST",
          body: JSON.stringify({
             email: e.currentTarget.elements.email.value,
             message: e.currentTarget.elements.message.value,
          })
       })
+      const data = await res.json()
+      console.log(data)
    }
 
    return (
