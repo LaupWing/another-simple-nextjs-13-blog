@@ -37,10 +37,12 @@ const Contact = () => {
             <input
                type="email"
                id="email"
+               required
                placeholder="Email"
                className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
             />
             <textarea
+               required
                id="message"
                className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light resize-none"
                placeholder="Message"
