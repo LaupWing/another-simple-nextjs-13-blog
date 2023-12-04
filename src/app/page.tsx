@@ -10,7 +10,7 @@ import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Suspense } from "react"
 import { attachContentMeta } from "@/lib/helpers"
 import { LibraryCard } from "@/components/cards/LibraryCard"
-import { ContactMe } from "@/components/sections/Subscribe.client"
+import { Subscribe } from "@/components/sections/Subscribe.client"
 
 export const revalidate = 10
 
@@ -19,7 +19,7 @@ export default function Home() {
       <main>
          <HomeIntro />
          <div className="flex flex-col py-4">
-            <ContactMe />
+            <Subscribe />
          </div>
          <Suspense fallback={"loading"}>
             <HomeBlogs />

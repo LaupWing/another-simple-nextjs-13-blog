@@ -2,7 +2,7 @@
 import { FormEvent, useRef } from "react"
 import { Button } from "../buttons/Button"
 
-export const ContactMe = () => {
+export const Subscribe = () => {
    const form_ref = useRef<HTMLFormElement>(null)
    const handleSubmit = async (e: FormEvent) => {
       e.preventDefault()
