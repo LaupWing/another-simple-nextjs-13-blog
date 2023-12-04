@@ -11,6 +11,8 @@ import { Suspense } from "react"
 import { attachContentMeta } from "@/lib/helpers"
 import { LibraryCard } from "@/components/cards/LibraryCard"
 
+export const revalidate = 10
+
 export default function Home() {
    return (
       <main>
@@ -122,8 +124,6 @@ const HomeIntro = () => {
       </section>
    )
 }
-
-export const revalidate = 10
 
 const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
