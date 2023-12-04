@@ -8,6 +8,7 @@ export const ContactMe = () => {
    return (
       <form
          ref={form_ref}
+         className="flex"
       >
          <div className="flex">
             <label htmlFor="email">Email</label>
