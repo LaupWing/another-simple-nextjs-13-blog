@@ -48,30 +48,39 @@ const Contact = () => {
             ref={form_ref}
             onSubmit={handleSubmit}
          >
-            <input
+            <div 
+               className="w-full"
                data-fade="2"
-               type="text"
-               id="name"
-               required
-               placeholder="Name"
-               className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
-            />
-            <input
+            >
+               <input
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="Name"
+                  className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
+               />
+            </div>
+            <div 
+               className="w-full"
                data-fade="3"
-               type="email"
-               id="email"
-               required
-               placeholder="Email"
-               className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
-            />
-            <textarea
-               data-fade="4"
-               required
-               id="message"
-               className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light resize-none"
-               placeholder="Message"
-               rows={10}
-            ></textarea>
+            >
+               <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="Email"
+                  className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
+               />
+            </div>
+            <div className="w-full" data-fade="4">
+               <textarea
+                  required
+                  id="message"
+                  className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light resize-none"
+                  placeholder="Message"
+                  rows={10}
+               ></textarea>
+            </div>
             <div data-fade="5">
                <Button 
                   className="mr-auto" 
