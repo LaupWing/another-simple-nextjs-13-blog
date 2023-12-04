@@ -4,7 +4,7 @@ import { Accent } from "@/components/elements/Accent"
 import { FormEvent, useRef } from "react"
 
 interface CustomElements extends HTMLFormControlsCollection {
-   name: HTMLInputElement
+   message: HTMLTextAreaElement
    email: HTMLInputElement
 }
 
@@ -17,7 +17,13 @@ const Contact = () => {
 
    const handleSubmit = async (e: FormEvent<CustomForm>) => {
       e.preventDefault()
-      console.log(e.currentTarget.elements.email)
+
+      fetch("/api/contact", {
+         body: JSON.stringify({
+            email: e.currentTarget.elements.email.value,
+            message: e.currentTarget.elements.message.value,
+         })
+      })
    }
 
    return (
