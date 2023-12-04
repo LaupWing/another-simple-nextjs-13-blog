@@ -1,13 +1,17 @@
 "use client"
-import { useRef } from "react"
+import { FormEvent, useRef } from "react"
 import { Button } from "../buttons/Button"
 
 export const ContactMe = () => {
    const form_ref = useRef<HTMLFormElement>(null)
+   const handleSubmit = async (e: FormEvent) => {
+      e.preventDefault()
+   }
 
    return (
       <form
          ref={form_ref}
+         onSubmit={handleSubmit}
          className="flex flex-col custom-container gap-4"
       >
          <div className="flex flex-col">
