@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import { Button } from "../buttons/Button"
 
 
 export const ContactMe = () => {
@@ -12,7 +13,9 @@ export const ContactMe = () => {
             <label htmlFor="email">Email</label>
             <input type="email" name="email" id="email" />
          </div>
-         
+         <Button variant="gradient-animation">
+            Submit
+         </Button>
       </form>
    )
 }
