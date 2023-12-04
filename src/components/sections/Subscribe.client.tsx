@@ -18,7 +18,7 @@ export const Subscribe = () => {
             <h2 className="text-sm uppercase text-gray-800">Subscribe</h2>
             <p className="text-gray-500">Subscribe to my newsletter to get regular content not published on my site.</p>
          </div>
-         <div className="flex items-end gap-2">
+         <div className="flex flex-col items-start sm:flex-row sm:items-end gap-2">
             <div className="flex gap-1 flex-col w-full max-w-[300px]">
                <label 
                   htmlFor="email"
