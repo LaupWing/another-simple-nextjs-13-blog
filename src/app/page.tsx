@@ -19,9 +19,7 @@ export default function Home() {
    return (
       <main>
          <HomeIntro />
-         <div className="flex flex-col py-4">
-            <ContactMe />
-         </div>
+         <ContactMe />
          <Suspense fallback={"loading"}>
             <HomeBlogs />
          </Suspense>
