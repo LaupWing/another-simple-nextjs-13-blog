@@ -12,7 +12,7 @@ export const Subscribe = () => {
       <form
          ref={form_ref}
          onSubmit={handleSubmit}
-         className="flex flex-col custom-container gap-4"
+         className="flex my-8 flex-col custom-container gap-4"
       >
          <div className="flex flex-col">
             <h2 className="text-sm uppercase text-gray-800">Subscribe</h2>

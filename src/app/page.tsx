@@ -29,6 +29,7 @@ export default function Home() {
          <Suspense fallback={"loading"}>
             <HomeLibrary />
          </Suspense>
+         <Subscribe />
       </main>
    )
 }
