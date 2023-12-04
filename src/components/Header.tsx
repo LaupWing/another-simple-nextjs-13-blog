@@ -46,8 +46,12 @@ export const Header:FC<HeaderProps> = () => {
       { 
          href: "/about",
          label: "About",
-         segement: "about"
-         
+         segement: "about"     
+      },
+      { 
+         href: "/contact",
+         label: "Contact",
+         segement: "contact"     
       },
    ]
    
