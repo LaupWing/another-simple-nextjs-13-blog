@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer"
 import { favicons } from "@/config"
 import seo from "@/lib/seo"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
+import { GoogleTagManager } from '@next/third-parties/google'
 
 import "@/styles/globals.css"
 import "@/styles/dracula.css"
@@ -40,6 +41,7 @@ export default function RootLayout({
                {children}
             </LoadedContainer>
             <Footer />
+            <GoogleTagManager gtmId="GTM-N9XKNFZX" />
          </body>
       </html>
    )
