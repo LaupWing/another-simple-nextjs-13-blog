@@ -10,7 +10,7 @@ const Contact = () => {
          >
             <Accent>Contact</Accent>
          </h1>
-         <p>Unlock exciting possibilities! Interested in a project or tutoring? Reach out using the contact form and let's embark on this journey together!</p>
+         <p className="text-gray-500">Unlock exciting possibilities! Interested in a project or tutoring? Reach out using the contact form and let's embark on this journey together!</p>
          <form className="mt-4 flex w-full max-w-lg flex-col">
             <input 
                type="email" 
