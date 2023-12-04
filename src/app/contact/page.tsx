@@ -19,6 +19,7 @@ const Contact = () => {
       e.preventDefault()
 
       fetch("/api/contact", {
+         method: "POST",
          body: JSON.stringify({
             email: e.currentTarget.elements.email.value,
             message: e.currentTarget.elements.message.value,
