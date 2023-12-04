@@ -18,12 +18,12 @@ export default function Home() {
    return (
       <main>
          <HomeIntro />
-         <Suspense fallback={"loading"}>
-            <HomeBlogs />
-         </Suspense>
          <div className="flex flex-col py-4">
             <ContactMe />
          </div>
+         <Suspense fallback={"loading"}>
+            <HomeBlogs />
+         </Suspense>
          <Suspense fallback={"loading"}>
             <HomeProjects />
          </Suspense>
