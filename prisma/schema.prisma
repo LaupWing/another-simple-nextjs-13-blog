@@ -37,4 +37,7 @@ model View {
 model Contact {
    id         Int      @id @default(autoincrement())
    created_at DateTime @default(now())
+   name       String
+   email      String
+   message    String
 }
