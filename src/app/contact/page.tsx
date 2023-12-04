@@ -44,6 +44,13 @@ const Contact = () => {
             onSubmit={handleSubmit}
          >
             <input
+               type="text"
+               id="name"
+               required
+               placeholder="Name"
+               className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
+            />
+            <input
                type="email"
                id="email"
                required
