@@ -1,8 +1,12 @@
+"use client"
 import { Button } from "@/components/buttons/Button"
 import { Accent } from "@/components/elements/Accent"
+import { useRef } from "react"
 
 
 const Contact = () => {
+   const form_ref = useRef<HTMLFormElement>(null)
+
    return (
       <section className="custom-container max-w-lg min-h-screen py-12">
          <h1 
@@ -12,7 +16,10 @@ const Contact = () => {
             <Accent>Contact</Accent>
          </h1>
          <p className="text-gray-500">Unlock exciting possibilities! Interested in a project or tutoring? Reach out using the contact form and let's embark on this journey together!</p>
-         <form className="mt-4 flex w-full flex-col items-start gap-4">
+         <form 
+            className="mt-4 flex w-full flex-col items-start gap-4"
+            ref={form_ref}
+         >
             <input 
                type="email" 
                placeholder="Email"
