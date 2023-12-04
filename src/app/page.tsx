@@ -10,6 +10,7 @@ import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Suspense } from "react"
 import { attachContentMeta } from "@/lib/helpers"
 import { LibraryCard } from "@/components/cards/LibraryCard"
+import { ContactMe } from "@/components/sections/ContactMe.client"
 
 export const revalidate = 10
 
@@ -20,6 +21,9 @@ export default function Home() {
          <Suspense fallback={"loading"}>
             <HomeBlogs />
          </Suspense>
+         <div className="flex flex-col py-4">
+            <ContactMe />
+         </div>
          <Suspense fallback={"loading"}>
             <HomeProjects />
          </Suspense>

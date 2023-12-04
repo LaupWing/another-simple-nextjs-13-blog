@@ -1,6 +1,6 @@
+"use client"
 import { useRef } from "react"
 import { Button } from "../buttons/Button"
-
 
 export const ContactMe = () => {
    const form_ref = useRef<HTMLFormElement>(null)
