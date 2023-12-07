@@ -34,9 +34,9 @@ export const CloudinaryImage:FC<CloudinaryImageProps> = ({
 }) => {
    const urlBlurred = buildUrl(public_id, {
       cloud: {
-         cloudName: "laupwing",
+         cloudName: "locnguyen",
       },
-      transformations: {
+      transformations: { 
          effect: {
             name: "blur:1000"
          },
