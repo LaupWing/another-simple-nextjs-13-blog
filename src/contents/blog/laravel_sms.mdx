@@ -6,3 +6,21 @@ englishOnly: 'true'
 banner: 'bike'
 tags: 'laravel sms'
 ---
+With the technology nowadays it is very easy to send an sms with your webapplication. In this tutorial I will show you how to send an sms with THE most robust fullstack framework in the modern day which is laravel. 
+
+## Create a laravel project
+First create an brand new laravel project and change directories to the laravel project and open the project with Visual Studio Code.
+```bash
+composer create-project laravel/laravel example-app
+
+cd ./example-app
+
+code .
+```
+
+## Install twilio sms package
+Next up is to download the twilio package that enables us to use their service to send an sms with our laravel web application.
+
+```bash
+composer require twilio/sdk
+```
