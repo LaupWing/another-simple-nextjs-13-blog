@@ -60,7 +60,7 @@
    }
 
    .custom-container {
-      max-width: 68rem;
+      max-width: 85rem;
       @apply mx-auto w-11/12;
    }
 
