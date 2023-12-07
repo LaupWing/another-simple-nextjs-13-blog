@@ -12,11 +12,16 @@ export const LoadedContainer:FC<PropsWithChildren & ComponentPropsWithoutRef<"di
    children, 
    ...props 
 }) => {
-   const [loaded, setLoaded] = useState(false)
+   const [prevState, setPrevState] = useState<null|string>(null)
    const pathname = usePathname()
+   const [loaded, setLoaded] = useState(prevState === pathname)
    const router = useRouter()
    
+   console.log(loaded)
+   console.log(prevState)
+
    useEffect(() => {
+      setPrevState(pathname)
       setLoaded(true)
       NProgress.done()
    }, [pathname , router])
