@@ -7,7 +7,8 @@ import { Footer } from "@/components/Footer"
 import { favicons } from "@/config"
 import seo from "@/lib/seo"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from "@next/third-parties/google"
+import { Analytics } from "@vercel/analytics/react"
 
 import "@/styles/globals.css"
 import "@/styles/dracula.css"
@@ -43,6 +44,7 @@ export default function RootLayout({
             <Footer />
             <GoogleTagManager gtmId="GTM-N9XKNFZX" />
             <GoogleTagManager gtmId="G-JBM6Y5FDQK" />
+            <Analytics />
          </body>
       </html>
    )
