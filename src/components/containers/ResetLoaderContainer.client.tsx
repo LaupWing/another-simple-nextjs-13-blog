@@ -4,29 +4,23 @@ import type {
    PropsWithChildren, 
    ComponentPropsWithoutRef 
 } from "react"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import * as NProgress from "nprogress"
 import { usePathname, useRouter } from "next/navigation"
 
 export const ResetLoaderContainer:FC<PropsWithChildren & ComponentPropsWithoutRef<"div">> = ({ 
-   children, 
-   ...props 
+   children
 }) => {
-   const [loaded, setLoaded] = useState(false)
    const pathname = usePathname()
    const router = useRouter()
    
    useEffect(() => {
-      setLoaded(true)
       NProgress.done()
    }, [pathname , router])
 
    return (
-      <div
-         className={loaded ? "fade-in-start" : ""}
-         {...props}
-      >
+      <>
          {children}
-      </div>
+      </>
    )
 }
