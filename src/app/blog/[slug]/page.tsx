@@ -109,8 +109,8 @@ const Hero:FC<HeroProps> = async ({
          <CloudinaryImage
             public_id="samples/bike"
             alt="Bike"
-            width={1200}
-            height={(1200 * 2) /5}
+            width={1400}
+            height={(1400 * 2) /5}
             aspect={{
                height: 2,
                width: 5
