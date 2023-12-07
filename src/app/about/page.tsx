@@ -7,7 +7,7 @@ const About = () => {
       <section className="custom-container min-h-screen py-20">
          <h2 className="dark:text-white">About</h2>
          <h1 className="mt-1">
-            <Accent>Laup Wing</Accent>
+            <Accent>Loc Nguyen</Accent>
          </h1>
          <div className="mt-4">
             <CloudinaryImage
@@ -19,7 +19,7 @@ const About = () => {
             />
             <article className="prose dark:prose-invert">
                <p>
-                  Hello! I'm Clarence. I started learning web development in May
+                  Hello! I'm Loc Nguyen. I started learning web development in May
                   2020, which is the start of the pandemic. I have nothing much
                   to do so I decided to learn web development from a udemy
                   course, then started watching a bunch of{' '}
