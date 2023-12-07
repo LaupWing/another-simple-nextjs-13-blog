@@ -19,10 +19,7 @@ const About = () => {
             />
             <article className="prose dark:prose-invert">
                <p>
-                  Hello! I'm Loc Nguyen. I started learning web development in May
-                  2020, which is the start of the pandemic. I have nothing much
-                  to do so I decided to learn web development from a udemy
-                  course, then started watching a bunch of{' '}
+                  Hello! I'm Loc Nguyen. Ever since I was young I have been interested in programming. I went to IT universities and tried it out, but unfortuanetly the education involved a lot of topics which not peak my interests, which is the coding part of it. 
                   <CustomLink href='/blog/youtube-list'>
                      youtube videos
                   </CustomLink>{' '}
