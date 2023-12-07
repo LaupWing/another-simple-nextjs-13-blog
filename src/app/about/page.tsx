@@ -27,10 +27,12 @@ const About = () => {
                <p>
                   After finising my study I have been working as a web developer for 5 years now. I have
                   worked with many different technologies, but I am most
-                  
-                  comfortable with React, Next.js, and Node.js. I am also
+                  comfortable with Vue.js, React/Next.js, and Node.js. I am also
                   interested in learning more about DevOps and cloud
                   technologies.
+               </p>
+               <p>
+                  
                </p>
                <p>
                   In this website I will be writing some blogs and showcase my
