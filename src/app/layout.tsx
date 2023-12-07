@@ -6,7 +6,7 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { favicons } from "@/config"
 import seo from "@/lib/seo"
-import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
+import { ResetLoaderContainer } from "@/components/containers/ResetLoaderContainer.client"
 import { GoogleTagManager } from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -38,9 +38,9 @@ export default function RootLayout({
          <body className={`${inter.className} dark:bg-dark`}>
             <NextTopLoader />
             <Header />
-            <LoadedContainer id="skip-nav">
+            <ResetLoaderContainer id="skip-nav">
                {children}
-            </LoadedContainer>
+            </ResetLoaderContainer>
             <Footer />
             <GoogleTagManager gtmId="GTM-N9XKNFZX" />
             <GoogleTagManager gtmId="G-JBM6Y5FDQK" />

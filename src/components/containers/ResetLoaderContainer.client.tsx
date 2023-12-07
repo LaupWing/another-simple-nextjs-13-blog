@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import * as NProgress from "nprogress"
 import { usePathname, useRouter } from "next/navigation"
 
-export const LoadedContainer:FC<PropsWithChildren & ComponentPropsWithoutRef<"div">> = ({ 
+export const ResetLoaderContainer:FC<PropsWithChildren & ComponentPropsWithoutRef<"div">> = ({ 
    children, 
    ...props 
 }) => {

@@ -1,13 +1,11 @@
 import { ProjectCard } from "@/components/cards/ProjectCard"
 import { Accent } from "@/components/elements/Accent"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
-import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 
 const fetchProjects = async () => {
    const projects = await getAllFilesFrontmatter("projects")
    return projects
 }
-
 
 const Projects = async () => {
    const projects = await fetchProjects()
