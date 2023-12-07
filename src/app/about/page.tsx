@@ -19,27 +19,16 @@ const About = () => {
             />
             <article className="prose dark:prose-invert">
                <p>
-                  Hello! I'm Loc Nguyen. Ever since I was young I have been interested in programming. I went to IT universities and tried it out, but unfortuanetly the education involved a lot of topics which not peak my interests, which is the coding part of it. Therefore made the choice to learn coding by myself. It started with watching a lot of videos on Youtube. Quickly I fell in love with web development and began to build websites on my own.
+                  Hello! I'm Loc Nguyen, and my passion for programming has been with me since my early years. Although I attended IT universities, the broad curriculum didn't quite align with my main interest – coding. Determined to pursue my passion, I took the self-taught route, starting with YouTube tutorials. Web development captured my heart, and I dove into building websites independently.
                </p>
                <p>
-                  I discovered that the coding part was kinda getting easy. So I started a new university revolving around web design called communciation multimedia design to learn more about the other parts of web development.I also learned about the importance of soft skills, such as communication, time management, and teamwork. I believe that these skills are very important for a developer to have, and I am still learning and improving them every day.
+                  As coding became second nature, I decided to broaden my skills. I enrolled in a university program focused on web design called Communication Multimedia Design. Here, I not only delved deeper into coding but also recognized the significance of soft skills like communication, time management, and teamwork. I continue to refine these skills daily, understanding their crucial role in a developer's success.
                </p>
                <p>
-                  After finising my study I have been working as a web developer for 5 years now. I have
-                  worked with many different technologies, but I am most
-                  comfortable with Vue.js, React/Next.js, Node.js and PHP/Laravel. Most of my knowedge lies in the frontend frameworks, because I have used the frontend technologies for the whole 5 years of my time as an professional developer. For backend frameworks like Node.js and <strong>especially</strong> Laravel I have programming for around 2 years professionaly. Although I have to mention that I have been programming on the backend for practially each day in the 2 years span. I am also
-                  interested in learning more about DevOps and cloud
-                  technologies.
+                  With 5 years of experience as a web developer post-graduation, I've worked with various technologies. My expertise lies in Vue.js, React/Next.js, Node.js, and PHP/Laravel, primarily focusing on frontend frameworks. While my proficiency in backend frameworks like Node.js and especially Laravel spans 2 years, I've dedicated each day within that timeframe to backend programming. I'm also keen on expanding my knowledge in DevOps and cloud technologies.
                </p>
                <p>
-
-               </p>
-               <p>
-                  In this website I will be writing some blogs and showcase my
-                  projects. I believe that writing what I have learned is the
-                  best way to remember things, and I can share my knowledge
-                  along the way. So do contact me and I will be very happy to
-                  help!
+                  This website serves as a platform for blogging and showcasing my projects. I believe that articulating my learnings enhances retention, and I'm eager to share my knowledge. Feel free to reach out, and I'll be delighted to assist you!
                </p>
                <h3 className="mt-12">Current Favorite Tech Stack</h3>
                <figure className="mt-2">
