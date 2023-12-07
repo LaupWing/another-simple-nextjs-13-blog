@@ -27,12 +27,12 @@ const About = () => {
                <p>
                   After finising my study I have been working as a web developer for 5 years now. I have
                   worked with many different technologies, but I am most
-                  comfortable with Vue.js, React/Next.js, and Node.js. I am also
+                  comfortable with Vue.js, React/Next.js, Node.js and PHP/Laravel. Most of my knowedge lies in the frontend frameworks, because I have used the frontend technologies for the whole 5 years of my time as an professional developer. For backend frameworks like Node.js and <strong>especially</strong> Laravel I have programming for around 2 years professionaly. Although I have to mention that I have been programming on the backend for practially each day in the 2 years span. I am also
                   interested in learning more about DevOps and cloud
                   technologies.
                </p>
                <p>
-                  
+
                </p>
                <p>
                   In this website I will be writing some blogs and showcase my
