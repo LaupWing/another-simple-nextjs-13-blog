@@ -4,7 +4,7 @@ publishedAt: '2023-12-06'
 description: 'Send an sms with the most robust php framework'
 englishOnly: 'true'
 banner: 'bike'
-tags: 'laravel sms'
+tags: 'laravel,api'
 ---
 With the technology nowadays it is very easy to send an sms with your webapplication. In this tutorial I will show you how to send an sms with THE most robust fullstack framework in the modern day which is laravel. 
 
@@ -23,4 +23,16 @@ Next up is to download the twilio package that enables us to use their service t
 
 ```bash
 composer require twilio/sdk
+```
+## Retrieve the authentication keys from twilio
+I won't go into the details about creating a twilio account etc. Regsiter an account on [Twlio](https://twilio.com/) and go to your console and copy both Account SID and Auth Token. Place these credentials in your `.env` file by their respective variables.
+
+```env
+TWILIO_SID=YOUR_SID_HERE
+TWILIO_AUTH_TOKEN=YOUR_AUTH_TOKEN_HERE
+```
+## Creating a controller
+With a new Laravel project you have to create a controller to connect a endpoint to it. Luckily with laravel you can generate an controller just by using the following command `php artisan make:controller YourController`. Let's call our controller SmsController so our command will look like this:
+```env
+php artisan make:controller SmsController
 ```
