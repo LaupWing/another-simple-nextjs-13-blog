@@ -19,18 +19,15 @@ const About = () => {
             />
             <article className="prose dark:prose-invert">
                <p>
-                  Hello! I'm Loc Nguyen. Ever since I was young I have been interested in programming. I went to IT universities and tried it out, but unfortuanetly the education involved a lot of topics which not peak my interests, which is the coding part of it. 
-                  <CustomLink href='/blog/youtube-list'>
-                     youtube videos
-                  </CustomLink>{' '}
-                  to explore more about web development especially frontend
-                  development.
+                  Hello! I'm Loc Nguyen. Ever since I was young I have been interested in programming. I went to IT universities and tried it out, but unfortuanetly the education involved a lot of topics which not peak my interests, which is the coding part of it. Therefore made the choice to learn coding by myself. It started with watching a lot of videos on Youtube. Quickly I fell in love with web development and began to build websites on my own.
                </p>
+               <p></p>
                <p>
-                  There are a lot of things and technologies to learn in
-                  frontend development and I am motivated to learn as much as
-                  possible. I enjoy learning something new and getting feedback
-                  to make myself better and improve.
+                  I have been working as a web developer for 5 years now. I have
+                  worked with many different technologies, but I am most
+                  comfortable with React, Next.js, and Node.js. I am also
+                  interested in learning more about DevOps and cloud
+                  technologies.
                </p>
                <p>
                   In this website I will be writing some blogs and showcase my
