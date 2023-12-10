@@ -31,13 +31,13 @@ export async function POST(request: Request) {
          `
       })
    
-      // await prisma_client.contact.create({
-      //    data: {
-      //       name,
-      //       email,
-      //       message
-      //    }
-      // })
+      await prisma_client.contact.create({
+         data: {
+            name,
+            email,
+            message
+         }
+      })
       
       return Response.json({ message: "success" })
    } catch(err) {
