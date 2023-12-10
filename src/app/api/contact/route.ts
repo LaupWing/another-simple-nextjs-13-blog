@@ -16,13 +16,12 @@ export async function POST(request: Request) {
          }
       })
       
-      const test = await transporter.sendMail({
+      await transporter.sendMail({
          from: email,
          to: "loc@loc-nguyen.com",
-         subject: `New message from ${name}`,
+         subject: `From contact Form Website: New message from ${name}`,
          text: message
       })
-      console.log(test)
    
       // await prisma_client.contact.create({
       //    data: {
