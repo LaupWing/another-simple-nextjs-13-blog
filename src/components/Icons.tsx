@@ -5,6 +5,7 @@
 import { IconType } from "@react-icons/all-files"
 import { IoNewspaperSharp } from "@react-icons/all-files/io5/IoNewspaperSharp"
 import { FaLaravel } from "@react-icons/all-files/fa/FaLaravel"
+import { GrMysql } from "@react-icons/all-files/gr/GrMysql"
 import { GiTechnoHeart } from "@react-icons/all-files/gi/GiTechnoHeart"
 import { IoArrowDownOutline } from "@react-icons/all-files/io5/IoArrowDownOutline"
 import { SiGithub } from "@react-icons/all-files/si/SiGithub"
@@ -50,6 +51,13 @@ export const IconNewspaper:IconType = (props) => {
 export const IconLaravel:IconType = (props) => {
    return (
       <FaLaravel 
+         {...props}
+      />
+   )
+}
+export const IconSql:IconType = (props) => {
+   return (
+      <GrMysql 
          {...props}
       />
    )

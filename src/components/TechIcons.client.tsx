@@ -14,6 +14,7 @@ import {
    IconNodeDotJs, 
    IconReact, 
    IconRedux, 
+   IconSql, 
    IconTailwindcss, 
    IconTypescript, 
    IconVercel, 
@@ -70,6 +71,10 @@ const techList = {
    javascript: {
       icon: IconJavascript,
       name: "Javascript"
+   },
+   mysql: {
+      icon: IconSql,
+      name: "MySQL"
    },
    typescript: {
       icon: IconTypescript,
