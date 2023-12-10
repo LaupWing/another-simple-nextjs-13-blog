@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       //    }
       // })
       
-      return Response.json({ message: "ok" })
+      return Response.json({ message: "success" })
    } catch(err) {
       console.log(err)
    }

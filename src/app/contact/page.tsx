@@ -33,6 +33,9 @@ const Contact = () => {
       
       if(data.message === "invalid email") {
          setEmailError(true)
+      } else if (data.message === "success") {
+         setSuccess(true)
+         form_ref.current!.reset()
       }
    }
 
