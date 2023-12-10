@@ -11,9 +11,9 @@ export async function POST(request: Request) {
          return Response.json({ message: "invalid email" })
       }
       const transporter = nodemailer.createTransport({
-         host: "smtpout.secureserver.net",
-         port: 465,
-         secure: true,
+         host: "smtp-mail.outlook.com",
+         port: 587,
+         secure: false,
          auth: {
             user: process.env.GODADDY_EMAIL,
             pass: process.env.GODADDY_PASSWORD
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
       })
       
       await transporter.sendMail({
-         from: email,
+         from: "loc@loc-nguyen.com",
          to: "loc@loc-nguyen.com",
          subject: `From contact Form Website: New message from ${name}`,
          text: message
