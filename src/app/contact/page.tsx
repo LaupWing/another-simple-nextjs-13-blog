@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/buttons/Button"
 import { Accent } from "@/components/elements/Accent"
-import { FormEvent, useRef, useState } from "react"
+import { FC, FormEvent, useRef, useState } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import Confetti from "react-confetti"
 
@@ -44,7 +44,11 @@ const Contact = () => {
    return (
       <>
          {success && (
-            <ContactSuccessModal />
+            <ContactSuccessModal 
+               onClick={() => {
+                  setSuccess(false)
+               }}
+            />
          )}
          <section className="custom-container max-w-lg min-h-screen py-12">
             <h1
@@ -113,7 +117,13 @@ const Contact = () => {
 }
 export default Contact
 
-const ContactSuccessModal = () => {
+interface ContactSuccessModalProps {
+   onClick: () => void
+} 
+
+const ContactSuccessModal:FC<ContactSuccessModalProps> = ({
+   onClick
+}) => {
    const { width, height } = useWindowSize()
    return (
       <div className="fixed z-[1000] top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
@@ -124,7 +134,12 @@ const ContactSuccessModal = () => {
          <div className="bg-white rounded-md p-4 z-50">
             <h1 className="text-2xl text-gray-600">Message has been sent!</h1>
             <p className="text-gray-500">Thank you for reaching out! I will get back to you as soon as possible.</p>
-            <Button className="mt-4" onClick={() => location.reload()}>Close</Button>
+            <Button 
+               className="mt-4" 
+               onClick={onClick}
+            >
+               Close
+            </Button>
          </div>
       </div>
    )
