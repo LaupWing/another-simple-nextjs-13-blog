@@ -4,6 +4,7 @@
  */
 import { IconType } from "@react-icons/all-files"
 import { IoNewspaperSharp } from "@react-icons/all-files/io5/IoNewspaperSharp"
+import { FaLaravel } from "@react-icons/all-files/fa/FaLaravel"
 import { GiTechnoHeart } from "@react-icons/all-files/gi/GiTechnoHeart"
 import { IoArrowDownOutline } from "@react-icons/all-files/io5/IoArrowDownOutline"
 import { SiGithub } from "@react-icons/all-files/si/SiGithub"
@@ -42,6 +43,13 @@ import { IoLogoVercel } from "@react-icons/all-files/io5/IoLogoVercel"
 export const IconNewspaper:IconType = (props) => {
    return (
       <IoNewspaperSharp 
+         {...props}
+      />
+   )
+}
+export const IconLaravel:IconType = (props) => {
+   return (
+      <FaLaravel 
          {...props}
       />
    )
