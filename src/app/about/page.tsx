@@ -42,6 +42,7 @@ const About = () => {
                      "javascript",
                      "nodejs",
                      "mongodb",
+                     "laravel",
                   ]} />
                </figure>
             </article>

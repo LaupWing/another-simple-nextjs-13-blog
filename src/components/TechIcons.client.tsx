@@ -7,6 +7,7 @@ import {
    IconGatsby, 
    IconGit, 
    IconJavascript, 
+   IconLaravel, 
    IconMarkdown, 
    IconMongodb, 
    IconNextDotJs, 
@@ -93,6 +94,10 @@ const techList = {
    redux: {
       icon: IconRedux,
       name: "Redux"
+   },
+   laravel: {
+      icon: IconLaravel,
+      name: "Laravel"
    },
    mdx: {
       icon: IconMarkdown,
