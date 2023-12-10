@@ -2,6 +2,8 @@
 import { Button } from "@/components/buttons/Button"
 import { Accent } from "@/components/elements/Accent"
 import { FormEvent, useRef, useState } from "react"
+import useWindowSize from "react-use/lib/useWindowSize"
+import Confetti from "react-confetti"
 
 interface CustomElements extends HTMLFormControlsCollection {
    message: HTMLTextAreaElement
@@ -112,9 +114,14 @@ const Contact = () => {
 export default Contact
 
 const ContactSuccessModal = () => {
+   const { width, height } = useWindowSize()
    return (
       <div className="fixed z-[1000] top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
-         <div className="bg-white rounded-md p-4">
+         <Confetti
+            width={width}
+            height={height}
+         />
+         <div className="bg-white rounded-md p-4 z-50">
             <h1 className="text-2xl text-gray-600">Message has been sent!</h1>
             <p className="text-gray-500">Thank you for reaching out! I will get back to you as soon as possible.</p>
             <Button className="mt-4" onClick={() => location.reload()}>Close</Button>
