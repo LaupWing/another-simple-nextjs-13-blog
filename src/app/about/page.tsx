@@ -12,10 +12,10 @@ const About = () => {
          <div className="mt-4">
             <CloudinaryImage
                className="float-right ml-6 w-40 md:w-72"
-               public_id="samples/bike"
+               public_id="techblog/laup_d5azzz"
                alt="Bike"
                width={1200}
-               height={1695}
+               height={1200}
             />
             <article className="prose dark:prose-invert">
                <p>
