@@ -5,6 +5,7 @@
 import { IconType } from "@react-icons/all-files"
 import { IoNewspaperSharp } from "@react-icons/all-files/io5/IoNewspaperSharp"
 import { FaLaravel } from "@react-icons/all-files/fa/FaLaravel"
+import { FaPhp } from "@react-icons/all-files/fa/FaPhp"
 import { GrMysql } from "@react-icons/all-files/gr/GrMysql"
 import { GiTechnoHeart } from "@react-icons/all-files/gi/GiTechnoHeart"
 import { IoArrowDownOutline } from "@react-icons/all-files/io5/IoArrowDownOutline"
@@ -58,6 +59,13 @@ export const IconLaravel:IconType = (props) => {
 export const IconSql:IconType = (props) => {
    return (
       <GrMysql 
+         {...props}
+      />
+   )
+}
+export const IconPhp:IconType = (props) => {
+   return (
+      <FaPhp 
          {...props}
       />
    )

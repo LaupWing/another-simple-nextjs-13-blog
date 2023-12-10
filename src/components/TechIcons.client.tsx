@@ -12,6 +12,7 @@ import {
    IconMongodb, 
    IconNextDotJs, 
    IconNodeDotJs, 
+   IconPhp, 
    IconReact, 
    IconRedux, 
    IconSql, 
@@ -75,6 +76,10 @@ const techList = {
    mysql: {
       icon: IconSql,
       name: "MySQL"
+   },
+   php: {
+      icon: IconPhp,
+      name: "PHP"
    },
    typescript: {
       icon: IconTypescript,
