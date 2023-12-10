@@ -23,17 +23,17 @@ export async function POST(request: Request) {
       await transporter.sendMail({
          from: "loc@loc-nguyen.com",
          to: "loc@loc-nguyen.com",
-         subject: `From contact Form Website: New message from ${name}`,
+         subject: `From contact Form Website: New message from ${name} email is ${email}`,
          text: message
       })
    
-      // await prisma_client.contact.create({
-      //    data: {
-      //       name,
-      //       email,
-      //       message
-      //    }
-      // })
+      await prisma_client.contact.create({
+         data: {
+            name,
+            email,
+            message
+         }
+      })
       
       return Response.json({ message: "success" })
    } catch(err) {
