@@ -41,7 +41,9 @@ const Contact = () => {
 
    return (
       <>
-         <ContactSuccessModal />
+         {success && (
+            <ContactSuccessModal />
+         )}
          <section className="custom-container max-w-lg min-h-screen py-12">
             <h1
                className="text-3xl md:text-5xl"
