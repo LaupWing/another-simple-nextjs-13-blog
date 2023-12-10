@@ -1,11 +1,15 @@
 import { prisma_client } from "@/lib/prisma"
 import nodemailer from "nodemailer"
+import * as EmailValidator from "email-validator"
 
 export async function POST(request: Request) {
    const data = await request.json()
    const { name, email, message } = data
    
    try {
+      if(!EmailValidator.validate(email)) {
+         return Response.json({ message: "invalid email" })
+      }
       const transporter = nodemailer.createTransport({
          host: "smtpout.secureserver.net",
          port: 465,

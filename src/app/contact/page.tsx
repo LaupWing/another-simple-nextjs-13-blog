@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/buttons/Button"
 import { Accent } from "@/components/elements/Accent"
-import { FormEvent, useRef } from "react"
+import { FormEvent, useRef, useState } from "react"
 
 interface CustomElements extends HTMLFormControlsCollection {
    message: HTMLTextAreaElement
@@ -15,6 +15,7 @@ interface CustomForm extends HTMLFormElement {
 
 const Contact = () => {
    const form_ref = useRef<HTMLFormElement>(null)
+   const email_error = useState(false)
 
    const handleSubmit = async (e: FormEvent<CustomForm>) => {
       e.preventDefault()
