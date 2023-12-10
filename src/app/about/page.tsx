@@ -35,15 +35,13 @@ const About = () => {
                   <h3>Current Favorite Tech Stack</h3>
                   <figure className="mt-1 flex-1 flex flex-wrap">
                      <TechIcons techs={[
-                        "firebase",
+                        "laravel",
                         "react",	
                         "nextjs",
                         "tailwindcss",
                         "typescript",
-                        "javascript",
-                        "nodejs",
-                        "mongodb",
-                        "laravel",
+                        "php",
+                        "mysql"
                      ]} />
                   </figure>
                </div>
@@ -60,6 +58,13 @@ const About = () => {
                         "nodejs",
                         "mongodb",
                         "laravel",
+                        "wordpress",
+                        "php",
+                        "mysql",
+                        "git",
+                        "gatsby",
+                        "redux",
+                        
                      ]} />
                   </figure>
                </div>
