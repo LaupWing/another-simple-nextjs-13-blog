@@ -31,20 +31,38 @@ const About = () => {
                <p>
                   This website serves as a platform for blogging and showcasing my projects. I believe that articulating my learnings enhances retention, and I'm eager to share my knowledge. Feel free to reach out, and I'll be delighted to assist you!
                </p>
-               <h3 className="mt-12">Current Favorite Tech Stack</h3>
-               <figure className="mt-2">
-                  <TechIcons techs={[
-                     "firebase",
-                     "react",	
-                     "nextjs",
-                     "tailwindcss",
-                     "typescript",
-                     "javascript",
-                     "nodejs",
-                     "mongodb",
-                     "laravel",
-                  ]} />
-               </figure>
+               <div className="flex flex-col">
+                  <h3>Current Favorite Tech Stack</h3>
+                  <figure className="mt-1 flex-1 flex flex-wrap">
+                     <TechIcons techs={[
+                        "firebase",
+                        "react",	
+                        "nextjs",
+                        "tailwindcss",
+                        "typescript",
+                        "javascript",
+                        "nodejs",
+                        "mongodb",
+                        "laravel",
+                     ]} />
+                  </figure>
+               </div>
+               <div className="flex flex-col">
+                  <h3>Technologies I'm proficient in</h3>
+                  <figure className="mt-1">
+                     <TechIcons techs={[
+                        "firebase",
+                        "react",	
+                        "nextjs",
+                        "tailwindcss",
+                        "typescript",
+                        "javascript",
+                        "nodejs",
+                        "mongodb",
+                        "laravel",
+                     ]} />
+                  </figure>
+               </div>
             </article>
          </div>
       </section>
