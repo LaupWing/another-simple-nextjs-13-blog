@@ -7,29 +7,30 @@ export async function POST(request: Request) {
    
    try {
       const transporter = nodemailer.createTransport({
-         host: "smtp.gmail.com",
+         host: "smtpout.secureserver.net",
          port: 465,
          secure: true,
          auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_APP_PASSWORD
+            user: process.env.GODADDY_EMAIL,
+            pass: process.env.GODADDY_PASSWORD
          }
       })
-   
-      await transporter.sendMail({
+      
+      const test = await transporter.sendMail({
          from: email,
-         to: process.env.GMAIL_USER,
+         to: "loc@loc-nguyen.com",
          subject: `New message from ${name}`,
          text: message
       })
+      console.log(test)
    
-      await prisma_client.contact.create({
-         data: {
-            name,
-            email,
-            message
-         }
-      })
+      // await prisma_client.contact.create({
+      //    data: {
+      //       name,
+      //       email,
+      //       message
+      //    }
+      // })
       
       return Response.json({ message: "ok" })
    } catch(err) {
