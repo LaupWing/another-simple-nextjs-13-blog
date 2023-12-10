@@ -42,8 +42,8 @@ export const TechIcons:FC<TechIconsProps> = ({
                   key={current.name} 
                   tipChildren={<p>{current.name}</p>}
                >
-                  <li className="text-xl text-gray-700 dark:text-gray-200">
-                     <current.icon />
+                  <li className="text-xl text-gray-700 dark:text-gray-200 list-none">
+                     <current.icon size={20} />
                   </li>
                </Tooltip>
             )

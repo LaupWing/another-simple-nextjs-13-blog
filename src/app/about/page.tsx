@@ -1,3 +1,4 @@
+import { TechIcons } from "@/components/TechIcons.client"
 import { Accent } from "@/components/elements/Accent"
 import { CloudinaryImage } from "@/components/images/CloudinaryImage.client"
 import { CustomLink } from "@/components/links/CustomLink"
@@ -32,7 +33,16 @@ const About = () => {
                </p>
                <h3 className="mt-12">Current Favorite Tech Stack</h3>
                <figure className="mt-2">
-                  {/* <TechStack /> */}
+                  <TechIcons techs={[
+                     "firebase",
+                     "react",	
+                     "nextjs",
+                     "tailwindcss",
+                     "typescript",
+                     "javascript",
+                     "nodejs",
+                     "mongodb"
+                  ]} />
                </figure>
             </article>
          </div>
