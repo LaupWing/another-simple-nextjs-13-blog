@@ -41,7 +41,7 @@ const About = () => {
                      "typescript",
                      "javascript",
                      "nodejs",
-                     "mongodb"
+                     "mongodb",
                   ]} />
                </figure>
             </article>
