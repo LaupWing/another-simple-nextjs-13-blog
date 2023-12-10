@@ -15,7 +15,7 @@ interface CustomForm extends HTMLFormElement {
 
 const Contact = () => {
    const form_ref = useRef<HTMLFormElement>(null)
-   const email_error = useState(false)
+   const [email_error, setEmailError] = useState(false)
 
    const handleSubmit = async (e: FormEvent<CustomForm>) => {
       e.preventDefault()
@@ -29,7 +29,10 @@ const Contact = () => {
          })
       })
       const data = await res.json()
-      console.log(data)
+      
+      if(data.message === "invalid email") {
+         setEmailError(true)
+      }
    }
 
    return (
@@ -72,8 +75,9 @@ const Contact = () => {
                   id="email"
                   required
                   placeholder="Email"
-                  className="w-full rounded-md dark:bg-dark border border-gray-300 dark:border-gray-600 focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light"
+                  className={"w-full rounded-md dark:bg-dark border focus:border-accent-dark focus:outline-none focus:ring-0 dark:focus:border-accent-light" + (email_error ? " border-red-400" : "border-gray-300 dark:border-gray-600")}
                />
+               {email_error && <span className="text-red-400 ml-1 font-bold uppercase text-xs">Email is invalid</span>}
             </div>
             <div className="w-full" data-fade="4">
                <textarea
