@@ -27,6 +27,7 @@
       "nextjs-toploader": "^1.6.4",
       "nodemailer": "^6.9.7",
       "react": "^18",
+      "react-confetti": "^6.1.0",
       "react-dom": "^18",
       "react-lite-youtube-embed": "^2.4.0",
       "react-tippy": "^1.4.0",
