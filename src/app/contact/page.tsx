@@ -6,6 +6,7 @@ import { FormEvent, useRef } from "react"
 interface CustomElements extends HTMLFormControlsCollection {
    message: HTMLTextAreaElement
    email: HTMLInputElement
+   name: HTMLInputElement
 }
 
 interface CustomForm extends HTMLFormElement {
@@ -23,6 +24,7 @@ const Contact = () => {
          body: JSON.stringify({
             email: e.currentTarget.elements.email.value,
             message: e.currentTarget.elements.message.value,
+            name: e.currentTarget.elements.name.value,
          })
       })
       const data = await res.json()
