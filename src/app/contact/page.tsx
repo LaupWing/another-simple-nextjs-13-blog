@@ -101,3 +101,7 @@ const Contact = () => {
    )
 }
 export default Contact
+
+const ContactSuccessModal = () => {
+   
+}
