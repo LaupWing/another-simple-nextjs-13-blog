@@ -34,15 +34,18 @@ const About = () => {
                <div className="flex flex-col">
                   <h3>Current Favorite Tech Stack</h3>
                   <figure className="mt-1 flex-1 flex flex-wrap">
-                     <TechIcons techs={[
-                        "laravel",
-                        "react",	
-                        "nextjs",
-                        "tailwindcss",
-                        "typescript",
-                        "php",
-                        "mysql"
-                     ]} />
+                     <TechIcons 
+                        className="pl-1"
+                        techs={[
+                           "laravel",
+                           "react",	
+                           "nextjs",
+                           "tailwindcss",
+                           "typescript",
+                           "php",
+                           "mysql"
+                        ]} 
+                     />
                   </figure>
                </div>
                <div className="flex flex-col">

@@ -33,7 +33,7 @@ export const TechIcons:FC<TechIconsProps> = ({
    techs
 }) => {
    return (
-      <div className={clsx(className, "flex flex-wrap flex-1 gap-4")}>
+      <ul className={clsx(className, "flex flex-wrap flex-1 gap-4")}>
          {techs.map((tech) => {
             if(!techList[tech]){
                return null
@@ -52,7 +52,7 @@ export const TechIcons:FC<TechIconsProps> = ({
                </Tooltip>
             )
          })}
-      </div>
+      </ul>
    )
 }
 
