@@ -38,8 +38,9 @@ const About = () => {
                         className="pl-1"
                         techs={[
                            "laravel",
-                           "react",	
                            "nextjs",
+                           "vue",	
+                           "react",	
                            "tailwindcss",
                            "typescript",
                            "php",
@@ -51,24 +52,27 @@ const About = () => {
                <div className="flex flex-col">
                   <h3>Technologies I'm proficient in</h3>
                   <figure className="mt-1">
-                     <TechIcons techs={[
-                        "firebase",
-                        "react",	
-                        "nextjs",
-                        "tailwindcss",
-                        "typescript",
-                        "javascript",
-                        "nodejs",
-                        "mongodb",
-                        "laravel",
-                        "wordpress",
-                        "php",
-                        "mysql",
-                        "git",
-                        "gatsby",
-                        "redux",
-                        
-                     ]} />
+                     <TechIcons 
+                        className="pl-1"
+                        techs={[
+                           "firebase",
+                           "react",	
+                           "vue",	
+                           "nextjs",
+                           "tailwindcss",
+                           "typescript",
+                           "javascript",
+                           "nodejs",
+                           "mongodb",
+                           "laravel",
+                           "wordpress",
+                           "php",
+                           "mysql",
+                           "git",
+                           "gatsby",
+                           "redux",
+                        ]} 
+                     />
                   </figure>
                </div>
             </article>
