@@ -68,6 +68,7 @@ const About = () => {
                   <h3>Technologies I'm proficient in</h3>
                   <figure className="mt-1">
                      <TechIcons 
+                        data-fade="8"
                         className="pl-1"
                         techs={[
                            "firebase",

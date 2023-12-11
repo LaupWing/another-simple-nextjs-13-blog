@@ -35,7 +35,7 @@ export const TechIcons:FC<TechIconsProps> = ({
    techs
 }) => {
    return (
-      <ul className={clsx(className, "flex flex-wrap flex-1 gap-4")}>
+      <ul className={clsx(className, "flex flex-wrap text-gray-700 dark:text-gray-200 flex-1 gap-4")}>
          {techs.map((tech) => {
             if(!techList[tech]){
                return null
@@ -48,7 +48,7 @@ export const TechIcons:FC<TechIconsProps> = ({
                   className="flex"
                   tipChildren={<p>{current.name}</p>}
                >
-                  <li className="text-xl text-gray-700 dark:text-gray-200 list-none">
+                  <li className="text-xl list-none">
                      <current.icon size={30} />
                   </li>
                </Tooltip>
