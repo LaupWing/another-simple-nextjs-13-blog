@@ -44,7 +44,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 
 const SingleProjectPage = async (props: PageProps) => {
    const { frontmatter, code } = await fetchProject(props.params.slug)
-   
+   console.log(frontmatter)
    return (
       <section className="custom-container">
          <Hero 
@@ -94,8 +94,8 @@ const Hero:FC<HeroProps> = ({
    return (
       <div>
          <CloudinaryImage
-            public_id="samples/bike"
-            alt="Bike"
+            public_id={frontmatter.banner}
+            alt={frontmatter.title}
             width={1440}
             height={792}
          />
