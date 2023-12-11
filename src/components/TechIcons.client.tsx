@@ -19,6 +19,7 @@ import {
    IconTailwindcss, 
    IconTypescript, 
    IconVercel, 
+   IconVue, 
    IconWordpress 
 } from "./Icons"
 
@@ -124,5 +125,9 @@ const techList = {
    wordpress: {
       icon: IconWordpress,
       name: "Wordpress"
+   },
+   vue: {
+      icon: IconVue,
+      name: "Vue"
    },
 }

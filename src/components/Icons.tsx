@@ -4,6 +4,7 @@
  */
 import { IconType } from "@react-icons/all-files"
 import { IoNewspaperSharp } from "@react-icons/all-files/io5/IoNewspaperSharp"
+import { IoLogoVue } from "@react-icons/all-files/io5/IoLogoVue"
 import { FaLaravel } from "@react-icons/all-files/fa/FaLaravel"
 import { FaPhp } from "@react-icons/all-files/fa/FaPhp"
 import { GrMysql } from "@react-icons/all-files/gr/GrMysql"
@@ -52,6 +53,13 @@ export const IconNewspaper:IconType = (props) => {
 export const IconLaravel:IconType = (props) => {
    return (
       <FaLaravel 
+         {...props}
+      />
+   )
+}
+export const IconVue:IconType = (props) => {
+   return (
+      <IoLogoVue
          {...props}
       />
    )
