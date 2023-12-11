@@ -24,7 +24,7 @@ const Contact = () => {
 
    const handleSubmit = async (e: FormEvent<CustomForm>) => {
       e.preventDefault()
-
+      setLoading(true)
       const res = await fetch("/api/contact", {
          method: "POST",
          body: JSON.stringify({
@@ -34,7 +34,7 @@ const Contact = () => {
          })
       })
       const data = await res.json()
-      
+      setLoading(false)
       if(data.message === "invalid email") {
          setEmailError(true)
       } else if (data.message === "success") {
@@ -45,7 +45,7 @@ const Contact = () => {
 
    return (
       <>
-         <ContactLoader />
+         {loading && <ContactLoader />}
          {success && (
             <ContactSuccessModal 
                onClick={() => {
