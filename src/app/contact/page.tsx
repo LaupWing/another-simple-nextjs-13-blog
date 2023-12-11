@@ -4,6 +4,7 @@ import { Accent } from "@/components/elements/Accent"
 import { FC, FormEvent, useRef, useState } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import Confetti from "react-confetti"
+import { DNA } from "react-loader-spinner"
 
 interface CustomElements extends HTMLFormControlsCollection {
    message: HTMLTextAreaElement
@@ -44,6 +45,7 @@ const Contact = () => {
 
    return (
       <>
+         <ContactLoader />
          {success && (
             <ContactSuccessModal 
                onClick={() => {
@@ -142,6 +144,21 @@ const ContactSuccessModal:FC<ContactSuccessModalProps> = ({
                Close
             </Button>
          </div>
+      </div>
+   )
+}
+
+const ContactLoader = () => {
+   return (
+      <div className="fixed z-[1000] top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center">
+         <DNA
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+         />
       </div>
    )
 }
