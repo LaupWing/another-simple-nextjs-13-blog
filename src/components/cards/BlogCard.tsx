@@ -36,8 +36,8 @@ export const BlogCard:FC<BlogCardProps> = ({
                <CloudinaryImage 
                   no_style
                   className="rounded-t-md overflow-hidden pointer-events-none"
-                  public_id="samples/bike"
-                  alt="Bike"
+                  public_id={post.banner}
+                  alt={post.title}
                   width={1200}
                   height={(1200 * 2) /5}
                   aspect={{
