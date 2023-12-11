@@ -15,6 +15,7 @@ import {
    IconPhp, 
    IconReact, 
    IconRedux, 
+   IconSolidity, 
    IconSql, 
    IconTailwindcss, 
    IconTypescript, 
@@ -129,5 +130,9 @@ const techList = {
    vue: {
       icon: IconVue,
       name: "Vue"
+   },
+   solidity: {
+      icon: IconSolidity,
+      name: "Solidity"
    },
 }

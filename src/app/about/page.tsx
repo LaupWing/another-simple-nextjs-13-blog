@@ -70,6 +70,7 @@ const About = () => {
                            "mysql",
                            "git",
                            "gatsby",
+                           "solidity",
                            "redux",
                         ]} 
                      />
