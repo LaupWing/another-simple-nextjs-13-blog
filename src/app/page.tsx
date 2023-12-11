@@ -42,7 +42,7 @@ const HomeIntro = () => {
       {
          name: "Resume",
          icon: IconNewspaper,
-         href: "https://google.com",
+         href: `${process.env.BASE_URL}resume.pdf`,
          label: "resume",
          className: "",
       },
