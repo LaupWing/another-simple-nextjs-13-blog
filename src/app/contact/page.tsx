@@ -18,6 +18,7 @@ interface CustomForm extends HTMLFormElement {
 const Contact = () => {
    const form_ref = useRef<HTMLFormElement>(null)
    const [email_error, setEmailError] = useState(false)
+   const [loading, setLoading] = useState(false)
    const [success, setSuccess] = useState(false)
 
    const handleSubmit = async (e: FormEvent<CustomForm>) => {
