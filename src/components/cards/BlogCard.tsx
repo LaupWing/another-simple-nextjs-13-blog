@@ -23,7 +23,7 @@ export const BlogCard:FC<BlogCardProps> = ({
    return (
       <li 
          className={clsx(
-            "w-full rounded-md border border-gray-300 bg-light dark:bg-dark dark:border-gray-600 scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow",
+            "w-full rounded-md border shadow border-gray-300 bg-light dark:bg-dark dark:border-gray-600 scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow",
             className
          )}
          onClick={onClick}

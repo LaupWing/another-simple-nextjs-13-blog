@@ -17,7 +17,7 @@ export const LibraryCard:FC<LibraryCardProps> = ({
    
    return (
       <li
-         className={clsx("h-full rounded-md border bg-light dark:border-gray-600 dark:bg-dark scale-100 hover:scale-[1.04] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow", className)}
+         className={clsx("h-full rounded-md shadow border border-gray-300 bg-light dark:border-gray-600 dark:bg-dark scale-100 hover:scale-[1.04] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow", className)}
       >
          <UnstyledLink
             href={`/library/${snippet.slug}`}         
