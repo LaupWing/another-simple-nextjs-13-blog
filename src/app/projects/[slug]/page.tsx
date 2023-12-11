@@ -11,7 +11,7 @@ import { TableContents } from "@/components/sections/TableContents.client"
 import { getFileBySlug, getFiles } from "@/lib/mdx"
 import { Views } from "@/components/elements/Views.client"
 import seo from "@/lib/seo"
-import { TechIcons } from "@/components/TechIcons.client"
+import { TechIcons, TechListType } from "@/components/TechIcons.client"
 
 export const dynamicParams = false
 export const revalidate = 0
@@ -95,7 +95,6 @@ const Hero:FC<HeroProps> = ({
    return (
       <div>
          <div className="relative">
-
             <CloudinaryImage
                public_id={frontmatter.banner}
                alt={frontmatter.title}
@@ -104,7 +103,7 @@ const Hero:FC<HeroProps> = ({
             />
             <TechIcons 
                className="absolute bottom-4 left-4" 
-               techs={['nextjs', 'tailwindcss', 'firebase']} 
+               techs={frontmatter.techs.split(",") as Array<TechListType>} 
             />
          </div>
          <h1 className="dark:text-white mt-4">{frontmatter.title}</h1>
