@@ -28,11 +28,13 @@ export const ProjectCard:FC<ProjectCardProps> = ({
                {project.description}
             </p>
             <div className="mt-2">
-               <TechIcons techs={project.techs.split(",") as Array<TechListType>} />
+               <TechIcons 
+                  techs={project.techs.split(",") as Array<TechListType>} 
+               />
             </div>
             <CloudinaryImage 
                className="pointer-events-none mt-3 w-full"
-               public_id="samples/bike"
+               public_id={project.banner}
                alt={project.title}
                width={1440}
                height={792}
