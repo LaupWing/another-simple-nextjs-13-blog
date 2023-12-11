@@ -103,11 +103,11 @@ const Hero:FC<HeroProps> = async ({
    slug
 }) => {
    const COMMIT_HISTORY_LINK = `https://github.com/LaupWing/tech-blog/commits/main/src/contents/blog/${frontmatter.slug}.mdx`
-   console.log(frontmatter)
+   
    return (
       <div className="pb-4">
          <CloudinaryImage
-            public_id="samples/bike"
+            public_id={frontmatter.banner}
             alt="Bike"
             width={1400}
             height={(1400 * 2) /5}
