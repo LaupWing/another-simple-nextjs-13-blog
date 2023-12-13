@@ -1,15 +1,15 @@
 ---
-title: 'How to send sms with the laravel framework'
+title: 'Sending SMS with Laravel and Twilio'
 publishedAt: '2023-12-06'
-description: 'Send an sms with the most robust php framework'
+description: 'Easily send SMS in Laravel with Twilio integration. Follow our quick tutorial to set up, install, and implement SMS functionality for efficient communication in your web app.'
 englishOnly: 'true'
 banner: "techblog/thumbnails/g2fteprejltbq4nuq0em"
 tags: 'laravel,api'
 ---
-With the technology nowadays it is very easy to send an sms with your webapplication. In this tutorial I will show you how to send an sms with THE most robust fullstack framework in the modern day which is laravel. 
+In this tutorial, we'll leverage the robust Laravel framework to easily integrate Twilio for sending SMS within a web application.
 
 ## Create a laravel project
-First create an brand new laravel project and change directories to the laravel project and open the project with Visual Studio Code.
+Begin by creating a new Laravel project, changing directories to the project, and opening it with Visual Studio Code.
 ```bash
 composer create-project laravel/laravel example-app
 
@@ -19,28 +19,29 @@ code .
 ```
 
 ## Install twilio sms package
-Next up is to download the twilio package that enables us to use their service to send an sms with our laravel web application.
+Download the Twilio package to enable SMS functionality in your Laravel web application
 
 ```bash
 composer require twilio/sdk
 ```
 
-## Retrieve the authentication keys from twilio
-I won't go into the details about creating a twilio account etc. Regsiter an account on [Twilio](https://twilio.com/) and go to your console and copy both Account SID and Auth Token. Place these credentials in your `.env` file by their respective variables.
+## Retrieve Twilio Authentication Keys
+Register on Twilio, navigate to your console, and copy both the Account SID and Auth Token. Place these credentials in your .env file.
 
 `TWILIO_SID=YOUR_SID_HERE`
 
 `TWILIO_AUTH_TOKEN=YOUR_AUTH_TOKEN_HERE`
 
 ## Creating a controller
-With a new Laravel project you have to create a controller to connect a endpoint to it. Luckily with laravel you can generate an controller just by using the following command `php artisan make:controller YourController`. Let's call our controller SmsController so our command will look like this:
+Generate a controller to connect an endpoint to your Laravel project. Use the following command, naming the controller `SmsController`.
+
 ```bash
 php artisan make:controller SmsController
 ```
 
 
-## Sms functional
-Below you can see the full code to send an sms with twilio.
+Implement SMS Functionality
+See the full code below for sending an SMS with Twilio in the `SmsController`
 
 ```php
 <?php
@@ -71,23 +72,15 @@ class SmsController extends Controller
    }
 }
 
-```
 ### Twilio client initialization
 ```php
 $account_sid = getenv("TWILIO_SID");
 $auth_token = getenv("TWILIO_AUTH_TOKEN");
 $client = new Client($account_sid, $auth_token);
 ```
-It retrieves Twilio Account SID and Auth Token from environment variables (TWILIO_SID and TWILIO_AUTH_TOKEN).
-It then creates a new instance of the Client class from the Twilio SDK using the obtained credentials.
-### Twilio client initialization
-```php
-$account_sid = getenv("TWILIO_SID");
-$auth_token = getenv("TWILIO_AUTH_TOKEN");
-$client = new Client($account_sid, $auth_token);
-```
-It retrieves Twilio Account SID and Auth Token from environment variables (TWILIO_SID and TWILIO_AUTH_TOKEN).
-It then creates a new instance of the Client class from the Twilio SDK using the obtained credentials.
+
+Retrieve Twilio Account SID and Auth Token from environment variables and create a new instance of the Client class from the Twilio SDK.
+
 ### Twilio message send
 ```php
 $message_id = $client->messages->create(
@@ -98,9 +91,8 @@ $message_id = $client->messages->create(
    ]
 );
 ```
-Here It attempts to send an SMS message using the Twilio API.
-The sender's phonenumber is taken from the `from` parameter of the incoming HTTP request and the receiver phonenumber comes from the `phonenumber` of the HTTP request and the body from the body request.
-Twilio will send an unique message identiefier back as a response.
+
+Attempt to send an SMS message using the Twilio API, extracting sender and receiver phone numbers along with the message body from the HTTP request.
 
 ### Return a response
 ```php
