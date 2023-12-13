@@ -3,3 +3,4 @@
 - [x] Improve seo
 - [x] Change block quote styling in mdx
 - [ ] Fix the nodejs filter functional for the search blog post and library
+- [ ] Fix the content width problem
