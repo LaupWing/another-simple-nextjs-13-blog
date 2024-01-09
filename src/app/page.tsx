@@ -14,7 +14,7 @@ import { Subscribe } from "@/components/sections/Subscribe.client"
 import { ContactMe } from "@/components/sections/ContactMe"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 
-export const revalidate = 10
+export const revalidate = 0
 
 export default function Home() {
    return (
