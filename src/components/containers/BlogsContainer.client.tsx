@@ -40,6 +40,7 @@ export const BlogsContainer:FC<BlogsContainerProps> = ({
       () => [...posts]
    )
 
+   console.log(posts)
    useEffect(() => {
       const result = posts.filter((post) =>
          post.title.toLowerCase().includes(search.toLowerCase()) ||
