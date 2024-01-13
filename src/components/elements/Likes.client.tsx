@@ -3,7 +3,6 @@ import type { FC } from "react"
 
 import { LikeButton } from "../buttons/LikeButton.client"
 import { useEffect, useState } from "react"
-import { fakeAwait } from "@/lib/helpers"
 import { LikeButtonLoading } from "../buttons/LikeButtonLoading"
 
 interface LikesProps {
@@ -18,7 +17,6 @@ export const Likes:FC<LikesProps> = ({ slug }) => {
    const [loading, setLoading] = useState(true)
 
    const fetchLikes = async () => {
-      await fakeAwait()
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/like/${slug}`, {
          method: "GET"
       })

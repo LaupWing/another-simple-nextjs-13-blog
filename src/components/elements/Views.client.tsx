@@ -2,7 +2,6 @@
 import type { FC } from "react"
 import { useEffect, useState } from "react"
 import { IconEye } from "../Icons"
-import { fakeAwait } from "@/lib/helpers"
 
 interface ViewsProps {
    slug: string
@@ -11,7 +10,6 @@ interface ViewsProps {
 export const Views:FC<ViewsProps> = ({ slug }) => {
    const [views, setViews] = useState<false|number>(false)
    const fetchViews = async () => {
-      await fakeAwait()
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/view/${slug}`, {
          method: "POST"
       })
