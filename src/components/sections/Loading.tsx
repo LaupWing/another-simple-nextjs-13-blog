@@ -1,11 +1,9 @@
-import type { FC, PropsWithChildren } from "react"
+import type { FC } from "react"
 
-export const SplitImage: FC<PropsWithChildren> = ({
-    children
-}) => {
+export const Loading: FC = () => {
     return (
-        <div className="grid grid-cols-2 items-start gap-4">
-            {children}
+        <div className="custom-container text-center py-10">
+            <span className="animate-pulse uppercase text-xs font-bold">Loading...</span>
         </div>
     )
 }

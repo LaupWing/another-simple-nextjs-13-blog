@@ -13,6 +13,7 @@ import { LibraryCard } from "@/components/cards/LibraryCard"
 import { Subscribe } from "@/components/sections/Subscribe.client"
 import { ContactMe } from "@/components/sections/ContactMe"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
+import { Loading } from "@/components/sections/Loading"
 
 export const revalidate = 0
 
@@ -21,13 +22,13 @@ export default function Home() {
       <main>
          <HomeIntro />
          <ContactMe />
-         <Suspense fallback={"loading"}>
+         <Suspense fallback={<Loading/>}>
             <HomeBlogs />
          </Suspense>
-         <Suspense fallback={"loading"}>
+         <Suspense fallback={<Loading/>}>
             <HomeProjects />
          </Suspense>
-         <Suspense fallback={"loading"}>
+         <Suspense fallback={<Loading/>}>
             <HomeLibrary />
          </Suspense>
          <Subscribe />
@@ -137,7 +138,6 @@ const HomeIntro = () => {
 const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
    const recent_blogs = getRecent(blogs)
-   await new Promise((resolve) => setTimeout(resolve, 100000))
    return (await attachContentMeta<"blog">(recent_blogs))
 }
 
