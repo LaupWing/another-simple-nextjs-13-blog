@@ -14,6 +14,7 @@ export const LoadedContainer:FC<PropsWithChildren & ComponentPropsWithoutRef<"di
    
    useEffect(() => {
       setLoaded(true)
+      console.log("loaded")
    }, [])
 
    return (

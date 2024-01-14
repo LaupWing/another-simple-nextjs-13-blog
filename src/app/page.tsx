@@ -66,7 +66,6 @@ const HomeIntro = () => {
       <LoadedContainer
          id="skip-nav"
       >
-
          <section className="flex flex-col items-center justify-center h-screen-no-nav">
             <div className="custom-container">
                <h2 
@@ -138,7 +137,7 @@ const HomeIntro = () => {
 const fetchRecentBlogs = async () => {
    const blogs = await getAllFilesFrontmatter("blog")
    const recent_blogs = getRecent(blogs)
-   
+   await new Promise((resolve) => setTimeout(resolve, 100000))
    return (await attachContentMeta<"blog">(recent_blogs))
 }
 
