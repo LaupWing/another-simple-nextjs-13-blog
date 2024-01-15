@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { default_meta } from "@/config"
-// import { openGraph } from "./helpers"
 
 interface SeoProps extends Partial<typeof default_meta> { 
    date?: string
@@ -16,14 +15,6 @@ export default function(props: SeoProps){
       ...default_meta,
       ...props,
    }
-   
-   // const image = openGraph({
-   //    description: meta.description,
-   //    site_name: meta.siteName,
-   //    template_title: meta.template_title,
-   //    banner: meta.banner,
-   //    is_blog: meta.is_blog
-   // })
 
    const full_url = meta.as_path ? `${process.env.SITE_URL}/${meta.as_path}` : process.env.SITE_URL
 
