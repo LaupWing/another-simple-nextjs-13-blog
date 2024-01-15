@@ -29,7 +29,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
    const post = await fetchPost(props.params.slug)
    const { frontmatter } = post
 
-   const OG_BANNER_LINK = `https://res.cloudinary.com/laupwing/image/upload/f_auto,c_fill,ar_4:5,w_1200/samples/sheep.jpg`
+   const OG_BANNER_LINK = `https://res.cloudinary.com/laupwing/image/upload/f_auto,c_fill,ar_4:5,w_1200/${frontmatter.banner}`
    
    return {
       ...seo({
