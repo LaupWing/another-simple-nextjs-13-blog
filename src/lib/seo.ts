@@ -34,31 +34,31 @@ export default function(props: SeoProps){
       },
       robots: meta.robots,
       description: meta.description,
-      // twitter: {
-      //    card: "summary_large_image",
-      //    site: "@laupwing",
-      //    title: meta.title,
-      //    description: meta.description,
-      //    images: [image]
-      // },
-      // openGraph: {
-      //    url: full_url,
-      //    images: [
-      //       {
-      //          url: image,
-      //          width: 1200,
-      //          height: 600
-      //       }
-      //    ],
-      //    type: meta.type,
-      //    title: meta.title,
-      //    siteName: meta.siteName,
-      //    description: meta.description,
-      //    ...(props.date ? {
-      //       publishedTime: props.date,
-      //       authors: ["Laup Wing"],
-      //    } : {})
-      // },
+      twitter: {
+         card: "summary_large_image",
+         site: "@laupwing",
+         title: meta.title,
+         description: meta.description,
+         images: [meta.banner]
+      },
+      openGraph: {
+         url: full_url,
+         images: [
+            {
+               url: meta.banner,
+               width: 1200,
+               height: 600
+            }
+         ],
+         type: meta.type,
+         title: meta.title,
+         siteName: meta.siteName,
+         description: meta.description,
+         ...(props.date ? {
+            publishedTime: props.date,
+            authors: ["Laup Wing"],
+         } : {})
+      },
       alternates:{
          canonical: meta.canonical ? meta.canonical : full_url
       }
