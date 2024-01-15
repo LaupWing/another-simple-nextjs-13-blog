@@ -1,0 +1,39 @@
+---
+title: "Laravel Foreign relationships"
+tags: "typescript,react"
+publishedAt: "2023-12-26"
+description: "Improve React development efficiency using ComponentPropsWithoutRef."
+---
+
+> Laravel Foreign relationships
+
+Within Laravel there are many different ways to implement foreign keys. The way you choose to implement them doesn't matter, but it's important to be consistent.
+
+So choose the one that works best for you and stick with it.
+
+```php
+<?php
+public function up(): void
+  {
+    Schema::create("books", function (Blueprint $table) {
+      $table->foreignId("author_id");
+      $table->foreign("author_id")
+        ->references("id")
+        ->on("authors");
+    });
+  }
+```
+
+However, there's a more effective approach! Import ComponentPropsWithoutRef and assign it to the element you want to set props for.
+
+## Code
+
+```jsx
+import type { FC, ComponentPropsWithoutRef } from "react";
+
+export const DivContainer: FC<ComponentPropsWithoutRef<"div">> = () => (
+  <div></div>
+);
+```
+
+This method enhances the development experience by letting TypeScript infer and enforce the correct props for the specified HTML element.
