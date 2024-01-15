@@ -5,23 +5,42 @@ publishedAt: "2023-12-26"
 description: "Improve React development efficiency using ComponentPropsWithoutRef."
 ---
 
-> Laravel Foreign relationships
+> Laravel Pivot Tables
 
-Within Laravel there are many different ways to implement foreign keys. The way you choose to implement them doesn't matter, but it's important to be consistent.
+If you have many to many relationships in Laravel, you'll need to create a pivot table. This table will contain the foreign keys of the two tables you're connecting.
 
+```php
 So choose the one that works best for you and stick with it.
 
 ```php
 <?php
-public function up(): void
-  {
-    Schema::create("books", function (Blueprint $table) {
-      $table->foreignId("author_id");
-      $table->foreign("author_id")
-        ->references("id")
-        ->on("authors");
-    });
-  }
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+      Schema::create("genre_book", function (Blueprint $table) {
+        $table->foreignId("book_id");
+        $table->foreign("book_id")
+            ->references("id")
+            ->on("books");
+        $table->foreignId("genre_id");
+        $table->foreign("genre_id")
+            ->references("id")
+            ->on("genres");
+      });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        //
+    }
+};
 ```
 
 However, there's a more effective approach! Import ComponentPropsWithoutRef and assign it to the element you want to set props for.
