@@ -117,6 +117,7 @@ const Hero:FC<HeroProps> = async ({
             }}
          />
          <h1 className="mt-4 dark:text-light">{frontmatter.title}</h1>
+         <p>{frontmatter.description}</p>
          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
             Writton on{" "}
             {format(new Date(frontmatter.publishedAt), "MMMM dd, yyyy")} by
