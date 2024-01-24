@@ -1,0 +1,30 @@
+---
+title: "Typescript Record Type for Objects"
+tags: "typescript,react"
+publishedAt: "2023-12-26"
+description: "Use the Record typescript type to define an object with a dynamic key and value."
+---
+
+> Typescript Record Type for Objects
+
+Record type within typescript is used to define an object with a dynamic key and value.
+
+In the example below we have a type called SomeObject which is a Record type with a string key and a number value.
+
+```ts
+type SomeObject = Record<string, number>
+```
+
+However, there's a more effective approach! Import ComponentPropsWithoutRef and assign it to the element you want to set props for.
+
+## Code
+
+```jsx
+import type { FC, ComponentPropsWithoutRef } from "react";
+
+export const DivContainer: FC<ComponentPropsWithoutRef<"div">> = () => (
+  <div></div>
+);
+```
+
+This method enhances the development experience by letting TypeScript infer and enforce the correct props for the specified HTML element.
