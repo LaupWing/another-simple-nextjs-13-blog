@@ -22,13 +22,13 @@ export default function Home() {
       <main>
          <HomeIntro />
          <ContactMe />
-         <Suspense fallback={<Loading/>}>
+         <Suspense fallback={<Loading />}>
             <HomeBlogs />
          </Suspense>
-         <Suspense fallback={<Loading/>}>
+         <Suspense fallback={<Loading />}>
             <HomeProjects />
          </Suspense>
-         <Suspense fallback={<Loading/>}>
+         <Suspense fallback={<Loading />}>
             <HomeLibrary />
          </Suspense>
          <Subscribe />
@@ -69,25 +69,25 @@ const HomeIntro = () => {
       >
          <section className="flex flex-col items-center justify-center h-screen-no-nav">
             <div className="custom-container">
-               <h2 
+               <h2
                   className="text-2xl text-dark dark:text-light font-bold md:text-4xl 2xl:text-5xl"
                   data-fade="1"
                >
                   Hello!
                </h2>
-               <h1 
+               <h1
                   className="mt-1 text-dark dark:text-light font-bold text-3xl md:text-5xl 2xl:text-6xl"
                   data-fade="2"
                >
                   My name is <Accent>Loc Nguyen</Accent>
                </h1>
-               <p 
+               <p
                   className="mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl"
                   data-fade="3"
                >
                   I possess a strong enthusiasm for both programming and fitness, finding fulfillment in assisting individuals either at the gym or in the realm of coding.
                </p>
-               <div 
+               <div
                   className="mt-8 flex flex-wrap gap-4 md:!text-lg"
                   data-fade="4"
                >
@@ -95,7 +95,7 @@ const HomeIntro = () => {
                      <div
                         className="absolute -inset-0.5 animate-pulse rounded blur from-custom-green bg-gradient-to-r to-custom-purple opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
                      />
-                     <ButtonLink 
+                     <ButtonLink
                         href="/blog"
                         variant="gradient-animation"
                      >
@@ -106,7 +106,7 @@ const HomeIntro = () => {
                      Learn more about me
                   </Button>
                </div>
-               <div 
+               <div
                   className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8"
                   data-fade="5"
                >
@@ -116,7 +116,7 @@ const HomeIntro = () => {
                         href={social.href}
                         className={social_link_style}
                      >
-                        <social.icon 
+                        <social.icon
                            className={"shrink-0 w-5 h-5 transition-colors " + social.className}
                            aria-hidden="true"
                         />
@@ -144,12 +144,12 @@ const fetchRecentBlogs = async () => {
 
 const HomeBlogs = async () => {
    const recent_blogs = await fetchRecentBlogs()
-   
+
    return (
       <section className="py-20">
          <div className="custom-container">
-            <h2 
-               id="projects" 
+            <h2
+               id="projects"
                className="text-2xl font-semibold md:text-4xl"
             >
                <Accent>Recent Blog Posts</Accent>
@@ -176,7 +176,7 @@ const HomeBlogs = async () => {
 const fetchRecentProjects = async () => {
    const projects = await getAllFilesFrontmatter("projects")
    const recent_projects = getRecent(projects)
-   
+
    return recent_projects
 }
 
@@ -203,7 +203,7 @@ const HomeProjects = async () => {
             <ButtonLink
                className="mt-4"
                href="/projects"
-               // Add tracking event
+            // Add tracking event
             >
                See more projects
             </ButtonLink>
@@ -233,7 +233,7 @@ const HomeLibrary = async () => {
                List of code snippets. What is documented is never lost.
             </p>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-               
+
                {recentLibrary.map((snippet) => (
                   <LibraryCard
                      key={snippet.slug}
@@ -244,7 +244,7 @@ const HomeLibrary = async () => {
             <ButtonLink
                className="mt-4"
                href="/library"
-               // Add tracking event
+            // Add tracking event
             >
                See more snippets
             </ButtonLink>

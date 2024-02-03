@@ -16,7 +16,7 @@ export const openGraph = ({
    banner,
    logo = `${process.env.SITE_URL}/images/logo.png`,
    is_blog = false
-}: OpenGraphType) : string => {
+}: OpenGraphType): string => {
    const og_logo = encodeURIComponent(logo)
    const og_sitename = encodeURIComponent(site_name.trim())
    const og_template_title = template_title
@@ -24,11 +24,11 @@ export const openGraph = ({
       : undefined
    const og_description = encodeURIComponent(description.trim())
 
-   if(is_blog) {
-      const og_banner = banner 
+   if (is_blog) {
+      const og_banner = banner
          ? encodeURIComponent(banner.trim())
          : undefined
-      
+
       return `${process.env.SITE_URL}/api/og/blog?templateTitle=${og_template_title}&banner=${og_banner}`
    }
 
@@ -36,7 +36,7 @@ export const openGraph = ({
 }
 
 export const getFromSessionStorage = (key: string) => {
-   if (typeof sessionStorage !== "undefined"){
+   if (typeof sessionStorage !== "undefined") {
       return sessionStorage.getItem(key)
    }
    return null
@@ -49,7 +49,7 @@ export const attachContentMeta = async <T extends ContentType>(
       frontmatter.map(async (frontmatter) => {
          const res = await fetch(`${process.env.API_URL}/api/content/${frontmatter.slug}`)
          const data = await res.json()
-         
+
          return {
             ...frontmatter,
             views: data.content_views,
@@ -59,10 +59,10 @@ export const attachContentMeta = async <T extends ContentType>(
    )
 }
 
-export const fakeAwait  = async () => {
+export const fakeAwait = async (timeout = 1000) => {
    await new Promise(resolve => {
       setTimeout(() => {
          resolve(true)
-      }, 1000)
+      }, timeout)
    })
 }
