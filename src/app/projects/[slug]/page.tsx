@@ -34,7 +34,7 @@ interface PageProps {
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
    const post = await fetchProject(props.params.slug)
    const { frontmatter } = post
-   
+
    return {
       ...seo({
          title: frontmatter.title,
@@ -45,10 +45,10 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 
 const SingleProjectPage = async (props: PageProps) => {
    const { frontmatter, code } = await fetchProject(props.params.slug)
-   console.log(frontmatter)
+
    return (
       <section className="custom-container">
-         <Hero 
+         <Hero
             frontmatter={frontmatter}
             slug={frontmatter.slug}
          />
@@ -63,8 +63,8 @@ const SingleProjectPage = async (props: PageProps) => {
                      slug={frontmatter.slug}
                   />
                   <div className="flex items-center justify-center py-8">
-                     <Likes 
-                        slug={frontmatter.slug} 
+                     <Likes
+                        slug={frontmatter.slug}
                      />
                   </div>
                </div>
@@ -77,7 +77,7 @@ export default SingleProjectPage
 
 export async function generateStaticParams() {
    const posts = await getFiles("projects")
-   
+
    return posts.map((p) => ({
       slug: p.replace(/\.mdx/, "")
    }))
@@ -88,7 +88,7 @@ interface HeroProps {
    slug: string
 }
 
-const Hero:FC<HeroProps> = ({
+const Hero: FC<HeroProps> = ({
    frontmatter,
    slug
 }) => {
@@ -101,9 +101,9 @@ const Hero:FC<HeroProps> = ({
                width={1440}
                height={750}
             />
-            <TechIcons 
-               className="absolute bottom-4 left-4" 
-               techs={frontmatter.techs.split(",") as Array<TechListType>} 
+            <TechIcons
+               className="absolute bottom-4 left-4"
+               techs={frontmatter.techs.split(",") as Array<TechListType>}
             />
          </div>
          <h1 className="dark:text-white mt-4">{frontmatter.title}</h1>
@@ -111,10 +111,10 @@ const Hero:FC<HeroProps> = ({
             {frontmatter.description}
          </p>
          <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <Views 
-               slug={slug} 
+            <Views
+               slug={slug}
             />
-            
+
             {(frontmatter.github || frontmatter.link) && " - "}
             {frontmatter.github && (
                <div className="inline-flex items-center gap-2">
@@ -138,7 +138,7 @@ const Hero:FC<HeroProps> = ({
                   </CustomLink>
                </div>
             )}
-            
+
          </div>
       </div>
    )
