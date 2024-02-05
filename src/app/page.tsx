@@ -150,7 +150,7 @@ const HomeBlogs = async () => {
                     <Accent>Recent Blog Posts</Accent>
                 </h2>
                 <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                    {recent_blogs.map((post, i) => (
+                    {recent_blogs.map((post) => (
                         <BlogCard key={post.slug} post={post} />
                     ))}
                 </ul>
