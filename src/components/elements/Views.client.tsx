@@ -18,7 +18,7 @@ export const Views: FC<ViewsProps> = ({ slug }) => {
         )
         const data = await res.json()
         console.log(data)
-        setViews(data.content_views)
+        setViews(data.views)
     }
 
     useEffect(() => {
