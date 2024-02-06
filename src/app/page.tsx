@@ -13,24 +13,17 @@ import { LibraryCard } from "@/components/cards/LibraryCard"
 import { Subscribe } from "@/components/sections/Subscribe.client"
 import { ContactMe } from "@/components/sections/ContactMe"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
-import { Loading } from "@/components/sections/Loading"
 
-export const revalidate = 0
+export const revalidate = 60 * 60 // 1 hour
 
 export default function Home() {
     return (
         <main>
             <HomeIntro />
             <ContactMe />
-            <Suspense fallback={<Loading />}>
-                <HomeBlogs />
-            </Suspense>
-            <Suspense fallback={<Loading />}>
-                <HomeProjects />
-            </Suspense>
-            <Suspense fallback={<Loading />}>
-                <HomeLibrary />
-            </Suspense>
+            <HomeBlogs />
+            <HomeProjects />
+            <HomeLibrary />
             <Subscribe />
         </main>
     )
