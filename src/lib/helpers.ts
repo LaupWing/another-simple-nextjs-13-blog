@@ -45,10 +45,15 @@ export const getFromSessionStorage = (key: string) => {
 }
 
 export const attachContentMeta = async <T extends ContentType>(
-    frontmatter: Array<PickFrontmatter<T>>,
+    frontmatters: Array<PickFrontmatter<T>>,
 ) => {
+    const res = await fetch(
+        `https://api.laupwing.com/content/${frontmatters[0].slug}`,
+    )
+    console.log(await res.json())
+    console.log("frontmatter", frontmatters[0].slug)
     return await Promise.all(
-        frontmatter.map(async (frontmatter) => {
+        frontmatters.map(async (frontmatter) => {
             const res = await fetch(
                 `${process.env.API_URL}/api/content/${frontmatter.slug}`,
             )
