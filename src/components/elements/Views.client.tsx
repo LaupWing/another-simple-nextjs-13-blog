@@ -13,7 +13,7 @@ export const Views: FC<ViewsProps> = ({ slug }) => {
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_API_URL}/views/${slug}`,
             {
-                method: "GET",
+                method: "POST",
             },
         )
         const data = await res.json()
