@@ -34,7 +34,7 @@ export const Button: FC<ButtonProps> = ({
         className,
     )
 
-    const button_component = href ? (
+    const ButtonComponent = href ? (
         <UnstyledLink href={href}>
             <button
                 {...props}
@@ -51,8 +51,40 @@ export const Button: FC<ButtonProps> = ({
     )
 
     return variant === "gradient-animation" ? (
-        <GradientBorder>{button_component}</GradientBorder>
+        <GradientBorder>
+            {href ? (
+                <UnstyledLink href={href}>
+                    <button
+                        {...props}
+                        disabled={disabled}
+                        className={classNameComputed}
+                    >
+                        {children}
+                    </button>
+                </UnstyledLink>
+            ) : (
+                <button
+                    {...props}
+                    disabled={disabled}
+                    className={classNameComputed}
+                >
+                    {children}
+                </button>
+            )}
+        </GradientBorder>
+    ) : href ? (
+        <UnstyledLink href={href}>
+            <button
+                {...props}
+                disabled={disabled}
+                className={classNameComputed}
+            >
+                {children}
+            </button>
+        </UnstyledLink>
     ) : (
-        { button_component }
+        <button {...props} disabled={disabled} className={classNameComputed}>
+            {children}
+        </button>
     )
 }
