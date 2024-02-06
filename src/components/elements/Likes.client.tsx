@@ -18,7 +18,7 @@ export const Likes: FC<LikesProps> = ({ slug }) => {
 
     const fetchLikes = async () => {
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/like/${slug}`,
+            `${process.env.NEXT_PUBLIC_API_URL}/likes/${slug}`,
             {
                 method: "GET",
             },
