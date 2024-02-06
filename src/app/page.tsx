@@ -94,7 +94,7 @@ const HomeIntro = () => {
                                 Read the Blog
                             </ButtonLink>
                         </div>
-                        <Button>Learn more about me</Button>
+                        <Button href="/about">Learn more about me</Button>
                     </div>
                     <div
                         className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8"
