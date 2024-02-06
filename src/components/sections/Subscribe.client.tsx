@@ -1,9 +1,10 @@
 "use client"
-import { FormEvent, useRef } from "react"
+import { FormEvent, useRef, useState } from "react"
 import { Button } from "../buttons/Button"
 
 export const Subscribe = () => {
     const form_ref = useRef<HTMLFormElement>(null)
+    const [loading, setLoading] = useState(false)
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
     }
