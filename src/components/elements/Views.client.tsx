@@ -11,13 +11,13 @@ export const Views: FC<ViewsProps> = ({ slug }) => {
     const [views, setViews] = useState<false | number>(false)
     const fetchViews = async () => {
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/view/${slug}`,
+            `${process.env.NEXT_PUBLIC_API_URL}/views/${slug}`,
             {
                 method: "POST",
             },
         )
-        console.log(res)
         const data = await res.json()
+        console.log(data)
         setViews(data.content_views)
     }
 

@@ -70,7 +70,7 @@ const SingleBlogPage = async (props: PageProps) => {
                     <div className="sticky top-24">
                         <TableContents slug={frontmatter.slug} />
                         <div className="flex items-center justify-center py-8">
-                            <Likes slug={frontmatter.slug} />
+                            {/* <Likes slug={frontmatter.slug} /> */}
                         </div>
                     </div>
                 </aside>
