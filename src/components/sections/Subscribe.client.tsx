@@ -3,11 +3,37 @@ import { FormEvent, useRef, useState } from "react"
 import { Button } from "../buttons/Button"
 import { Rings } from "react-loader-spinner"
 
+interface CustomElements extends HTMLFormControlsCollection {
+    email: HTMLInputElement
+}
+
+interface CustomForm extends HTMLFormElement {
+    readonly elements: CustomElements
+}
+
 export const Subscribe = () => {
     const form_ref = useRef<HTMLFormElement>(null)
     const [loading, setLoading] = useState(false)
-    const handleSubmit = async (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent<CustomForm>) => {
         e.preventDefault()
+        setLoading(true)
+        console.log(
+            JSON.stringify({
+                email: e.currentTarget.elements.email.value,
+                message: "New Subscriber",
+                name: "New Subscriber",
+            }),
+        )
+        // const res = await fetch("/api/contact", {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         email: e.currentTarget.elements.email.value,
+        //         message: "New Subscriber",
+        //         name: "New Subscriber",
+        //     }),
+        // })
+        // await res.json()
+        setLoading(false)
     }
 
     return (
