@@ -21,15 +21,11 @@ However, there's a more effective approach! Import ComponentPropsWithoutRef and 
 ## Code
 
 ```jsx
-import type {
-  FC,
-  ComponentPropsWithoutRef
-} from "react"
+import type { FC, ComponentPropsWithoutRef } from "react"
 
 export const DivContainer: FC<ComponentPropsWithoutRef<"div">> = () => (
-  <div></div>
+    <div></div>
 )
-
-````
+```
 
 This method enhances the development experience by letting TypeScript infer and enforce the correct props for the specified HTML element.

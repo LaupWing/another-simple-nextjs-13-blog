@@ -24,16 +24,23 @@ public function up(): void
   }
 ```
 
-However, there's a more effective approach! Import ComponentPropsWithoutRef and assign it to the element you want to set props for.
-
-## Code
-
-```jsx
-import type { FC, ComponentPropsWithoutRef } from "react";
-
-export const DivContainer: FC<ComponentPropsWithoutRef<"div">> = () => (
-  <div></div>
-);
+```php
+<?php
+public function up(): void
+  {
+    Schema::create("books", function (Blueprint $table) {
+      $table->unsignedBigInteger("author_id");
+      $table->foreign("author_id")->references("id")->on("authors");
+    });
+  }
 ```
 
-This method enhances the development experience by letting TypeScript infer and enforce the correct props for the specified HTML element.
+```php
+<?php
+public function up(): void
+  {
+    Schema::create("books", function (Blueprint $table) {
+      $table->foreignIdFor(\App\Models\Author::class);
+    });
+  }
+```
