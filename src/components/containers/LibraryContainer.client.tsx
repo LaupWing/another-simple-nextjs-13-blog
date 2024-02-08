@@ -15,7 +15,7 @@ import { getTags } from "@/lib/mdx-client"
 import { useEffect, useState } from "react"
 
 interface LibraryContainerProps {
-    posts: Array<LibraryFrontmatter>
+    posts: Array<LibraryFrontmatter & InjectedMeta>
 }
 
 const sortOptions: Array<SortOption> = [
@@ -39,17 +39,27 @@ export const LibraryContainer: FC<LibraryContainerProps> = ({ posts }) => {
     >(() => [...posts])
 
     useEffect(() => {
-        const result = posts.filter(
-            (post) =>
-                post.title.toLowerCase().includes(search.toLowerCase()) ||
-                post.description.toLowerCase().includes(search.toLowerCase()) ||
-                search
-                    .toLowerCase()
-                    .split(" ")
-                    .every((tag) => post.tags.includes(tag)),
-        )
+        const result = posts
+            .filter(
+                (post) =>
+                    post.title.toLowerCase().includes(search.toLowerCase()) ||
+                    post.description
+                        .toLowerCase()
+                        .includes(search.toLowerCase()) ||
+                    search
+                        .toLowerCase()
+                        .split(" ")
+                        .every((tag) => post.tags.includes(tag)),
+            )
+            .sort((a, b) => {
+                if (sortOrder.id === "name") {
+                    return a.title.localeCompare(b.title)
+                } else {
+                    return b.likes! - a.likes!
+                }
+            })
         setFilteredPosts(result)
-    }, [search])
+    }, [search, sortOrder])
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
