@@ -4,10 +4,12 @@ import clsx from "clsx"
 import { UnstyledLink } from "../links/UnstyledLink.client"
 import { Accent } from "../elements/Accent"
 import { TechIcons, TechListType } from "../TechIcons.client"
+import Highlighter from "react-highlight-words"
 import { ChadIcon } from "../ChadIcon"
 
 interface LibraryCardProps extends ComponentPropsWithoutRef<"li"> {
     snippet: LibraryFrontmatter & InjectedMeta
+    search?: string
 }
 
 export const LibraryCard: FC<LibraryCardProps> = ({ className, snippet }) => {
