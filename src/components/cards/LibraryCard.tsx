@@ -12,7 +12,11 @@ interface LibraryCardProps extends ComponentPropsWithoutRef<"li"> {
     search?: string
 }
 
-export const LibraryCard: FC<LibraryCardProps> = ({ className, snippet }) => {
+export const LibraryCard: FC<LibraryCardProps> = ({
+    className,
+    snippet,
+    search,
+}) => {
     return (
         <li
             className={clsx(
@@ -26,7 +30,11 @@ export const LibraryCard: FC<LibraryCardProps> = ({ className, snippet }) => {
             >
                 <div className="p-4 h-full flex flex-col">
                     <h4 className="text-gray-800 dark:text-gray-100">
-                        {snippet.title}
+                        <Highlighter
+                            searchWords={search ? [...search.split(" ")] : []}
+                            autoEscape
+                            textToHighlight={snippet.title}
+                        />
                     </h4>
                     <div className="mt-auto flex flex-col">
                         <div className="mt-1 flex items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
