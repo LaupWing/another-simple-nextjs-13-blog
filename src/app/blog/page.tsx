@@ -5,7 +5,7 @@ import { attachContentMeta } from "@/lib/helpers"
 import { getAllFilesFrontmatter } from "@/lib/mdx"
 import seo from "@/lib/seo"
 
-export const revalidate = 0
+export const revalidate = 60
 
 const fetchBlogs = async () => {
     const blogs = await getAllFilesFrontmatter("blog")
