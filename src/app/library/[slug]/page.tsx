@@ -34,12 +34,12 @@ const fetchPost = async (slug: string) => {
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
     const post = await fetchPost(props.params.slug)
     const { frontmatter } = post
-    console.log(frontmatter.title)
-    console.log(frontmatter.description)
+
     return {
         ...seo({
             title: frontmatter.title,
             description: frontmatter.description,
+            banner: `${process.env.API_URL}/og/gradient?title=${frontmatter.title}&description=${frontmatter.description}`,
         }),
     }
 }
