@@ -6,52 +6,50 @@ description: "Here are some CSS selectors you should know about, but might not b
 ---
 > CSS: Some CSS Selectors You Should Know
 
-If you have many to many relationships in Laravel, you'll need to create a pivot table. This table will contain the foreign keys of the two tables you're connecting.
+I have been using CSS for a while now, and I have come across some CSS selectors that I myself haven't heard and seen before despite using CSS for more than 7 years now. Here are some of them:
 
-```php
-So choose the one that works best for you and stick with it.
-
-```php
-<?php
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-      Schema::create("genre_book", function (Blueprint $table) {
-        $table->foreignId("book_id");
-        $table->foreign("book_id")
-          ->references("id")
-          ->on("books");
-        $table->foreignId("genre_id");
-        $table->foreign("genre_id")
-          ->references("id")
-          ->on("genres");
-      });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        //
-    }
-};
+## Empty Selectors
+The `:empty` selector is used to select elements that contain no children. For example, the following CSS will hide any empty `div` elements:
+```html
+<div class="container">
+    <p>This paragraph is not empty.</p>
+    <span></span>
+    <div></div>
+</div>
+``` 
+```css
+.container div:empty {
+    display: none;
+}
 ```
 
-However, there's a more effective approach! Import ComponentPropsWithoutRef and assign it to the element you want to set props for.
-
-## Code
-
-```jsx
-import type { FC, ComponentPropsWithoutRef } from "react";
-
-export const DivContainer: FC<ComponentPropsWithoutRef<"div">> = () => (
-  <div></div>
-);
+## Target Selectors
+The `:target` selector matches the current active hashtag in the URL. For example, the following CSS will change the background color of the element with the ID of `#about` when the URL contains `#about`:
+```html
+<div id="about">
+    <h2>About</h2>
+    <p>This is the about section.</p>
+</div>
+```
+```css
+#about:target {
+    background-color: yellow;
+}
 ```
 
-This method enhances the development experience by letting TypeScript infer and enforce the correct props for the specified HTML element.
+## Lang Selectors
+The `:lang` selector is used to select elements with a specific language. For example, the following CSS will change the color of any element with the `lang` attribute set to `fr`:
+```html
+<p lang="fr">Bonjour!</p>
+<p lang="en">Hello!</p>
+```
+
+```css
+p:lang(fr) {
+    color: blue;
+}
+
+p:lang(en) {
+    color: green;
+}
+```
