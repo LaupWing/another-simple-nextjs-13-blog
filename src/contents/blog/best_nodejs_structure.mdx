@@ -346,3 +346,293 @@ You probably have noticed that if you ran the **`npm run dev`** command, you got
     width={1424}
     height={812}
 />
+
+Don’t panic if that is the case. We will fix this issue right away.
+
+## **Installing the Packages**
+
+The reason we got this error is because the system is trying to run the **`ts-node`** command but has not found this command. To make a long story short, we need to install packages to make this work and build out our server.
+
+You can think of packages as ingredients to build your project. But these ingredients are open-source code built by other people. So we are pulling code that other people have built to create our server.
+
+I'm not explaining all the packages here. You can just install them for now, and throughout the rest of the tutorial, we will explain the packages one by one.
+
+The **`--save-dev`** flag stands for installing these packages for development. Development packages are meant to make our development experience better. For example, Nodemon provides hot reload, meaning it reloads when it detects changes in our files (after saving the file).
+
+```bash
+npm install --save-dev @types/express @types/node nodemon prisma ts-node typescript
+```
+
+Next up is installing the core packages that our Express server needs.
+
+```bash
+npm install @prisma/client express
+```
+
+After installing the packages, there will be a **`package.json`** file in the root directory which shall look something like this:
+
+```json
+{
+    "name": "todo-express",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "seed": "ts-node ./prisma/seed.ts",
+        "dev": "ts-node ./src/index.ts",
+        "start": "node ./dist/src/index.js",
+        "build": "tsc"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@prisma/client": "^5.7.1",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.10.5",
+        "nodemon": "^3.0.2",
+        "prisma": "^5.7.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
+}
+```
+
+Now we have all our ducks in order, and we can start building the project!
+
+## **Creating the Entry Point for the Server**
+
+The entry point for our server will be located in **`src/index.ts`**. This means that whenever a user hits an endpoint, the code execution will start from this file on our server.
+
+```tsx
+import type { Application } from "express"
+import express from "express"
+import Server from "./server"
+
+const app: Application = express()
+new Server(app)
+const PORT: number = process.env.PORT ? Number(process.env.PORT) : 8080
+
+app.listen(PORT, () =>
+    console.log(`Server is running on http://localhost:${PORT}`),
+).on("error", (err: any) => {
+    if (err.code === "EADDRINUSE") {
+        console.log("Error: address already in use")
+    } else {
+        console.log(err)
+    }
+})
+```
+
+In the script above:
+
+-   We initialized an Express instance using **`express()`**, which we have imported at the top of the file.
+-   Instantiated a **`Server`** class, which is a file containing the entire server and its configuration (which we will create shortly).
+-   Defined the port number on which the server will listen.
+-   Started the **`listen`** method to listen for any requests.
+
+If you want to test your application right away to see the "Server is running" text, just comment out the **`new Server`** line and the import at the top, and you can start your application with **`npm run start`**.
+
+Otherwise, let’s create the server file!
+
+On the same directory level, create a file called **`server.ts`**:
+
+```tsx
+import type { Application } from "express"
+import express from "express"
+import cors from "cors"
+import Routes from "./routes"
+
+export default class Server {
+    constructor(app: Application) {
+        this.config(app)
+        new Routes(app)
+    }
+
+    private config(app: Application) {
+        const corsOptions = {
+            origin: "http://localhost:8081",
+        }
+
+        app.use(express.json({ limit: "50mb" }))
+        app.use(cors(corsOptions))
+    }
+}
+```
+
+In the code above, we exported a class called **`Server`**, which we instantiated in our **`index.ts`** file. We expect the Express app server instance to be passed inside the constructor, and because this is TypeScript, we need to define the type that is expected, which is **`Application`** in this case.
+
+The constructor starts two things when it is instantiated: it calls the **`config`** method and instantiates another class, which we will delve into in the next chapter.
+
+The **`config`** method expects the app, and inside this method, we set our Express app configurations, such as the CORS configuration and the maximum limit for JSON post/get requests.
+
+If you don’t know what CORS is, here is a link that explains it: [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+For now, let's move on to the next chapter, which is the router.
+
+## **Express Routers and Controllers**
+
+With Express, you can attach GET and POST methods directly to the **`app`** Express instance. Alternatively, you could use the Router class of Express, which is what we are going to implement.
+
+Inside our **`src`** directory, we are going to make another directory called **`routes`**. Inside the **`routes`** directory, we will have an **`index.ts`** file. This file is responsible for handling all the routes and subroutes.
+
+```tsx
+import type { Application } from "express"
+import todoRoutes from "./TodoRoutes"
+
+export default class Routes {
+    constructor(app: Application) {
+        app.use("/api", todoRoutes)
+    }
+}
+```
+
+This **`index.ts`** file also exports a class that accepts the app instance. Usually, you will use the **`post`** and **`get`** methods on the app to register routes. But here you see the **`use`** method. This **`use`** method indicates a group of routes. So the **`todoRoutes`** object is handling all the **`/todos`** routes.
+
+Now, let’s create this todos route handler. This file is called **`TodoRoutes.ts`** and is also placed inside the routes folder.
+
+```tsx
+import { Router } from "express"
+import TodoController from "../controllers/TodoController"
+
+export class TodoRoutes {
+    router = Router()
+    controller = new TodoController()
+
+    constructor() {
+        this.router.get("/todos", this.controller.all)
+        this.router.post("/todos", this.controller.create)
+        this.router.get("/todos/:id", this.controller.get)
+        this.router.patch("/todos/:id", this.controller.update)
+        this.router.delete("/todos/:id", this.controller.delete)
+    }
+}
+
+export default new TodoRoutes().router
+```
+
+I have mentioned the Router class of Express, and in the code above, you see the Router class of Express in action.
+
+This router object is instantiated when the **`TodoRoutes`** class is instantiated, which is whenever this file gets imported. You can see that on the line at the bottom.
+
+Basically, what this file does is create all the routes for **`/todos`**, which in this case are:
+
+-   [/todos]: GET request for all todos
+-   [/todos/:id ]GET request for a todo
+-   [/todos/:id] PATCH todo by id
+-   [/todos] POST route for creating a todo
+
+You can see that the handling for the routes is done by yet another file, which is called the controller. This pattern is a very common design pattern called the MVC (Model, View, and Controller) pattern.
+
+Now let's create our todo controller.
+
+Within our **`src`** directory, we are going to create a directory called **`controllers`**. Here we will create all our controller files. Let's create one called **`TodoController.ts`**:
+
+```tsx
+import type { Request, Response } from "express"
+import { PrismaClient } from "@prisma/client"
+
+const prisma = new PrismaClient()
+
+export default class TodoController {
+    get = async (req: Request, res: Response) => {
+        try {
+            const { id } = req.params
+            const todos = await prisma.todo.findFirstOrThrow({
+                where: {
+                    id: id,
+                },
+            })
+
+            res.json({ todos })
+        } catch (e: any) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
+    create = async (req: Request, res: Response) => {
+        const { title } = req.body
+        try {
+            const todo = await prisma.todo.create({
+                data: {
+                    title,
+                    completed: false,
+                },
+            })
+
+            res.json({ todo })
+        } catch (e: any) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
+    update = async (req: Request, res: Response) => {
+        const { id } = req.params
+        const { title, completed } = req.body
+        try {
+            const todo = await prisma.todo.update({
+                where: {
+                    id: id,
+                },
+                data: {
+                    title,
+                    completed,
+                },
+            })
+
+            res.json({ todo })
+        } catch (e: any) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
+    delete = async (req: Request, res: Response) => {
+        const { id } = req.params
+        try {
+            await prisma.todo.delete({
+                where: {
+                    id: id,
+                },
+            })
+
+            res.json({ message: "Todo deleted" })
+        } catch (e: any) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
+    all = async (req: Request, res: Response) => {
+        try {
+            const todos = await prisma.todo.findMany()
+
+            res.json({ todos })
+        } catch (e: any) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+}
+```
+
+Above, you will see all the route handlers for each route from our **`TodoRoutes.ts`** file. I will not go into detail for each of them. But the general idea here is that we use the Prisma library to perform some kind of CRUD operation on our database. We will return this data that is fetched by Prisma using the **`res`** object and return it as JSON.
+
+If something fails, we will return a status of 500 with the error message.
+
+| Methods | Urls          | Actions               |
+| ------- | ------------- | --------------------- |
+| GET     | api/todos     | Getting all the todos |
+| GET     | api/todos/:id | Get Todo by Id        |
+| POST    | api/todos     | Adds a new Todo       |
+| PUT     | api/todos/:id | Updates a Todo by Id  |
+
+## Run postman
+
+If you have completed all the steps above, we can now test it out with Postman! Make sure you start your application with **`npm run start`**.
+
+Open Postman and start hitting each endpoint of our server!
+
+### Post request to http://localhost:8080/api/todos
