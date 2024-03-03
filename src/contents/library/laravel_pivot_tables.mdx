@@ -9,50 +9,13 @@ description: "Improve React development efficiency using ComponentPropsWithoutRe
 
 If you have many to many relationships in Laravel, you'll need to create a pivot table. This table will contain the foreign keys of the two tables you're connecting.
 
-```php
-So choose the one that works best for you and stick with it.
+Below you can see an example of a pivot table for a many to many relationship between the `emails` and `templates` tables.
 
 ```php
-<?php
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-      Schema::create("genre_book", function (Blueprint $table) {
-        $table->foreignId("book_id");
-        $table->foreign("book_id")
-          ->references("id")
-          ->on("books");
-        $table->foreignId("genre_id");
-        $table->foreign("genre_id")
-          ->references("id")
-          ->on("genres");
-      });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        //
-    }
-};
-```
-
-However, there's a more effective approach! Import ComponentPropsWithoutRef and assign it to the element you want to set props for.
-
-## Code
-
-```jsx
-import type { FC, ComponentPropsWithoutRef } from "react";
-
-export const DivContainer: FC<ComponentPropsWithoutRef<"div">> = () => (
-  <div></div>
-);
-```
-
-This method enhances the development experience by letting TypeScript infer and enforce the correct props for the specified HTML element.
+Schema::create("email_templates", function (Blueprint $table) {
+    $table->id();
+    $table->foreignId("email_id")->constrained();
+    $table->foreignId("template_id")->constrained();
+    $table->timestamps();
+});
+```s
