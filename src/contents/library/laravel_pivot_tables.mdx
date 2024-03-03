@@ -18,4 +18,17 @@ Schema::create("email_templates", function (Blueprint $table) {
     $table->foreignId("template_id")->constrained();
     $table->timestamps();
 });
-```s
+```
+
+In this example, the `email_id` and `template_id` columns are foreign keys that reference the `id` column of the `emails` and `templates` tables, respectively.
+
+When you're working with pivot tables in Laravel, you can access the pivot data using the `pivot` attribute on the relationship.
+
+```php
+$email = Email::find(1);
+$template = Template::find(1);
+
+$email->templates()->attach($template, ["is_default" => true]);
+
+$defaultTemplate = $email->templates->firstWhere("pivot.is_default", true);
+```
