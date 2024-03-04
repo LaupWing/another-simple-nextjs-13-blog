@@ -1,0 +1,48 @@
+---
+title: "Laravel: Inertia.js, React and Typescript setup"
+tags: "laravel,php"
+publishedAt: "2024-03-04"
+description: "The base setup for a Laravel, Inertia.js, React and Typescript project. This is a great starting point for a new project, if you don't feel like using Laravel Breeze."
+---
+
+> Laravel: Inertia.js, React and Typescript setup
+
+In order to make Laravel work with Inertia, React and Typescript, you need to install a few packages. This is a great starting point for a new project, if you don't feel like using Laravel Breeze.
+
+The reason why you may not want to use Laravel Breeze is because it comes with a lot of extra stuff that you may not need.
+
+So if you are interested in a more minimal setup, then this is the way to go. Typescript is of course optional, but it's a great way to make your code more robust. Otherwise, you can just leave the typescript part out.
+
+```php
+<?php
+public function up(): void
+  {
+    Schema::create("books", function (Blueprint $table) {
+      $table->foreignId("author_id");
+      $table->foreign("author_id")
+        ->references("id")
+        ->on("authors");
+    });
+  }
+```
+
+```php
+<?php
+public function up(): void
+  {
+    Schema::create("books", function (Blueprint $table) {
+      $table->unsignedBigInteger("author_id");
+      $table->foreign("author_id")->references("id")->on("authors");
+    });
+  }
+```
+
+```php
+<?php
+public function up(): void
+  {
+    Schema::create("books", function (Blueprint $table) {
+      $table->foreignIdFor(\App\Models\Author::class);
+    });
+  }
+```
