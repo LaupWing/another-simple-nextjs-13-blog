@@ -16,24 +16,36 @@ function getLocale(request: NextRequest): string | undefined {
 // console.log(match(languages, locales, defaultLocale))
 
 export default function middleware(request: NextRequest) {
-    // Check if there is any supported locale in the pathname
-    const { pathname } = request.nextUrl
-    const pathnameHasLocale = locales.some(
+    const pathname = request.nextUrl.pathname
+    const pathnameIsMissingLocale = i18n.locales.every(
         (locale) =>
-            pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
+            !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
     )
-    console.log("pathnameHasLocale", pathnameHasLocale)
-    // console.log("pathname", pathname)
-    // if (pathnameHasLocale) return
 
-    // // Redirect if there is no locale
-    const locale = getLocale(request)
-    console.log("locale", locale)
-    return
-    // request.nextUrl.pathname = `/${locale}${pathname}`
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return NextResponse.redirect(request.nextUrl)
+    // Redirect if there is no locale
+    if (pathnameIsMissingLocale) {
+        const locale = getLocale(request)
+
+        console.log(
+            new URL(
+                `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
+                request.url,
+            ),
+        )
+        // if (locale === i18n.defaultLocale) {
+        //     return NextResponse.rewrite(
+        //         new URL(
+        //             `/${locale}${
+        //                 pathname.startsWith("/") ? "" : "/"
+        //             }${pathname}`,
+        //             request.url,
+        //         ),
+        //     )
+        // }
+        request.nextUrl.pathname = `/${locale}${pathname}`
+        // console.log(request.nextUrl)
+        return NextResponse.redirect(request.nextUrl)
+    }
 }
 
 export const config = {
