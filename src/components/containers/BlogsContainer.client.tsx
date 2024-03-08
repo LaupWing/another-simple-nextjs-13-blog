@@ -41,7 +41,6 @@ export const BlogsContainer: FC<BlogsContainerProps> = ({ posts }) => {
         Array<BlogFrontmatter & InjectedMeta>
     >(() => [...posts])
 
-    console.log(posts)
     useEffect(() => {
         const result = posts
             .filter(
