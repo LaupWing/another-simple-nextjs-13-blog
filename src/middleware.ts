@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server"
 
-export function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest) {
     // Check if there is any supported locale in the pathname
     const { pathname } = request.nextUrl
     // const pathnameHasLocale = locales.some(
