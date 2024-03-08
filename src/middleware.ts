@@ -3,7 +3,6 @@ import { match } from "@formatjs/intl-localematcher"
 import Negotiator from "negotiator"
 import { i18n } from "./i18.config"
 
-const locales = ["en-US", "nl-NL", "nl"]
 function getLocale(request: NextRequest): string | undefined {
     const negotiatorHeaders: Record<string, string> = {}
     request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
@@ -44,7 +43,12 @@ export default function middleware(request: NextRequest) {
         // }
         request.nextUrl.pathname = `/${locale}${pathname}`
         // console.log(request.nextUrl)
-        return NextResponse.redirect(request.nextUrl)
+        return NextResponse.redirect(
+            new URL(
+                `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
+                request.url,
+            ),
+        )
     }
 }
 
