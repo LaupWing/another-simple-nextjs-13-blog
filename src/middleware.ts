@@ -12,7 +12,6 @@ function getLocale(request: NextRequest): string | undefined {
     const locale = match(languages, locales, i18n.defaultLocale)
     return locale
 }
-// console.log(match(languages, locales, defaultLocale))
 
 export default function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname
@@ -21,28 +20,10 @@ export default function middleware(request: NextRequest) {
             !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
     )
 
-    // Redirect if there is no locale
     if (pathnameIsMissingLocale) {
         const locale = getLocale(request)
-
-        console.log(
-            new URL(
-                `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-                request.url,
-            ),
-        )
-        // if (locale === i18n.defaultLocale) {
-        //     return NextResponse.rewrite(
-        //         new URL(
-        //             `/${locale}${
-        //                 pathname.startsWith("/") ? "" : "/"
-        //             }${pathname}`,
-        //             request.url,
-        //         ),
-        //     )
-        // }
         request.nextUrl.pathname = `/${locale}${pathname}`
-        // console.log(request.nextUrl)
+
         return NextResponse.redirect(
             new URL(
                 `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
@@ -53,10 +34,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: [
-        // Skip all internal paths (_next)
-        "/((?!_next).*)",
-        // Optional: only run on root (/) URL
-        // '/'
-    ],
+    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 }

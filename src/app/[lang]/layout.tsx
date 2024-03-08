@@ -14,38 +14,41 @@ import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
 import "react-tippy/dist/tippy.css"
+import { i18n } from "@/i18.config"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-   ...seo({})
+    ...seo({}),
+}
+
+export async function generateStaticParams() {
+    return i18n.locales.map((locale) => ({ locale }))
 }
 
 export default function RootLayout({
-   children,
+    children,
 }: {
-   children: React.ReactNode
+    children: React.ReactNode
 }) {
-   return (
-      <html 
-         lang="en"
-      >
-         <head>
-            {favicons.map(favicon => (
-               <link key={favicon.href} {...favicon} />
-            ))}
-         </head>
-         <body className={`${inter.className} dark:bg-dark`}>
-            <NextTopLoader />
-            <Header />
-            <ResetLoaderContainer id="skip-nav">
-               {children}
-            </ResetLoaderContainer>
-            <Footer />
-            <GoogleTagManager gtmId="GTM-N9XKNFZX" />
-            <GoogleTagManager gtmId="G-JBM6Y5FDQK" />
-            <Analytics />
-         </body>
-      </html>
-   )
+    return (
+        <html lang="en">
+            <head>
+                {favicons.map((favicon) => (
+                    <link key={favicon.href} {...favicon} />
+                ))}
+            </head>
+            <body className={`${inter.className} dark:bg-dark`}>
+                <NextTopLoader />
+                <Header />
+                <ResetLoaderContainer id="skip-nav">
+                    {children}
+                </ResetLoaderContainer>
+                <Footer />
+                <GoogleTagManager gtmId="GTM-N9XKNFZX" />
+                <GoogleTagManager gtmId="G-JBM6Y5FDQK" />
+                <Analytics />
+            </body>
+        </html>
+    )
 }
