@@ -14,16 +14,11 @@ import "@/styles/globals.css"
 import "@/styles/dracula.css"
 import "@/styles/mdx.css"
 import "react-tippy/dist/tippy.css"
-import { i18n } from "@/i18.config"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
     ...seo({}),
-}
-
-export async function generateStaticParams() {
-    return i18n.locales.map((locale) => ({ locale }))
 }
 
 export default function RootLayout({
