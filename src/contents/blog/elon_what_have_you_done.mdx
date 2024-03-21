@@ -26,16 +26,16 @@ It is quite clear what button you should press in order to create your Twitter p
     mdx
     public_id="techblog/twitter_api/1"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 
 In the following pages, just fill in your information and continually click next and fill in the required information.<CloudinaryImage
     mdx
     public_id="techblog/twitter_api/2"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 On the last page, you will see the keys you need to copy and save somewhere on your local machine. These keys are needed in order to send tweets, or so you think.
 
@@ -48,16 +48,16 @@ Navigate to your project you have created and click on the little key icon withi
     mdx
     public_id="techblog/twitter_api/3"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 Here you need to press the generate button for the Access Token and Secret in order to generate our last missing pieces we need. You also need to note these keys somewhere because you will also need them.
 <CloudinaryImage
     mdx
     public_id="techblog/twitter_api/4"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 So let’s plug those API keys into our environment variable and test it out.
 
@@ -94,8 +94,8 @@ Let’s run the script and see what happens!
     mdx
     public_id="techblog/twitter_api/5"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 Somehow the API returns a status response of 403. If you look up what the status response of 403 means on the Twitter API documentation website, you will see that it says:
 
@@ -117,8 +117,8 @@ On this page, you need to scroll all the way down under the user authentication 
     mdx
     public_id="techblog/twitter_api/6"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 I was personally looking for the permissions setting for ages, but on this page, you can change it. Click the checkbox with the permissions you want to use for your application. So in our case, we want to just read and write. So we will need to select that option.
 
@@ -129,24 +129,24 @@ If you don’t have either of the callback URL or website URL, just put https://
     mdx
     public_id="techblog/twitter_api/7"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 Now you will be able to save the settings. A popup will appear giving you a warning that changing the permissions might affect your app. Don’t worry about this and press yes to confirm the changes.
 <CloudinaryImage
     mdx
     public_id="techblog/twitter_api/8"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 You will be redirected to a screen which shows you the client ID and client secret keys. For sending a tweet programmatically, this is not really needed. These keys are only really used if you are building a web app that requires users to log in with their Twitter account. So in our case, we don’t need to save the client ID and client secret. Of course, you can save it somewhere if you would like to. But in our case, it is not really needed.
 <CloudinaryImage
     mdx
     public_id="techblog/twitter_api/9"
     alt="templates"
-    width={1920}
-    height={1032}
+    width={1400}
+    height={700}
 />
 What we do need to do is to regenerate our tokens because we have changed our permissions from read to read and write.
 
