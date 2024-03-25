@@ -118,3 +118,13 @@ Utility classes are low-level classes that provide single-purpose styling utilit
 
 They follow a consistent naming convention (e.g., `.filter-none` for removing a filter or `.filter-grayscale` for adding the grayscale filter), allowing for rapid prototyping and customization.
 
+```css
+@layer utilities {
+    .filter-none {
+        filter: none;
+    }
+    .filter-grayscale {
+        filter: grayscale(100%);
+    }
+}
+```
