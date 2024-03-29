@@ -1,76 +1,108 @@
 ---
-title: "Shopify: How to add tailwind to shopify theme development"
-tags: "liquid,javascript,shopify"
-publishedAt: "2024-03-28"
-description: "In this short article, I will show you how you can easily add Tailwind to your Shopify theme deveopment pipeline, so that you can use Tailwind for every custom Shopify theme development project."
+title: "WordPress: Add Tailwind to WordPress"
+tags: "wordpress,javascript,css,php"
+publishedAt: "2024-03-29"
+description: "In this short article, we will add Tailwind to your WordPress theme development pipeline so that you can use your favorite CSS library with every WordPress theme website."
 ---
-> Shopify: How to add tailwind to shopify theme development
+> WordPress: Add Tailwind to WordPress
 
-In this short article, I will show you how you can easily add Tailwind to your Shopify theme deveopment pipeline, so that you can use Tailwind for every custom Shopify theme development project.
+In this short article, we will add Tailwind to your WordPress theme development pipeline so that you can use your favorite CSS library with every WordPress theme website.
 
-## **Create project**
+The prerequisite for this tutorial is that you already have a WordPress project instance ready to go.
 
-First, create a directory where you want to place your project files.
+If you don’t have one, I highly recommend using Local by Flywheel to spin up a new WordPress project.
 
-Then, **`cd`** into that project.
+[Local by Flywheel](https://localwp.com/)
+
+After you have a WordPress instance ready to go, let's hop into adding Tailwind to your project.
+
+## **Creating the Theme**
+
+Inside the **`themes`** directory, which lives in the **`wp-content`** directory, we will create a new directory for our theme. Let's call it **`tailwind-theme`** for now.
 
 ```bash
-mkdir project
-cd project
+cd wp-content
+cd themes
+mkdir tailwind-theme
 ```
 
-Now, create a folder called **`theme`**. This is the directory where you'll hold all your theme-specific files. You can either create your theme files manually or create them with the Shopify CLI command by pulling or creating a boilerplate. I won’t go into this step because I want to primarily focus on how to add Tailwind to a Shopify project.
+## **Initialize npm and Install wp-scripts**
 
-Now let's move on to the steps for setting up Tailwind.
+Now we need to initialize npm. We can do this by simply running the **`npm init`** command with the **`--y`** flag to set everything to the default value.
 
-## **package.json**
-
-We need to initialize this project with npm by using the **`npm init`** command in the root directory.
+But make sure you do this within the **`tailwind-theme`** directory.
 
 ```bash
+cd tailwind-theme
 npm init --y
 ```
 
-We have added the **`--y`** flag to set all the package JSON info as the default.
+To future-proof this project, we will install **`wp-scripts`** and also **`npm-run-all`**.
 
-Now, we can get into the steps for initializing Tailwind.
+**`wp-scripts`** is a WordPress package that simplifies the setup of a development environment and includes scripts for common tasks like starting a server, running tests, and building themes or plugins.
 
-## **Adding Tailwind**
+**`npm-run-all`** package allows us to run multiple npm scripts in parallel. You will see this in action in the next section when we configure our **`package.json`** file.
 
-Here is a brief overview of how to add Tailwind to this project.
+## **Installing Tailwind**
 
-### **Install Tailwind CSS**
+Now we can add Tailwind to our theme.
 
-Use npm to install Tailwind and initialize the Tailwind configuration file.
+### **Installing Tailwind packages**
+
+Run the scripts below to install all the Tailwind packages necessary.
 
 ```bash
 npm install -D tailwindcss
 npx tailwindcss init
 ```
 
-The command will create a file called **`tailwind.config.js`**.
+It will also initialize a Tailwind configuration file called **`tailwind.config.js`**.
 
-## **Configure template paths**
+### **Configure tailwind.config.js file**
 
-Now, we need to tell Tailwind which files to check for Tailwind classes. Since we are building a Shopify theme with Liquid files, we need to specify the location of the Liquid files. In our case, the actual Shopify theme project lives in the **`theme`** folder. So, we need to correctly specify it here.
+Now we need to tell Tailwind which files to look for Tailwind classes.
 
-```jsx
+In the code below, we will look for all the PHP files because all of the WordPress pages are PHP-based. You probably have also noticed that we look for the **`.jsx`** file.
+
+We have added this to make this setup future-proof so that it automatically checks for Tailwind classes if you decide to use React for creating Gutenberg sections or blocks in the future.
+
+```json
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./theme/**/*.liquid"],
+    content: [
+        "./**/*.php",
+        "./src/**/*.jsx"
+    ],
+    safelist: [
+        "current-menu-item",
+        "menu-item",
+        "current_page_parent"
+    ],
     theme: {
-        extend: {},
+        extend: {
+
+        },
     },
+    plugins: [
+    ],
 }
 ```
 
-It basically watches for every Liquid file within the theme directory.
+As a little extra, I have added a **`safelist`** array with the WordPress default auto-generated links element. This way, Tailwind will always render the safe list items list whether the class is found or not. You can apply custom classes to these classes within the **`index.css`** file where the Tailwind directives are.
 
-## **Creating CSS file and adding the directives**
+### **Creating index.css file**
 
-Within the root directory, create an **`index.css`** file.
+Now we are already talking about the **`index.css`** file. Let's create that file and add our directives.
 
-Inside this file, we will simply add the Tailwind directives.
+To keep things clean, we want to create a folder called **`src`** where we hold our precompiled files. This is a common practice with most web projects. Here we create an **`index.css`** file, where we want to add our Tailwind directives.
+
+```bash
+mkdir src
+cd src
+touch index.css
+```
+
+Adding the Tailwind directives inside our **`index.css`** file.
 
 ```css
 @tailwind base;
@@ -78,61 +110,73 @@ Inside this file, we will simply add the Tailwind directives.
 @tailwind utilities;
 ```
 
-## **Tailwind command**
+If you are wondering how to add styles to generated WordPress classes, I got you covered.
 
-Now, we need to add an npm command within our **`package.json`** file to run the Tailwind compiler.
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.current-menu-item {
+	@apply flex bg-red-400;
+}
+```
+
+You can do this with all the generated WordPress classes. But remember to also add it to the safelist within the **`tailwind-config.js`** file.
+
+## **Package.json**
+
+This is the last step, and then you are all set!
+
+In the code below, you see the **`npm-run-all`** in action. We see that we want to run the **`wpstart`** and **`tailwindwatch`** script at the same time.
+
+This is done with the **`npm-run-all`** npm package with the **`--parallel`** flag.
+
+The **`tailwindwatch`** and **`tailwindbuild`** scripts both do the same thing. The only difference is that one continuously watches for changes, and the other compiles it only once.
+
+These Tailwind scripts basically use the **`index.css`** file as input and output into a file called **`index.css`**, which lives in the **`build`** folder.
 
 ```json
 {
+    "name": "laupblog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
     "scripts": {
-        "tw": "npx tailwindcss -i ./style.css -o ./theme/assets/style.css --watch"
+        "buildwp": "wp-scripts build",
+        "build": "npm-run-all --sequential buildwp tailwindbuild",
+        "wpstart": "wp-scripts start",
+        "start": "npm-run-all --parallel wpstart tailwindwatch",
+        "tailwindbuild": "tailwindcss -i ./src/index.css -o ./build/index.css --minify",
+        "tailwindwatch": "tailwindcss -i ./src/index.css -o ./build/index.css --watch --minify",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "devDependencies": {
-        "tailwindcss": "^3.4.1"
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@wordpress/scripts": "^26.4.0",
+        "npm-run-all": "^4.1.5",
+        "tailwindcss": "^3.3.2"
     }
 }
 ```
 
-Notice that the output file will be generated within the **`assets`** directory that is within the theme directory.
+## **Connect index.css**
 
-## **Adding `style.css` to Shopify theme**
+Now we need to add our **`index.css`** asset file into our custom WordPress. This is done within the **`functions.php`** file.
 
-Now, we only need to include the generated **`style.css`** into our Shopify project.
+```php
+<?php
 
-To do this, you need to put the **`{{ "style.css" | asset_url | stylesheet_tag }}`** liquid code snippet inside the layout of your theme (**`layout > theme.liquid`**).
+function loadAssets(){
+    wp_enqueue_style("mainstyle", get_theme_file_uri("/build/index.css"));
+}
 
-```html
-<!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+add_action("wp_enqueue_scripts", "loadAssets");
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="">
-    <title>
-        {{ page_title }}
-    </title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    {{ "style.css" | asset_url | stylesheet_tag }}
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    {{ content_for_header }}
-</head>
-
-<body class="flex min-h-screen flex-col items-center">
-    {% render "announcement" %}
-    {% render "header" %}
-
-    {{ content_for_layout }}
-    {% render "footer" %}
-</body>
-
-</html>
 ```
 
-That’s it!
+And that’s it!
 
-Now you can use your favorite CSS library with every Shopify project you are going to build.
+Now you can use your favorite CSS library and go crazy with styling on every WordPress custom theme project.
