@@ -34,7 +34,6 @@ export const Header: FC<HeaderProps> = () => {
     const activeSegment = useSelectedLayoutSegment()
     const params = useParams()
     const pathname = usePathname()
-    console.log(pathname)
     const [sortOrder] = useState<SortOption>(
         () => sortOptions.find((o) => o.id === params.lang) || sortOptions[0],
     )
