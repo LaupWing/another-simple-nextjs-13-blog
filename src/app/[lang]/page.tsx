@@ -103,10 +103,12 @@ const HomeIntro: FC<{
                                 href="/blog"
                                 variant="gradient-animation"
                             >
-                                Read the Blog
+                                {dict.home.intro.button_text1}
                             </ButtonLink>
                         </div>
-                        <Button href="/about">Learn more about me</Button>
+                        <Button href="/about">
+                            {dict.home.intro.button_text2}
+                        </Button>
                     </div>
                     <div
                         className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8"
