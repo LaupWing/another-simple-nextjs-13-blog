@@ -59,7 +59,7 @@ export async function getAllFilesFrontmatter<T extends ContentType>(
     type: T,
     lang: string,
 ) {
-    const directory_exists = await checkIfContentDirectoryExists(lang)
+    const directory_exists = await checkIfContentDirectoryExists(lang, type)
     console.log(directory_exists)
 
     const files = readdirSync(join(process.cwd(), "src", "contents", type))
