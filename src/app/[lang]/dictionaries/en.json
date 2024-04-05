@@ -5,7 +5,8 @@
     "home": {
         "intro": {
             "hello": "Hello!",
-            "name": "My name is"
+            "name": "My name is",
+            "text": "I possess a strong enthusiasm for both programming and fitness, finding fulfillment in assisting individuals either at the gym or in the realm of coding."
         }
     }
 }

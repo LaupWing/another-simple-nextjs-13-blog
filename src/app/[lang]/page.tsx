@@ -91,9 +91,7 @@ const HomeIntro: FC<{
                         className="mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl"
                         data-fade="3"
                     >
-                        I possess a strong enthusiasm for both programming and
-                        fitness, finding fulfillment in assisting individuals
-                        either at the gym or in the realm of coding.
+                        {dict.home.intro.text}
                     </p>
                     <div
                         className="mt-8 flex flex-wrap gap-4 md:!text-lg"
