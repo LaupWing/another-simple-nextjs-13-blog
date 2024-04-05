@@ -23,8 +23,8 @@ export async function generateStaticParams() {
     }))
 }
 
-const fetchPost = async (slug: string) => {
-    const post = await getFileBySlug("library", slug)
+const fetchPost = async (slug: string, lang: string) => {
+    const post = await getFileBySlug("library", slug, lang)
     return post as {
         code: string
         frontmatter: LibraryFrontmatter
@@ -32,7 +32,7 @@ const fetchPost = async (slug: string) => {
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
-    const post = await fetchPost(props.params.slug)
+    const post = await fetchPost(props.params.slug, props.params.lang)
     const { frontmatter } = post
 
     return {
@@ -47,11 +47,12 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 interface PageProps {
     params: {
         slug: string
+        lang: string
     }
 }
 
 const SingleLibraryPage = async (props: PageProps) => {
-    const post = await fetchPost(props.params.slug)
+    const post = await fetchPost(props.params.slug, props.params.lang)
     const { frontmatter, code } = post
     return (
         <main className="custom-container">
