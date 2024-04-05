@@ -19,6 +19,7 @@ import { FiMail } from "@react-icons/all-files/fi/FiMail"
 import { FiMoon } from "@react-icons/all-files/fi/FiMoon"
 import { FiSun } from "@react-icons/all-files/fi/FiSun"
 import { MdHistory } from "@react-icons/all-files/md/MdHistory"
+import { MdDirectionsBike } from "@react-icons/all-files/md/MdDirectionsBike"
 import { BiGitRepoForked } from "@react-icons/all-files/bi/BiGitRepoForked"
 import { HiCalendar } from "@react-icons/all-files/hi/HiCalendar"
 import { HiCheck } from "@react-icons/all-files/hi/HiCheck"
@@ -44,317 +45,160 @@ import { SiWordpress } from "@react-icons/all-files/si/SiWordpress"
 import { IoLogoVercel } from "@react-icons/all-files/io5/IoLogoVercel"
 import { SiSolidity } from "react-icons/si"
 
-export const IconNewspaper:IconType = (props) => {
-   return (
-      <IoNewspaperSharp 
-         {...props}
-      />
-   )
+export const IconNewspaper: IconType = (props) => {
+    return <IoNewspaperSharp {...props} />
 }
-export const IconSolidity:IconType = (props) => {
-   return (
-      <SiSolidity 
-         {...props}
-      />
-   )
+export const IconBike: IconType = (props) => {
+    return <MdDirectionsBike {...props} />
 }
-export const IconLaravel:IconType = (props) => {
-   return (
-      <FaLaravel 
-         {...props}
-      />
-   )
+export const IconSolidity: IconType = (props) => {
+    return <SiSolidity {...props} />
 }
-export const IconVue:IconType = (props) => {
-   return (
-      <IoLogoVue
-         {...props}
-      />
-   )
+export const IconLaravel: IconType = (props) => {
+    return <FaLaravel {...props} />
 }
-export const IconSql:IconType = (props) => {
-   return (
-      <GrMysql 
-         {...props}
-      />
-   )
+export const IconVue: IconType = (props) => {
+    return <IoLogoVue {...props} />
 }
-export const IconPhp:IconType = (props) => {
-   return (
-      <FaPhp 
-         {...props}
-      />
-   )
+export const IconSql: IconType = (props) => {
+    return <GrMysql {...props} />
+}
+export const IconPhp: IconType = (props) => {
+    return <FaPhp {...props} />
 }
 
-export const IconSortAscending:IconType = (props) => {
-   return (
-      <HiSortAscending 
-         {...props}
-      />
-   )
+export const IconSortAscending: IconType = (props) => {
+    return <HiSortAscending {...props} />
 }
 
-export const IconVercel:IconType = (props) => {
-   return (
-      <IoLogoVercel
-         {...props}
-      />
-   )
+export const IconVercel: IconType = (props) => {
+    return <IoLogoVercel {...props} />
 }
 
-export const IconWordpress:IconType = (props) => {
-   return (
-      <SiWordpress
-         {...props}
-      />
-   )
+export const IconWordpress: IconType = (props) => {
+    return <SiWordpress {...props} />
 }
 
-export const IconTypescript:IconType = (props) => {
-   return (
-      <SiTypescript
-         {...props}
-      />
-   )
+export const IconTypescript: IconType = (props) => {
+    return <SiTypescript {...props} />
 }
 
-export const IconTailwindcss:IconType = (props) => {
-   return (
-      <SiTailwindcss
-         {...props}
-      />
-   )
+export const IconTailwindcss: IconType = (props) => {
+    return <SiTailwindcss {...props} />
 }
 
-export const IconRedux:IconType = (props) => {
-   return (
-      <SiRedux
-         {...props}
-      />
-   )
+export const IconRedux: IconType = (props) => {
+    return <SiRedux {...props} />
 }
 
-export const IconReact:IconType = (props) => {
-   return (
-      <SiReact
-         {...props}
-      />
-   )
+export const IconReact: IconType = (props) => {
+    return <SiReact {...props} />
 }
 
-export const IconNodeDotJs:IconType = (props) => {
-   return (
-      <SiNodeDotJs
-         {...props}
-      />
-   )
+export const IconNodeDotJs: IconType = (props) => {
+    return <SiNodeDotJs {...props} />
 }
 
-export const IconNextDotJs:IconType = (props) => {
-   return (
-      <SiNextDotJs 
-         {...props}
-      />
-   )
+export const IconNextDotJs: IconType = (props) => {
+    return <SiNextDotJs {...props} />
 }
 
-export const IconMongodb:IconType = (props) => {
-   return (
-      <SiMongodb 
-         {...props}
-      />
-   )
+export const IconMongodb: IconType = (props) => {
+    return <SiMongodb {...props} />
 }
 
-export const IconMarkdown:IconType = (props) => {
-   return (
-      <SiMarkdown 
-         {...props}
-      />
-   )
+export const IconMarkdown: IconType = (props) => {
+    return <SiMarkdown {...props} />
 }
 
-export const IconJavascript:IconType = (props) => {
-   return (
-      <SiJavascript
-         {...props}
-      />
-   )
+export const IconJavascript: IconType = (props) => {
+    return <SiJavascript {...props} />
 }
 
-export const IconGatsby:IconType = (props) => {
-   return (
-      <SiGatsby 
-         {...props}
-      />
-   )
+export const IconGatsby: IconType = (props) => {
+    return <SiGatsby {...props} />
 }
 
-export const IconGit:IconType = (props) => {
-   return (
-      <SiGit 
-         {...props}
-      />
-   )
+export const IconGit: IconType = (props) => {
+    return <SiGit {...props} />
 }
 
-export const IconFirebase:IconType = (props) => {
-   return (
-      <SiFirebase
-         {...props}
-      />
-   )
+export const IconFirebase: IconType = (props) => {
+    return <SiFirebase {...props} />
 }
 
-export const IconHeart:IconType = (props) => {
-   return (
-      <GiTechnoHeart 
-         {...props}
-      />
-   )
+export const IconHeart: IconType = (props) => {
+    return <GiTechnoHeart {...props} />
 }
 
-export const IconArrowDown:IconType = (props) => {
-   return (
-      <IoArrowDownOutline
-         {...props}
-      />
-   )
+export const IconArrowDown: IconType = (props) => {
+    return <IoArrowDownOutline {...props} />
 }
 
-export const IconGithub:IconType = (props) => {
-   return (
-      <SiGithub
-         {...props}
-      />
-   )
+export const IconGithub: IconType = (props) => {
+    return <SiGithub {...props} />
 }
 
-export const IconTwitter:IconType = (props) => {
-   return (
-      <SiTwitter
-         {...props}
-      />
-   )
+export const IconTwitter: IconType = (props) => {
+    return <SiTwitter {...props} />
 }
 
-export const IconSun:IconType = (props) => {
-   return (
-      <FiSun
-         {...props}
-      />
-   )
+export const IconSun: IconType = (props) => {
+    return <FiSun {...props} />
 }
 
-export const IconMoon:IconType = (props) => {
-   return (
-      <FiMoon
-         {...props}
-      />
-   )
+export const IconMoon: IconType = (props) => {
+    return <FiMoon {...props} />
 }
 
-export const IconClock:IconType = (props) => {
-   return (
-      <FiClock
-         {...props}
-      />
-   )
+export const IconClock: IconType = (props) => {
+    return <FiClock {...props} />
 }
 
-export const IconEye:IconType = (props) => {
-   return (
-      <FiEye
-         {...props}
-      />
-   )
+export const IconEye: IconType = (props) => {
+    return <FiEye {...props} />
 }
 
-export const IconLinkedin:IconType = (props) => {
-   return (
-      <SiLinkedin
-         {...props}
-      />
-   )
+export const IconLinkedin: IconType = (props) => {
+    return <SiLinkedin {...props} />
 }
 
-export const IconMail:IconType = (props) => {
-   return (
-      <FiMail
-         {...props}
-      />
-   )
+export const IconMail: IconType = (props) => {
+    return <FiMail {...props} />
 }
 
-export const IconCalendar:IconType = (props) => {
-   return (
-      <HiCalendar
-         {...props}
-      />
-   )
+export const IconCalendar: IconType = (props) => {
+    return <HiCalendar {...props} />
 }
 
-export const IconSelector:IconType = (props) => {
-   return (
-      <HiSelector
-         {...props}
-      />
-   )
+export const IconSelector: IconType = (props) => {
+    return <HiSelector {...props} />
 }
 
-export const IconCheckmark:IconType = (props) => {
-   return (
-      <HiCheck
-         {...props}
-      />
-   )
+export const IconCheckmark: IconType = (props) => {
+    return <HiCheck {...props} />
 }
 
-export const IconHistory:IconType = (props) => {
-   return (
-      <MdHistory
-         {...props}
-      />
-   )
+export const IconHistory: IconType = (props) => {
+    return <MdHistory {...props} />
 }
 
-export const IconClipboard:IconType = (props) => {
-   return (
-      <HiClipboard
-         {...props}
-      />
-   )
+export const IconClipboard: IconType = (props) => {
+    return <HiClipboard {...props} />
 }
 
-export const IconCheckCircle:IconType = (props) => {
-   return (
-      <HiCheckCircle
-         {...props}
-      />
-   )
+export const IconCheckCircle: IconType = (props) => {
+    return <HiCheckCircle {...props} />
 }
 
-export const IconStar:IconType = (props) => {
-   return (
-      <HiOutlineStar
-         {...props}
-      />
-   )
+export const IconStar: IconType = (props) => {
+    return <HiOutlineStar {...props} />
 }
 
-export const IconRepoForked:IconType = (props) => {
-   return (
-      <BiGitRepoForked
-         {...props}
-      />
-   )
+export const IconRepoForked: IconType = (props) => {
+    return <BiGitRepoForked {...props} />
 }
 
-export const IconLink:IconType = (props) => {
-   return (
-      <HiLink
-         {...props}
-      />
-   )
+export const IconLink: IconType = (props) => {
+    return <HiLink {...props} />
 }
