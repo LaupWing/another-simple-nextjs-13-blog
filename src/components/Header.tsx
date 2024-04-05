@@ -27,7 +27,11 @@ const sortOptions: Array<SortOption> = [
 export const Header: FC<HeaderProps> = () => {
     const [onTop, setOnTop] = useState<boolean>(false)
     const activeSegment = useSelectedLayoutSegment()
-    const [sortOrder, setSortOrder] = useState<SortOption>(() => sortOptions[0])
+    const params = useParams()
+    console.log(params)
+    const [sortOrder, setSortOrder] = useState<SortOption>(
+        () => sortOptions.find((o) => o.id === params.lang) || sortOptions[0],
+    )
     const router = useRouter()
 
     useEffect(() => {
