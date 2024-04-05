@@ -62,7 +62,6 @@ export async function getAllFilesFrontmatter<T extends ContentType>(
     const language = (await checkIfLangExists(lang, type))
         ? lang
         : process.env.DEFAULT_LANG!
-    // console.log(directory_exists)
 
     const files = readdirSync(
         join(process.cwd(), "src", "contents", type, language),
