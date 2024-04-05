@@ -5,8 +5,6 @@ import { CustomLink } from "@/components/links/CustomLink"
 import { Locale } from "@/i18.config"
 
 const About = ({ params: { lang } }: { params: { lang: Locale } }) => {
-    console.log(lang)
-
     return (
         <section className="custom-container min-h-screen py-20">
             <h2 className="dark:text-white" data-fade="0">
