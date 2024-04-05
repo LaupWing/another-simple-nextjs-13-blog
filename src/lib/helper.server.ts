@@ -42,7 +42,7 @@ export const getUserLikeCount = async ({
     })
 }
 
-export const checkIfContentDirectoryExists = (lang: string) => {
+export const checkIfContentDirectoryExists = async (lang: string) => {
     const directory_path = `src/contents/${lang}`
     return existsSync(directory_path)
 }
