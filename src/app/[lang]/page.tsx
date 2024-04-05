@@ -29,7 +29,7 @@ export default async function Home(pageProps: PageProps) {
     console.log(dict)
     return (
         <main>
-            <HomeIntro />
+            <HomeIntro lang={pageProps.params.lang} />
             <ContactMe />
             <HomeBlogs lang={pageProps.params.lang} />
             <HomeProjects lang={pageProps.params.lang} />
@@ -39,7 +39,11 @@ export default async function Home(pageProps: PageProps) {
     )
 }
 
-const HomeIntro = () => {
+const HomeIntro: FC<{
+    lang: Locale
+}> = async ({ lang }) => {
+    const dict = await getDictionary(lang)
+    console.log(dict)
     const social_link_style =
         "inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-accent-light group"
 
