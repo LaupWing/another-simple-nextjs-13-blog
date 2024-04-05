@@ -29,8 +29,6 @@ export const Header: FC<HeaderProps> = () => {
     const activeSegment = useSelectedLayoutSegment()
     const [sortOrder, setSortOrder] = useState<SortOption>(() => sortOptions[0])
     const router = useRouter()
-    const param = useParams()
-    console.log(param)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -78,7 +76,7 @@ export const Header: FC<HeaderProps> = () => {
     const handleLocaleChange = (e: SortOption) => {
         console.log(e)
         router.push("/", {
-            lang: "en",
+            locale: "en",
         })
     }
 
@@ -94,9 +92,7 @@ export const Header: FC<HeaderProps> = () => {
                 <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
                     {links.map(({ href, label, segement }) => (
                         <li className="pb-2" key={`${href}-${label}`}>
-                            <UnstyledLink href={`/${param.lang}/${href}`}>
-                                {label}
-                            </UnstyledLink>
+                            <UnstyledLink href={href}>{label}</UnstyledLink>
                             {activeSegment === segement ? (
                                 <div className="h-[3px] gradient-animation-slow w-full shadow" />
                             ) : (
