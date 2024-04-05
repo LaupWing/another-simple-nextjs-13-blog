@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
-    const post = await fetchPost(props.params.slug)
+    const post = await fetchPost(props.params.slug, props.params.lang)
     const { frontmatter } = post
 
     const OG_BANNER_LINK = `https://res.cloudinary.com/laupwing/image/upload/f_auto,c_fill,ar_12:8,w_1200/${frontmatter.banner}`
@@ -42,7 +42,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     }
 }
 
-const fetchPost = async (slug: string) => {
+const fetchPost = async (slug: string, lang: string) => {
     const post = await getFileBySlug("blog", slug)
     return post as {
         code: string
@@ -58,7 +58,7 @@ interface PageProps {
 }
 
 const SingleBlogPage = async (props: PageProps) => {
-    const post = await fetchPost(props.params.slug)
+    const post = await fetchPost(props.params.slug, props.params.lang)
     const { frontmatter, code } = post
 
     return (
