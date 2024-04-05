@@ -54,7 +54,10 @@ export async function getFileBySlug(type: ContentType, slug: string) {
     }
 }
 
-export async function getAllFilesFrontmatter<T extends ContentType>(type: T) {
+export async function getAllFilesFrontmatter<T extends ContentType>(
+    type: T,
+    lang: string,
+) {
     const files = readdirSync(join(process.cwd(), "src", "contents", type))
 
     return files.reduce((allPosts: Array<PickFrontmatter<T>>, postSlug) => {

@@ -7,8 +7,8 @@ import seo from "@/lib/seo"
 
 export const revalidate = 60
 
-const fetchBlogs = async () => {
-    const blogs = await getAllFilesFrontmatter("blog")
+const fetchBlogs = async (lang: string) => {
+    const blogs = await getAllFilesFrontmatter("blog", lang)
 
     return await attachContentMeta<"blog">(blogs)
 }
@@ -23,8 +23,7 @@ export const metadata: Metadata = {
 }
 
 const Blog = async ({ params: { lang } }: { params: { lang: string } }) => {
-    const posts = await fetchBlogs()
-    console.log(lang)
+    const posts = await fetchBlogs(lang)
 
     return (
         <main>
