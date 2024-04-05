@@ -29,7 +29,7 @@ export const Header: FC<HeaderProps> = () => {
     const activeSegment = useSelectedLayoutSegment()
     const [sortOrder, setSortOrder] = useState<SortOption>(() => sortOptions[0])
     const router = useRouter()
-
+    console.log(window.navigator.language)
     useEffect(() => {
         const handleScroll = () => {
             setOnTop(window.scrollY > 0)
