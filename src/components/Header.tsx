@@ -1,5 +1,5 @@
 "use client"
-import { useRouter, useSelectedLayoutSegment } from "next/navigation"
+import { useParams, useRouter, useSelectedLayoutSegment } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
 import { UnstyledLink } from "./links/UnstyledLink.client"
@@ -29,6 +29,8 @@ export const Header: FC<HeaderProps> = () => {
     const activeSegment = useSelectedLayoutSegment()
     const [sortOrder, setSortOrder] = useState<SortOption>(() => sortOptions[0])
     const router = useRouter()
+    const param = useParams()
+    console.log(param)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -92,7 +94,9 @@ export const Header: FC<HeaderProps> = () => {
                 <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
                     {links.map(({ href, label, segement }) => (
                         <li className="pb-2" key={`${href}-${label}`}>
-                            <UnstyledLink href={href}>{label}</UnstyledLink>
+                            <UnstyledLink href={`/${param.lang}/${href}`}>
+                                {label}
+                            </UnstyledLink>
                             {activeSegment === segement ? (
                                 <div className="h-[3px] gradient-animation-slow w-full shadow" />
                             ) : (
