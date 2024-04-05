@@ -10,7 +10,7 @@ import clsx from "clsx"
 import { UnstyledLink } from "./links/UnstyledLink.client"
 import { ThemeButton } from "./buttons/ThemeButton.client"
 import { SortListBox, SortOption } from "./elements/SortListBox.client"
-import { IconBike, IconEarth } from "./Icons"
+import { IconBike, IconEarth, IconMenu } from "./Icons"
 
 interface HeaderProps {
     large?: boolean
@@ -98,7 +98,10 @@ export const Header: FC<HeaderProps> = () => {
         >
             <div className="gradient-animation w-full h-1.5 bg-red-400" />
             <nav className="custom-container flex-1 flex items-center justify-between text-dark dark:text-light">
-                <ul className="flex items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
+                <button>
+                    <IconMenu size={30} />
+                </button>
+                <ul className="sm:flex hidden items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
                     {links.map(({ href, label, segement }) => (
                         <li className="pb-2" key={`${href}-${label}`}>
                             <UnstyledLink href={href}>{label}</UnstyledLink>
