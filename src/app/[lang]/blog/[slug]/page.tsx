@@ -53,6 +53,7 @@ const fetchPost = async (slug: string) => {
 interface PageProps {
     params: {
         slug: string
+        lang: string
     }
 }
 

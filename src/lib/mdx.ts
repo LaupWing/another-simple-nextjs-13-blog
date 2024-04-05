@@ -16,7 +16,7 @@ import { checkIfLangExists } from "./helper.server"
 
 export async function getFileBySlug(type: ContentType, slug: string) {
     const source = readFileSync(
-        join(process.cwd(), "src", "contents", type, `${slug}.mdx`),
+        join(process.cwd(), "src", "contents", type, "en", `${slug}.mdx`),
         "utf8",
     )
 
