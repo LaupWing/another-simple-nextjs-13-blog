@@ -109,7 +109,11 @@ export const Header: FC<HeaderProps> = () => {
                         <IconClose size={30} />
                     </button>
                     {links.map(({ href, label, segement }) => (
-                        <li className="pb-2" key={`${href}-${label}`}>
+                        <li
+                            onClick={() => setShowSideNav(false)}
+                            className="pb-2"
+                            key={`${href}-${label}`}
+                        >
                             <UnstyledLink href={href}>{label}</UnstyledLink>
                             {activeSegment === segement ? (
                                 <div className="h-[3px] gradient-animation-slow w-full shadow" />
