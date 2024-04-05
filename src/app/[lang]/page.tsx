@@ -28,8 +28,8 @@ export default function Home(pageProps: PageProps) {
             <HomeIntro />
             <ContactMe />
             <HomeBlogs lang={pageProps.params.lang} />
-            <HomeProjects />
-            <HomeLibrary />
+            <HomeProjects lang={pageProps.params.lang} />
+            <HomeLibrary lang={pageProps.params.lang} />
             <Subscribe />
         </main>
     )
@@ -161,15 +161,17 @@ const HomeBlogs: FC<{ lang: string }> = async ({ lang }) => {
     )
 }
 
-const fetchRecentProjects = async () => {
-    const projects = await getAllFilesFrontmatter("projects")
+const fetchRecentProjects = async (lang: string) => {
+    const projects = await getAllFilesFrontmatter("projects", lang)
     const recent_projects = getRecent(projects)
 
     return recent_projects
 }
 
-const HomeProjects = async () => {
-    const recent_projects = await fetchRecentProjects()
+const HomeProjects: FC<{
+    lang: string
+}> = async ({ lang }) => {
+    const recent_projects = await fetchRecentProjects(lang)
 
     return (
         <section className="py-20">
@@ -197,16 +199,18 @@ const HomeProjects = async () => {
     )
 }
 
-const fetchRecentLibrary = async () => {
-    const library = await getAllFilesFrontmatter("library")
+const fetchRecentLibrary = async (lang: string) => {
+    const library = await getAllFilesFrontmatter("library", lang)
 
     const recent_library = getRecent(library)
 
     return await attachContentMeta<"library">(recent_library)
 }
 
-const HomeLibrary = async () => {
-    const recentLibrary = await fetchRecentLibrary()
+const HomeLibrary: FC<{
+    lang: string
+}> = async ({ lang }) => {
+    const recentLibrary = await fetchRecentLibrary(lang)
 
     return (
         <section className="py-20">
