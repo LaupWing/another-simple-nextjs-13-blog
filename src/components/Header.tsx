@@ -87,6 +87,7 @@ export const Header: FC<HeaderProps> = () => {
     const handleLocaleChange = (e: SortOption) => {
         const pathname_split = pathname.split("/").filter((p) => p)
         pathname_split[0] = e.id
+        console.log(pathname_split)
         router.push(`/${pathname_split.join("/")}`)
     }
 
