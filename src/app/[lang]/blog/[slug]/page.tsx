@@ -12,6 +12,7 @@ import { BlogFrontmatter } from "@/types/frontmatters"
 import { format } from "date-fns"
 import { FC } from "react"
 import seo from "@/lib/seo"
+import { Locale } from "@/i18.config"
 
 export const dynamicParams = false
 
@@ -42,7 +43,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     }
 }
 
-const fetchPost = async (slug: string, lang: string) => {
+const fetchPost = async (slug: string, lang: Locale) => {
     const post = await getFileBySlug("blog", slug, lang)
     return post as {
         code: string
@@ -53,7 +54,7 @@ const fetchPost = async (slug: string, lang: string) => {
 interface PageProps {
     params: {
         slug: string
-        lang: string
+        lang: Locale
     }
 }
 
