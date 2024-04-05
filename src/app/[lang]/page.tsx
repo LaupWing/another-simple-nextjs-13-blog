@@ -12,15 +12,22 @@ import { LibraryCard } from "@/components/cards/LibraryCard"
 import { Subscribe } from "@/components/sections/Subscribe.client"
 import { ContactMe } from "@/components/sections/ContactMe"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
+import { FC } from "react"
 
 export const revalidate = 60 * 60 // 1 hour
 
-export default function Home() {
+interface PageProps {
+    params: {
+        lang: string
+    }
+}
+
+export default function Home(pageProps: PageProps) {
     return (
         <main>
             <HomeIntro />
             <ContactMe />
-            <HomeBlogs />
+            <HomeBlogs lang={pageProps.params.lang} />
             <HomeProjects />
             <HomeLibrary />
             <Subscribe />
@@ -123,14 +130,14 @@ const HomeIntro = () => {
     )
 }
 
-const fetchRecentBlogs = async () => {
-    const blogs = await getAllFilesFrontmatter("blog")
+const fetchRecentBlogs = async (lang: string) => {
+    const blogs = await getAllFilesFrontmatter("blog", lang)
     const recent_blogs = getRecent(blogs)
     return await attachContentMeta<"blog">(recent_blogs)
 }
 
-const HomeBlogs = async () => {
-    const recent_blogs = await fetchRecentBlogs()
+const HomeBlogs: FC<{ lang: string }> = async ({ lang }) => {
+    const recent_blogs = await fetchRecentBlogs(lang)
 
     return (
         <section className="py-20">
