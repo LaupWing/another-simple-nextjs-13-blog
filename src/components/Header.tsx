@@ -74,8 +74,9 @@ export const Header: FC<HeaderProps> = () => {
     ]
 
     const handleLocaleChange = (e: SortOption) => {
+        console.log(e)
         router.push("/", {
-            locale: e.id,
+            locale: "en",
         })
     }
 
