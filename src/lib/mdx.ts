@@ -12,7 +12,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrism from "rehype-prism-plus"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
-import { checkIfContentDirectoryExists } from "./helper.server"
+import { checkIfLangExists } from "./helper.server"
 
 export async function getFileBySlug(type: ContentType, slug: string) {
     const source = readFileSync(
@@ -59,14 +59,18 @@ export async function getAllFilesFrontmatter<T extends ContentType>(
     type: T,
     lang: string,
 ) {
-    const directory_exists = await checkIfContentDirectoryExists(lang, type)
-    console.log(directory_exists)
+    const language = (await checkIfLangExists(lang, type))
+        ? lang
+        : process.env.DEFAULT_LANG!
+    // console.log(directory_exists)
 
-    const files = readdirSync(join(process.cwd(), "src", "contents", type))
+    const files = readdirSync(
+        join(process.cwd(), "src", "contents", type, language),
+    )
 
     return files.reduce((allPosts: Array<PickFrontmatter<T>>, postSlug) => {
         const source = readFileSync(
-            join(process.cwd(), "src", "contents", type, postSlug),
+            join(process.cwd(), "src", "contents", type, language, postSlug),
             "utf8",
         )
         const { data } = matter(source)
