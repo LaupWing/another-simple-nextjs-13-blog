@@ -14,8 +14,8 @@ interface PageProps {
     }
 }
 
-const Projects = async (pageProps: PageProps) => {
-    const projects = await fetchProjects(pageProps.params.lang)
+const Projects = async (page_props: PageProps) => {
+    const projects = await fetchProjects(page_props.params.lang)
 
     return (
         <section className="custom-container py-12">

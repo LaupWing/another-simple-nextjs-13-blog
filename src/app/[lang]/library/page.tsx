@@ -27,8 +27,8 @@ interface PageProps {
     }
 }
 
-const Library = async (pageProps: PageProps) => {
-    const posts = await fetchLibrary(pageProps.params.lang)
+const Library = async (page_props: PageProps) => {
+    const posts = await fetchLibrary(page_props.params.lang)
 
     return (
         <section className="custom-container py-12">

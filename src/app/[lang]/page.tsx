@@ -24,15 +24,15 @@ interface PageProps {
     }
 }
 
-export default async function Home(pageProps: PageProps) {
-    const dict = await getDictionary(pageProps.params.lang as any)
+export default async function Home(page_props: PageProps) {
+    const dict = await getDictionary(page_props.params.lang as any)
     return (
         <main>
-            <HomeIntro lang={pageProps.params.lang} />
+            <HomeIntro lang={page_props.params.lang} />
             <ContactMe />
-            <HomeBlogs lang={pageProps.params.lang} />
-            <HomeProjects lang={pageProps.params.lang} />
-            <HomeLibrary lang={pageProps.params.lang} />
+            <HomeBlogs lang={page_props.params.lang} />
+            <HomeProjects lang={page_props.params.lang} />
+            <HomeLibrary lang={page_props.params.lang} />
             <Subscribe />
         </main>
     )
