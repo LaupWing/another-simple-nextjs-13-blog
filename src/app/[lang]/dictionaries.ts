@@ -1,8 +1,9 @@
 import "server-only"
 import enDictionary from "./dictionaries/en.json"
 import nlDictionary from "./dictionaries/nl.json"
+import { Locale } from "@/i18.config"
 
-const dictionaries = {
+const dictionaries: Record<Locale, () => Promise<typeof enDictionary>> = {
     en: () => Promise.resolve(enDictionary),
     nl: () => Promise.resolve(nlDictionary),
 }
