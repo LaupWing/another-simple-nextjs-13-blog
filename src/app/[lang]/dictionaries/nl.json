@@ -6,7 +6,9 @@
         "intro": {
             "hello": "Hallo!",
             "name": "Mijn naam is",
-            "text": "Ik ben een software ontwikkelaar en fitness instructeur. Ik ben gepassioneerd over programmeren en fitness en vind het geweldig om mensen te helpen in de sportschool of in de wereld van coderen."
+            "text": "Ik ben een software ontwikkelaar en fitness instructeur. Ik ben gepassioneerd over programmeren en fitness en vind het geweldig om mensen te helpen in de sportschool of in de wereld van coderen.",
+            "button_text1": "Lees de blog",
+            "button_text2": "Leer meer over mij"
         }
     }
 }
