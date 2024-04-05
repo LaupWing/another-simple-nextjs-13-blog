@@ -13,6 +13,7 @@ import { Subscribe } from "@/components/sections/Subscribe.client"
 import { ContactMe } from "@/components/sections/ContactMe"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { FC } from "react"
+import { getDictionary } from "./dictionaries"
 
 export const revalidate = 60 * 60 // 1 hour
 
@@ -22,7 +23,9 @@ interface PageProps {
     }
 }
 
-export default function Home(pageProps: PageProps) {
+export default async function Home(pageProps: PageProps) {
+    const dict = await getDictionary(pageProps.params.lang as any)
+    console.log(dict)
     return (
         <main>
             <HomeIntro />
