@@ -99,10 +99,13 @@ export const Header: FC<HeaderProps> = () => {
         >
             <div
                 className={`fixed block sm:hidden duration-500 transform inset-0 bg-dark z-50
-                    ${show_side_nav ? "translate-x-0" : "translate-x-full"}`}
+                    ${show_side_nav ? "translate-x-0" : "-translate-x-full"}`}
             >
                 <ul className="flex flex-col items-start py-8 px-10 justify-between gap-3 text-base">
-                    <button className="ml-auto">
+                    <button
+                        onClick={() => setShowSideNav(false)}
+                        className="ml-auto"
+                    >
                         <IconClose size={30} />
                     </button>
                     {links.map(({ href, label, segement }) => (
@@ -119,7 +122,10 @@ export const Header: FC<HeaderProps> = () => {
             </div>
             <div className="gradient-animation w-full h-1.5 bg-red-400" />
             <nav className="custom-container flex-1 flex items-center justify-between text-dark dark:text-light">
-                <button className="flex sm:hidden">
+                <button
+                    onClick={() => setShowSideNav(true)}
+                    className="flex sm:hidden"
+                >
                     <IconMenu size={30} />
                 </button>
                 <ul className="sm:flex hidden items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
