@@ -5,7 +5,7 @@ import clsx from "clsx"
 import { UnstyledLink } from "./links/UnstyledLink.client"
 import { ThemeButton } from "./buttons/ThemeButton.client"
 import { SortListBox, SortOption } from "./elements/SortListBox.client"
-import { IconBike, IconCalendar, IconEye } from "./Icons"
+import { IconBike, IconEarth } from "./Icons"
 
 interface HeaderProps {
     large?: boolean
@@ -15,7 +15,7 @@ const sortOptions: Array<SortOption> = [
     {
         id: "en",
         name: "EN",
-        icon: IconBike,
+        icon: IconEarth,
     },
     {
         id: "nl",
