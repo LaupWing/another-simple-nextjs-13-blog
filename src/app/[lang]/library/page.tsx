@@ -4,9 +4,10 @@ import { getAllFilesFrontmatter } from "@/lib/mdx"
 import { Metadata } from "next"
 import seo from "@/lib/seo"
 import { attachContentMeta } from "@/lib/helpers"
+import { Locale } from "@/i18.config"
 
-const fetchLibrary = async () => {
-    const library = await getAllFilesFrontmatter("library")
+const fetchLibrary = async (lang: Locale) => {
+    const library = await getAllFilesFrontmatter("library", lang)
 
     return await attachContentMeta<"library">(library)
 }
@@ -20,8 +21,14 @@ export const metadata: Metadata = {
     }),
 }
 
-const Library = async () => {
-    const posts = await fetchLibrary()
+interface PageProps {
+    params: {
+        lang: Locale
+    }
+}
+
+const Library = async (pageProps: PageProps) => {
+    const posts = await fetchLibrary(pageProps.params.lang)
 
     return (
         <section className="custom-container py-12">
