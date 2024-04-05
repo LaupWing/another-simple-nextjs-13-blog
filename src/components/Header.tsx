@@ -1,5 +1,5 @@
 "use client"
-import { useSelectedLayoutSegment } from "next/navigation"
+import { useRouter, useSelectedLayoutSegment } from "next/navigation"
 import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
 import { UnstyledLink } from "./links/UnstyledLink.client"
@@ -28,6 +28,7 @@ export const Header: FC<HeaderProps> = () => {
     const [onTop, setOnTop] = useState<boolean>(false)
     const activeSegment = useSelectedLayoutSegment()
     const [sortOrder, setSortOrder] = useState<SortOption>(() => sortOptions[0])
+    const router = useRouter()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -72,6 +73,12 @@ export const Header: FC<HeaderProps> = () => {
         },
     ]
 
+    const handleLocaleChange = (e: SortOption) => {
+        router.push("/", {
+            locale: e.id,
+        })
+    }
+
     return (
         <header
             className={clsx(
@@ -99,7 +106,7 @@ export const Header: FC<HeaderProps> = () => {
                         <SortListBox
                             className="ml-auto"
                             selected={sortOrder}
-                            setSelected={setSortOrder}
+                            setSelected={handleLocaleChange}
                             options={sortOptions}
                         />
                     </div>
