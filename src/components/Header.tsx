@@ -13,13 +13,13 @@ interface HeaderProps {
 
 const sortOptions: Array<SortOption> = [
     {
-        id: "date",
-        name: "Sort by date",
+        id: "en",
+        name: "EN",
         icon: IconCalendar,
     },
     {
-        id: "views",
-        name: "Sort by views",
+        id: "nl",
+        name: "NL",
         icon: IconEye,
     },
 ]
@@ -93,14 +93,16 @@ export const Header: FC<HeaderProps> = () => {
                         </li>
                     ))}
                 </ul>
-                <ThemeButton />
-                <div className="relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between">
-                    <SortListBox
-                        className="ml-auto"
-                        selected={sortOrder}
-                        setSelected={setSortOrder}
-                        options={sortOptions}
-                    />
+                <div className="flex items-center gap-2">
+                    <ThemeButton />
+                    <div className="relative z-10 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between">
+                        <SortListBox
+                            className="ml-auto"
+                            selected={sortOrder}
+                            setSelected={setSortOrder}
+                            options={sortOptions}
+                        />
+                    </div>
                 </div>
             </nav>
         </header>
