@@ -1,5 +1,10 @@
 "use client"
-import { useParams, useRouter, useSelectedLayoutSegment } from "next/navigation"
+import {
+    useParams,
+    usePathname,
+    useRouter,
+    useSelectedLayoutSegment,
+} from "next/navigation"
 import { FC, useEffect, useState } from "react"
 import clsx from "clsx"
 import { UnstyledLink } from "./links/UnstyledLink.client"
@@ -28,7 +33,8 @@ export const Header: FC<HeaderProps> = () => {
     const [onTop, setOnTop] = useState<boolean>(false)
     const activeSegment = useSelectedLayoutSegment()
     const params = useParams()
-    console.log(params)
+    const pathname = usePathname()
+    console.log(pathname)
     const [sortOrder, setSortOrder] = useState<SortOption>(
         () => sortOptions.find((o) => o.id === params.lang) || sortOptions[0],
     )
@@ -78,10 +84,9 @@ export const Header: FC<HeaderProps> = () => {
     ]
 
     const handleLocaleChange = (e: SortOption) => {
-        console.log(e)
-        router.push("/", {
-            locale: "en",
-        })
+        const pathname_split = pathname.split("/").filter((p) => p)
+        pathname_split[0] = e.id
+        router.push(`/${pathname_split.join("/")}`)
     }
 
     return (
