@@ -96,6 +96,20 @@ export const Header: FC<HeaderProps> = () => {
                 onTop && "shadow-sm",
             )}
         >
+            <div className="fixed inset-0 bg-dark z-50">
+                <ul className="flex flex-col items-start py-8 px-10 justify-between gap-3 text-base">
+                    {links.map(({ href, label, segement }) => (
+                        <li className="pb-2" key={`${href}-${label}`}>
+                            <UnstyledLink href={href}>{label}</UnstyledLink>
+                            {activeSegment === segement ? (
+                                <div className="h-[3px] gradient-animation-slow w-full shadow" />
+                            ) : (
+                                <div className="h-[3px]" />
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <div className="gradient-animation w-full h-1.5 bg-red-400" />
             <nav className="custom-container flex-1 flex items-center justify-between text-dark dark:text-light">
                 <button className="flex sm:hidden">

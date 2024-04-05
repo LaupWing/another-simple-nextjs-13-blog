@@ -44,11 +44,15 @@ import { SiTypescript } from "@react-icons/all-files/si/SiTypescript"
 import { SiWordpress } from "@react-icons/all-files/si/SiWordpress"
 import { IoEarthSharp } from "@react-icons/all-files/io5/IoEarthSharp"
 import { IoLogoVercel } from "@react-icons/all-files/io5/IoLogoVercel"
+import { IoClose } from "@react-icons/all-files/io5/IoClose"
 import { CgMenuLeft } from "@react-icons/all-files/cg/CgMenuLeft"
 import { SiSolidity } from "react-icons/si"
 
 export const IconNewspaper: IconType = (props) => {
     return <IoNewspaperSharp {...props} />
+}
+export const IconClose: IconType = (props) => {
+    return <IoClose {...props} />
 }
 export const IconMenu: IconType = (props) => {
     return <CgMenuLeft {...props} />
