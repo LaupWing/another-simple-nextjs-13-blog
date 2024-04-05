@@ -29,10 +29,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-                <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
-                {/* {favicons.map((favicon) => (
+                {favicons.map((favicon) => (
                     <link key={favicon.href} {...favicon} />
-                ))} */}
+                ))}
             </head>
             <body className={`${inter.className} dark:bg-dark`}>
                 <NextTopLoader />
