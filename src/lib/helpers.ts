@@ -62,11 +62,3 @@ export const attachContentMeta = async <T extends ContentType>(
         }),
     )
 }
-
-export const fakeAwait = async (timeout = 1000) => {
-    await new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(true)
-        }, timeout)
-    })
-}
