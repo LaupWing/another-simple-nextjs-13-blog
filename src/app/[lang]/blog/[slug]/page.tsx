@@ -43,7 +43,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 const fetchPost = async (slug: string, lang: string) => {
-    const post = await getFileBySlug("blog", slug)
+    const post = await getFileBySlug("blog", slug, lang)
     return post as {
         code: string
         frontmatter: BlogFrontmatter

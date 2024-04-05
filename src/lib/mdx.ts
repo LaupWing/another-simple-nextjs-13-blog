@@ -14,9 +14,16 @@ import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import { checkIfLangExists } from "./helper.server"
 
-export async function getFileBySlug(type: ContentType, slug: string) {
+export async function getFileBySlug(
+    type: ContentType,
+    slug: string,
+    lang: string,
+) {
+    const language = (await checkIfLangExists(lang, type))
+        ? lang
+        : process.env.DEFAULT_LANG!
     const source = readFileSync(
-        join(process.cwd(), "src", "contents", type, "en", `${slug}.mdx`),
+        join(process.cwd(), "src", "contents", type, language, `${slug}.mdx`),
         "utf8",
     )
 
