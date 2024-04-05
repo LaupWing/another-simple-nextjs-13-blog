@@ -1,6 +1,7 @@
 import { createHash } from "crypto"
 import { z } from "zod"
 import { prisma_client } from "./prisma"
+import { existsSync } from "fs"
 
 export const getSessionId = (req: Request) => {
     const ip_address = req.headers.get("x-forwarded-for") || "0.0.0.0"
@@ -39,4 +40,9 @@ export const getUserLikeCount = async ({
             },
         },
     })
+}
+
+export const checkIfContentDirectoryExists = (lang: string) => {
+    const directory_path = `src/contents/${lang}`
+    return existsSync(directory_path)
 }
