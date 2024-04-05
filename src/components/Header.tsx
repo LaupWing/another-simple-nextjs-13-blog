@@ -10,7 +10,7 @@ import clsx from "clsx"
 import { UnstyledLink } from "./links/UnstyledLink.client"
 import { ThemeButton } from "./buttons/ThemeButton.client"
 import { SortListBox, SortOption } from "./elements/SortListBox.client"
-import { IconBike, IconEarth, IconMenu } from "./Icons"
+import { IconBike, IconClose, IconEarth, IconMenu } from "./Icons"
 
 interface HeaderProps {
     large?: boolean
@@ -35,9 +35,10 @@ export const Header: FC<HeaderProps> = () => {
     const params = useParams()
     const pathname = usePathname()
     console.log(pathname)
-    const [sortOrder, setSortOrder] = useState<SortOption>(
+    const [sortOrder] = useState<SortOption>(
         () => sortOptions.find((o) => o.id === params.lang) || sortOptions[0],
     )
+    const [show_side_nav, setShowSideNav] = useState<boolean>(false)
     const router = useRouter()
 
     useEffect(() => {
@@ -96,8 +97,14 @@ export const Header: FC<HeaderProps> = () => {
                 onTop && "shadow-sm",
             )}
         >
-            <div className="fixed inset-0 bg-dark z-50">
+            <div
+                className={`fixed block sm:hidden duration-500 transform inset-0 bg-dark z-50
+                    ${show_side_nav ? "translate-x-0" : "translate-x-full"}`}
+            >
                 <ul className="flex flex-col items-start py-8 px-10 justify-between gap-3 text-base">
+                    <button className="ml-auto">
+                        <IconClose size={30} />
+                    </button>
                     {links.map(({ href, label, segement }) => (
                         <li className="pb-2" key={`${href}-${label}`}>
                             <UnstyledLink href={href}>{label}</UnstyledLink>
