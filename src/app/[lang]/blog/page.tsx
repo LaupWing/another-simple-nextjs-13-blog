@@ -22,8 +22,9 @@ export const metadata: Metadata = {
     }),
 }
 
-const Blog = async () => {
+const Blog = async ({ params: { lang } }: { params: { lang: string } }) => {
     const posts = await fetchBlogs()
+    console.log(lang)
 
     return (
         <main>
