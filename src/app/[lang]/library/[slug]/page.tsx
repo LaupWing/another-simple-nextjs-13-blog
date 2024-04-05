@@ -10,6 +10,7 @@ import { Content } from "@/components/sections/Content.client"
 import { TableContents } from "@/components/sections/TableContents.client"
 import { Metadata } from "next"
 import seo from "@/lib/seo"
+import { Locale } from "@/i18.config"
 
 export const dynamicParams = false
 
@@ -23,7 +24,7 @@ export async function generateStaticParams() {
     }))
 }
 
-const fetchPost = async (slug: string, lang: string) => {
+const fetchPost = async (slug: string, lang: Locale) => {
     const post = await getFileBySlug("library", slug, lang)
     return post as {
         code: string
@@ -47,7 +48,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 interface PageProps {
     params: {
         slug: string
-        lang: string
+        lang: Locale
     }
 }
 

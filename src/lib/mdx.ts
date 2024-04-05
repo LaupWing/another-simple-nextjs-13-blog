@@ -13,11 +13,12 @@ import rehypePrism from "rehype-prism-plus"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import { checkIfLangExists } from "./helper.server"
+import { Locale } from "@/i18.config"
 
 export async function getFileBySlug(
     type: ContentType,
     slug: string,
-    lang: string,
+    lang: Locale,
 ) {
     const language = (await checkIfLangExists(lang, type))
         ? lang
@@ -64,7 +65,7 @@ export async function getFileBySlug(
 
 export async function getAllFilesFrontmatter<T extends ContentType>(
     type: T,
-    lang: string,
+    lang: Locale,
 ) {
     const language = (await checkIfLangExists(lang, type))
         ? lang

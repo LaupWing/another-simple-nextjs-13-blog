@@ -14,12 +14,13 @@ import { ContactMe } from "@/components/sections/ContactMe"
 import { LoadedContainer } from "@/components/containers/LoadedContainer.client"
 import { FC } from "react"
 import { getDictionary } from "./dictionaries"
+import { Locale } from "@/i18.config"
 
 export const revalidate = 60 * 60 // 1 hour
 
 interface PageProps {
     params: {
-        lang: string
+        lang: Locale
     }
 }
 
@@ -133,13 +134,13 @@ const HomeIntro = () => {
     )
 }
 
-const fetchRecentBlogs = async (lang: string) => {
+const fetchRecentBlogs = async (lang: Locale) => {
     const blogs = await getAllFilesFrontmatter("blog", lang)
     const recent_blogs = getRecent(blogs)
     return await attachContentMeta<"blog">(recent_blogs)
 }
 
-const HomeBlogs: FC<{ lang: string }> = async ({ lang }) => {
+const HomeBlogs: FC<{ lang: Locale }> = async ({ lang }) => {
     const recent_blogs = await fetchRecentBlogs(lang)
 
     return (
@@ -164,7 +165,7 @@ const HomeBlogs: FC<{ lang: string }> = async ({ lang }) => {
     )
 }
 
-const fetchRecentProjects = async (lang: string) => {
+const fetchRecentProjects = async (lang: Locale) => {
     const projects = await getAllFilesFrontmatter("projects", lang)
     const recent_projects = getRecent(projects)
 
@@ -172,7 +173,7 @@ const fetchRecentProjects = async (lang: string) => {
 }
 
 const HomeProjects: FC<{
-    lang: string
+    lang: Locale
 }> = async ({ lang }) => {
     const recent_projects = await fetchRecentProjects(lang)
 
@@ -202,7 +203,7 @@ const HomeProjects: FC<{
     )
 }
 
-const fetchRecentLibrary = async (lang: string) => {
+const fetchRecentLibrary = async (lang: Locale) => {
     const library = await getAllFilesFrontmatter("library", lang)
 
     const recent_library = getRecent(library)
@@ -211,7 +212,7 @@ const fetchRecentLibrary = async (lang: string) => {
 }
 
 const HomeLibrary: FC<{
-    lang: string
+    lang: Locale
 }> = async ({ lang }) => {
     const recentLibrary = await fetchRecentLibrary(lang)
 

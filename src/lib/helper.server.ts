@@ -2,6 +2,7 @@ import { createHash } from "crypto"
 import { z } from "zod"
 import { prisma_client } from "./prisma"
 import { existsSync } from "fs"
+import { Locale } from "@/i18.config"
 
 export const getSessionId = (req: Request) => {
     const ip_address = req.headers.get("x-forwarded-for") || "0.0.0.0"
@@ -42,7 +43,7 @@ export const getUserLikeCount = async ({
     })
 }
 
-export const checkIfLangExists = async (lang: string, type: string) => {
+export const checkIfLangExists = async (lang: Locale, type: string) => {
     const directory_path = `src/contents/${type}/${lang}`
     return existsSync(directory_path)
 }
