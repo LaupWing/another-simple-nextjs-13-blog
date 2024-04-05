@@ -8,8 +8,13 @@ function getLocale(request: NextRequest): string | undefined {
     request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
     // @ts-ignore locales are readonly
     const locales: string[] = i18n.locales
+    console.log(locales)
     const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
+    console.log(negotiatorHeaders)
+    console.log(languages)
     const locale = match(languages, locales, i18n.defaultLocale)
+    console.log(locale)
+    console.log("locale", locale)
     return locale
 }
 
