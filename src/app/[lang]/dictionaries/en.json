@@ -4,6 +4,7 @@
     },
     "home": {
         "intro": {
+            "hello": "Hello!",
             "name": "My name is"
         }
     }

@@ -79,13 +79,13 @@ const HomeIntro: FC<{
                         className="text-2xl text-dark dark:text-light font-bold md:text-4xl 2xl:text-5xl"
                         data-fade="1"
                     >
-                        Hello!
+                        {dict.home.intro.hello}
                     </h2>
                     <h1
                         className="mt-1 text-dark dark:text-light font-bold text-3xl md:text-5xl 2xl:text-6xl"
                         data-fade="2"
                     >
-                        My name is <Accent>Loc Nguyen</Accent>
+                        {dict.home.intro.name} <Accent>Loc Nguyen</Accent>
                     </h1>
                     <p
                         className="mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl"
