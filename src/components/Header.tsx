@@ -97,7 +97,7 @@ export const Header: FC<HeaderProps> = () => {
             )}
         >
             <div
-                className={`fixed block sm:hidden duration-500 transform inset-0 bg-dark z-50
+                className={`fixed block sm:hidden duration-500 transform inset-0 bg-light dark:bg-dark z-50
                     ${show_side_nav ? "translate-x-0" : "-translate-x-full"}`}
             >
                 <ul className="flex flex-col items-start py-8 px-10 justify-between gap-3 text-base">
