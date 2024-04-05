@@ -98,7 +98,7 @@ export const Header: FC<HeaderProps> = () => {
         >
             <div className="gradient-animation w-full h-1.5 bg-red-400" />
             <nav className="custom-container flex-1 flex items-center justify-between text-dark dark:text-light">
-                <button>
+                <button className="flex sm:hidden">
                     <IconMenu size={30} />
                 </button>
                 <ul className="sm:flex hidden items-center justify-between gap-3 text-xs md:gap-6 md:text-base">
