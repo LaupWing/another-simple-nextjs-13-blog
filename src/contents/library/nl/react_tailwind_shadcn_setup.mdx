@@ -1,0 +1,73 @@
+---
+title: "React:  How to add tailwind to a React Vite project"
+tags: "typescript,javascript,react,tailwindcss"
+publishedAt: "2024-03-26"
+description: "Learn how to add tailwind to a React Vite project and configure it to work with your React project."
+---
+> React: How to add shadcn to a NextJS project
+
+The exact steps described here can also be found in the official Shadcn documentation.
+
+Shadcn link: [Shadcn link](https://ui.shadcn.com/docs/installation/next)
+
+## Create Nextjs TypeScript Project with your terminal
+
+### Initialize
+
+Open up your terminal.
+
+Run the following script, the following script will create a boilerplate Nextjs TypeScript project:
+
+```bash
+npx create-next-app@latest my-app --typescript --tailwind
+
+```
+
+Of course, you can name your project whatever you like.
+
+To do this, you will have to replace `my-app` with the name you want to give your project.
+
+### Change Directory
+
+Now that we have the boilerplate setup, we can change the directory into that project:
+
+```bash
+cd my-app
+```
+
+## Installing tailwind
+
+Next, we'll install Tailwind.
+
+### **Install Tailwind CSS**
+
+First, install **`tailwindcss`** and its peer dependencies. After that, it will generate your **`tailwind.config.js`** and **`postcss.config.js`** files.
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+```
+
+### **Configure Your Template Paths**
+
+Update your **`tailwind.config.js`** file to include the paths to all your template files.
+
+```jsx
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+```
+
+### **Add the Tailwind Directives to Your CSS**
+
+In your **`./src/index.css`** file, add the **`@tailwind`** directives for each of Tailwind's layers.
