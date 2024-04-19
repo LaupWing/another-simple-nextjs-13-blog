@@ -63,23 +63,67 @@ Do you want to use CSS variables for colors? › no / yes
 
 ### **Custom fonts (Optional)**
 
-If you would like to use custom fonts, you can add them to your root layout file.
+This is optional, but if you would like to use custom fonts, here are the two steps you need to follow:
+
+#### **Step 1: Add the font to your root**
+Go to the root layout of your project and add the following line of code:
+
 
 ```jsx
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+import "@/styles/globals.css"
+import { Inter as FontSans } from "next/font/google"
 
+import { cn } from "@/lib/utils"
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        ...
+      </body>
+    </html>
+  )
+}
 ```
 
-### **Add the Tailwind Directives to Your CSS**
+#### **Step 2: Add the font to your tailwind config**
+Now you need to add the font to your tailwind config file. Open up your `tailwind.config.js` file and add the following line of code:
 
-In your **`./src/index.css`** file, add the **`@tailwind`** directives for each of Tailwind's layers.
+```js
+const { fontFamily } = require("tailwindcss/defaultTheme")
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+    },
+  },
+}
+```   
+
+### **That’s it!**
+
+Thats it! You have successfully added Shadcn to your Nextjs project.
+
+You probably have noticed that there a couple of directories added to your project. These directories are added by Shadcn and are used to manage the components of your project.
+
+* `components/ui`: Here you will find all the components that are used or added to your project.
+* `lib/utils.ts`: This file contains a utility function that is used to combine classnames.
+
+If you would like to add a new component to your project, you can go to this url: [Shadcn UI](https://ui.shadcn.com/docs/components/accordion) and copy the code of the component you would like to add to your project.
